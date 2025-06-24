@@ -4,7 +4,15 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = AbountUsSlice | ServicesSlice | ClientsSlice | WorksScreenSlice | SecondScreenProjectSlice | IntroSlice;
+type PageDocumentDataSlicesSlice =
+  | AwardsSlice
+  | TripleCSlice
+  | AbountUsSlice
+  | ServicesSlice
+  | ClientsSlice
+  | WorksScreenSlice
+  | SecondScreenProjectSlice
+  | IntroSlice;
 
 /**
  * Content for Page documents
@@ -246,6 +254,89 @@ type AbountUsSliceVariation = AbountUsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AbountUsSlice = prismic.SharedSlice<'abount_us', AbountUsSliceVariation>;
+
+/**
+ * Item in *Awards → Default → Primary → Awards*
+ */
+export interface AwardsSliceDefaultPrimaryAwardsItem {
+  /**
+   * Image field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Award field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].award
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  award: prismic.KeyTextField;
+
+  /**
+   * Year field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Awards → Default → Primary*
+ */
+export interface AwardsSliceDefaultPrimary {
+  /**
+   * Awards field in *Awards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  awards: prismic.GroupField<Simplify<AwardsSliceDefaultPrimaryAwardsItem>>;
+}
+
+/**
+ * Default variation for Awards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AwardsSliceDefault = prismic.SharedSliceVariation<'default', Simplify<AwardsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Awards*
+ */
+type AwardsSliceVariation = AwardsSliceDefault;
+
+/**
+ * Awards Shared Slice
+ *
+ * - **API ID**: `awards`
+ * - **Description**: Awards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AwardsSlice = prismic.SharedSlice<'awards', AwardsSliceVariation>;
 
 /**
  * Item in *Clients → Default → Primary → Clients*
@@ -588,6 +679,79 @@ type ServicesSliceVariation = ServicesSliceDefault;
 export type ServicesSlice = prismic.SharedSlice<'services', ServicesSliceVariation>;
 
 /**
+ * Item in *TripleC → Default → Primary → Terms*
+ */
+export interface TripleCSliceDefaultPrimaryTermsItem {
+  /**
+   * Label field in *TripleC → Default → Primary → Terms*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: triple_c.default.primary.terms[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Image field in *TripleC → Default → Primary → Terms*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: triple_c.default.primary.terms[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *TripleC → Default → Primary*
+ */
+export interface TripleCSliceDefaultPrimary {
+  /**
+   * Terms field in *TripleC → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: triple_c.default.primary.terms[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  terms: prismic.GroupField<Simplify<TripleCSliceDefaultPrimaryTermsItem>>;
+
+  /**
+   * Description field in *TripleC → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: triple_c.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TripleC Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TripleCSliceDefault = prismic.SharedSliceVariation<'default', Simplify<TripleCSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *TripleC*
+ */
+type TripleCSliceVariation = TripleCSliceDefault;
+
+/**
+ * TripleC Shared Slice
+ *
+ * - **API ID**: `triple_c`
+ * - **Description**: TripleC
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TripleCSlice = prismic.SharedSlice<'triple_c', TripleCSliceVariation>;
+
+/**
  * Item in *WorkHeader → Default → Primary → Tags*
  */
 export interface WorkHeaderSliceDefaultPrimaryTagsItem {
@@ -813,6 +977,11 @@ declare module '@prismicio/client' {
       AbountUsSliceDefaultPrimary,
       AbountUsSliceVariation,
       AbountUsSliceDefault,
+      AwardsSlice,
+      AwardsSliceDefaultPrimaryAwardsItem,
+      AwardsSliceDefaultPrimary,
+      AwardsSliceVariation,
+      AwardsSliceDefault,
       ClientsSlice,
       ClientsSliceDefaultPrimaryClientsItem,
       ClientsSliceDefaultPrimary,
@@ -837,6 +1006,11 @@ declare module '@prismicio/client' {
       ServicesSliceDefaultPrimary,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      TripleCSlice,
+      TripleCSliceDefaultPrimaryTermsItem,
+      TripleCSliceDefaultPrimary,
+      TripleCSliceVariation,
+      TripleCSliceDefault,
       WorkHeaderSlice,
       WorkHeaderSliceDefaultPrimaryTagsItem,
       WorkHeaderSliceDefaultPrimary,

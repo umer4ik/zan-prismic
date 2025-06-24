@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "awards": {
+              "type": "SharedSlice"
+            },
+            "triple_c": {
+              "type": "SharedSlice"
+            },
             "abount_us": {
               "type": "SharedSlice"
             },
