@@ -1,0 +1,61 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non laboris sint in aliqua sit commodo cillum occaecat excepteur ea duis consequat. Duis incididunt cillum fugiat nisi eu."
+						}
+					}
+				]
+			},
+			"intro_works": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"thumbnail",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+										"width": 2747,
+										"height": 4120
+									},
+									"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?rect=0%2C687%2C2747%2C2747&w=96&h=96",
+									"width": 96,
+									"height": 96,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 687
+										},
+										"background": "transparent"
+									},
+									"alt": "involved",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			},
+			"number_of_works": {
+				"__TYPE__": "FieldContent",
+				"value": "twenty",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

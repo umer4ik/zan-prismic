@@ -1,0 +1,65 @@
+{
+  "id": "second_screen_project",
+  "type": "SharedSlice",
+  "name": "SecondScreenProject",
+  "description": "SecondScreenProject",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "project_name": {
+          "type": "Text",
+          "config": {
+            "label": "Project Name",
+            "placeholder": ""
+          }
+        },
+        "project_place": {
+          "type": "Text",
+          "config": {
+            "label": "Project Place",
+            "placeholder": ""
+          }
+        },
+        "thumbnail": {
+          "type": "Image",
+          "config": {
+            "label": "Thumbnail",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "tags": {
+          "type": "Group",
+          "config": {
+            "label": "Tags",
+            "repeat": true,
+            "fields": {
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

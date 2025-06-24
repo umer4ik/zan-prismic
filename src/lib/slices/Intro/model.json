@@ -1,0 +1,55 @@
+{
+  "id": "intro",
+  "type": "SharedSlice",
+  "name": "Intro",
+  "description": "Intro",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "intro_works": {
+          "type": "Group",
+          "config": {
+            "label": "Intro Works",
+            "repeat": true,
+            "fields": {
+              "thumbnail": {
+                "type": "Image",
+                "config": {
+                  "label": "Thumbnail",
+                  "constraint": {
+                    "width": 96,
+                    "height": 96
+                  },
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "number_of_works": {
+          "type": "Text",
+          "config": {
+            "label": "Number of Works",
+            "placeholder": "9"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

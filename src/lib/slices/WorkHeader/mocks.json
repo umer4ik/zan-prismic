@@ -1,0 +1,60 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"tags": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tag",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "leather",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"company_thumbnail": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5",
+					"width": 5848,
+					"height": 3899
+				},
+				"url": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?rect=0%2C0%2C5848%2C3899&w=216&h=144",
+				"width": 216,
+				"height": 144,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "later",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"project_name": {
+				"__TYPE__": "FieldContent",
+				"value": "machine",
+				"type": "Text"
+			},
+			"project_place": {
+				"__TYPE__": "FieldContent",
+				"value": "stood",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

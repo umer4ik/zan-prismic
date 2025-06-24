@@ -1,0 +1,59 @@
+.drawer {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 5;
+  &.open {
+    pointer-events: all;
+  }
+  &__content {
+    width: 100%;
+    position: absolute;
+    max-width: 967px;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 2;
+    overflow: auto;
+    background-color: #F9F6EF;
+    padding: 20px;
+    transform: translate(100%, 0);
+    transition: transform .8s var(--ease-in-out);
+  }
+  &__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    backdrop-filter: blur(0px);
+    background-color: rgba(#000, 40%);
+    z-index: 1;
+    transform: translate(100%, 0);
+    opacity: 0;
+    transition:
+      backdrop-filter .4s ease .6s,
+      opacity .4s ease .6s,
+      transform 0s ease 1s;
+  }
+}
+
+
+.open {
+  .drawer__content {
+    transform: none;
+  }
+  .drawer__backdrop {
+    backdrop-filter: blur(12px);
+    transform: none;
+    opacity: 1;
+    transition:
+      backdrop-filter .4s ease,
+      opacity .4s ease,
+      transform 0s ease;
+  }
+}

@@ -1,0 +1,16 @@
+.clients {
+  background-color: #F4EDDD;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 200px;
+  border-bottom: 1px solid rgba(#634F1E, 15%);
+  @media (max-width: 1020px) {
+    padding-top: 16px;
+  }
+  &__content {
+    flex-grow: 1;
+    max-width: 1440px;
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,30 @@
+.close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-radius: 50px;
+  background-color: #634f1e;
+  border: 0;
+  z-index: 3;
+  transform: scale(0) rotate(90deg);
+  transition: transform .4s ease .4s;
+  cursor: pointer;
+  div {
+    width: 12px;
+    height: 1px;
+    position: absolute;
+    background-color: #F4EDDD;
+    top: 14.5px;
+    left: 9px;
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+    + div {
+      transform: rotate(-45deg);
+    }
+  }
+}
+.open .close {
+  transform: none;
+}

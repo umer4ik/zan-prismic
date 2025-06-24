@@ -1,0 +1,38 @@
+
+.burger {
+  display: none;
+  @media (max-width: 1230px) {
+    display: block;
+  }
+  width: 41px;
+  height: 41px;
+  border-radius: 8px;
+  border-width: 1px;
+  border: 1px solid #F4EDDD33;
+  margin-inline-start: auto;
+  backdrop-filter: blur(20px);
+  background: #D5C2910D;
+  position: relative;
+  z-index: 2;
+  transition: all .4s ease;
+  [data-mode="dark"] & {
+    border-color: #634F1E;
+  }
+  &__line {
+    width: 21px;
+    height: 1px;
+    position: absolute;
+    background-color: #F4EDDD;
+    left: 9px;
+    transition: background-color .4s ease;
+    &:first-child {
+      top: 16px;
+    }
+    &:last-child {
+      bottom: 16px;
+    }
+    [data-mode="dark"] & {
+      background-color: #634F1E;
+    }
+  }
+}

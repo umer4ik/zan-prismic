@@ -1,0 +1,60 @@
+@use "reset.scss";
+@use "fonts.scss";
+@use "variables.scss";
+@use "split-text.scss";
+@use "preloader.scss";
+@use "intro.scss";
+@use "header.scss";
+@use "mwf.scss";
+@use "blurred-block.scss";
+@use "works.scss";
+@use "title.scss";
+@use "work.scss";
+@use "w-table.scss";
+@use "w-row.scss";
+@use "clients.scss";
+@use "clients-box.scss";
+@use "services.scss";
+@use "service.scss";
+@use "about-us.scss";
+@use "braced.scss";
+@use "triple-c.scss";
+@use "awards.scss";
+@use "pre-footer.scss";
+@use "footer.scss";
+@use "post-footer.scss";
+@use "drawer.scss";
+@use "close.scss";
+@use "project.scss";
+@use "play-button.scss";
+@use "gap.scss";
+@use "next-project.scss";
+@use "transform-chars.scss";
+@use "curtain.scss";
+@use "arrow-btn.scss";
+@use "burger.scss";
+@use "burger-menu.scss";
+@use "client.scss";
+html {
+  font-family: 'PP Neue Montreal';
+  font-weight: 500;
+}
+body {
+  background-color: #F9F6EF;
+}
+* {
+  box-sizing: border-box;
+}
+:focus {
+  outline: none;
+}
+img {
+  vertical-align: middle;
+}
+.app {
+  max-width: 100%;
+  overflow: hidden;
+}
+footer {
+  background-color: #33092E;
+}

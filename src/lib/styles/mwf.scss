@@ -1,0 +1,15 @@
+.mwf {
+  height: 100vh;
+  background-image: url('/mwf.png');
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  &__content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+  }
+}

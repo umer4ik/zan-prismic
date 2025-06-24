@@ -1,0 +1,85 @@
+{
+  "id": "works_screen",
+  "type": "SharedSlice",
+  "name": "WorksScreen",
+  "description": "WorksScreen",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "works": {
+          "type": "Group",
+          "config": {
+            "label": "Works",
+            "repeat": true,
+            "fields": {
+              "show_above_the_table": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Show Above the Table",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "size": {
+                "type": "Select",
+                "config": {
+                  "label": "Size",
+                  "placeholder": "",
+                  "options": [
+                    "small",
+                    "big"
+                  ]
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "location": {
+                "type": "Text",
+                "config": {
+                  "label": "Location",
+                  "placeholder": ""
+                }
+              },
+              "big_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Big Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag",
+                  "placeholder": ""
+                }
+              },
+              "thumbnail": {
+                "type": "Image",
+                "config": {
+                  "label": "Thumbnail",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

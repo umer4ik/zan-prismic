@@ -1,0 +1,29 @@
+.next-project {
+  color: #634F1E;
+  &__img {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+  &__btn {
+    position: absolute;
+    right: 35px;
+    bottom: -49px;
+  }
+  &__title {
+    margin-top: 16px;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+  &__subtitle {
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    margin-top: 3px;
+  }
+  &__tag {
+    margin-top: 30px;
+  }
+}

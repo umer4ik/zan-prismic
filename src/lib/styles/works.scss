@@ -1,0 +1,35 @@
+.works {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  &__content {
+    flex-grow: 1;
+    max-width: 1440px;
+    display: flex;
+    padding: 20px;
+    gap: 140px;
+    flex-direction: column;
+    @media (max-width: 1230px) {
+      padding-top: 16px;
+      gap: 100px;
+    }
+  }
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+  }
+}
+
+@keyframes pulse-once {
+  from {
+    transform: scale(1.4);
+  }
+  to {
+    transform: scale(1);
+  }
+}

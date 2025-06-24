@@ -1,0 +1,12 @@
+.w-table {
+  margin-block: 200px;
+  display: flex;
+  justify-content: center;
+  &__content {
+    flex-grow: 1;
+    max-width: 1440px;
+  }
+  &__body {
+    padding-inline: 20px;
+  }
+}
