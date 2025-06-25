@@ -1,4 +1,7 @@
 .project {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   &__title {
     font-size: 90px;
     line-height: 92%;
@@ -8,7 +11,7 @@
   }
   &__subheader {
     display: flex;
-    margin-top: 104px;
+    margin-top: 80px;
     justify-content: space-between;
     align-items: flex-end;
     gap: 20px;
@@ -36,11 +39,9 @@
   &__main-img {
     overflow: hidden;
     border-radius: 10px;
-    margin-top: 26px;
   }
   &__divider {
     height: 1px;
-    margin-block: 20px;
     background-color: rgba(#634F1E, 15%);
     &--extended {
       margin-inline: -20px;
@@ -57,6 +58,9 @@
       width: calc(50% - 10px);
       max-width: calc(50% - 10px);
       min-width: calc(50% - 10px);
+    }
+    img {
+      width: 100%;
     }
   }
   &__text {
@@ -76,13 +80,11 @@
     }
   }
   &__heading2 {
-    margin-top: 15px;
     font-size: 30px;
     line-height: 100%;
     letter-spacing: 0px;
     color:#634f1e;
     max-width: 592px;
-    margin-bottom: 60px;
   }
   &__next-header {
     display: flex;
@@ -96,5 +98,11 @@
     line-height: 100%;
     letter-spacing: 0px;
     color: #634F1E;
+  }
+  p {
+    margin: 0;
+    + p {
+      margin-top: 20px;
+    }
   }
 }

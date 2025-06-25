@@ -34,7 +34,7 @@
         "left_image": {
           "type": "Image",
           "config": {
-            "label": "Left Image",
+            "label": "Image 1",
             "constraint": {},
             "thumbnails": []
           }
@@ -42,7 +42,7 @@
         "rightimage": {
           "type": "Image",
           "config": {
-            "label": "RightImage",
+            "label": "Image 2",
             "constraint": {},
             "thumbnails": []
           }
@@ -99,6 +99,51 @@
             "placeholder": "Text content",
             "allowTargetBlank": true,
             "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "gap",
+      "name": "Gap",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "desktop": {
+          "type": "Number",
+          "config": {
+            "label": "Desktop",
+            "placeholder": "A gap in pixels on desktop devices"
+          }
+        },
+        "mobile": {
+          "type": "Number",
+          "config": {
+            "label": "Mobile",
+            "placeholder": "A gap in pixels on mobile devices"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "divider",
+      "name": "Divider",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "extended": {
+          "type": "Boolean",
+          "config": {
+            "label": "Extended",
+            "placeholder_false": "narrow, doesn't go out of bounds",
+            "placeholder_true": "wide, goes out of bounds",
+            "default_value": false
           }
         }
       },

@@ -503,7 +503,7 @@ export type ProjectBlockSliceDefault = prismic.SharedSliceVariation<'default', S
  */
 export interface ProjectBlockSliceTwoImagesInARowPrimary {
   /**
-   * Left Image field in *ProjectBlock → Two Images in a Row → Primary*
+   * Image 1 field in *ProjectBlock → Two Images in a Row → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -513,7 +513,7 @@ export interface ProjectBlockSliceTwoImagesInARowPrimary {
   left_image: prismic.ImageField<never>;
 
   /**
-   * RightImage field in *ProjectBlock → Two Images in a Row → Primary*
+   * Image 2 field in *ProjectBlock → Two Images in a Row → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -601,9 +601,74 @@ export interface ProjectBlockSliceTwoColumnsTextPrimary {
 export type ProjectBlockSliceTwoColumnsText = prismic.SharedSliceVariation<'twoColumnsText', Simplify<ProjectBlockSliceTwoColumnsTextPrimary>, never>;
 
 /**
+ * Primary content in *ProjectBlock → Gap → Primary*
+ */
+export interface ProjectBlockSliceGapPrimary {
+  /**
+   * Desktop field in *ProjectBlock → Gap → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: A gap in pixels on desktop devices
+   * - **API ID Path**: project_block.gap.primary.desktop
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  desktop: prismic.NumberField;
+
+  /**
+   * Mobile field in *ProjectBlock → Gap → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: A gap in pixels on mobile devices
+   * - **API ID Path**: project_block.gap.primary.mobile
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  mobile: prismic.NumberField;
+}
+
+/**
+ * Gap variation for ProjectBlock Slice
+ *
+ * - **API ID**: `gap`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceGap = prismic.SharedSliceVariation<'gap', Simplify<ProjectBlockSliceGapPrimary>, never>;
+
+/**
+ * Primary content in *ProjectBlock → Divider → Primary*
+ */
+export interface ProjectBlockSliceDividerPrimary {
+  /**
+   * Extended field in *ProjectBlock → Divider → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: project_block.divider.primary.extended
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  extended: prismic.BooleanField;
+}
+
+/**
+ * Divider variation for ProjectBlock Slice
+ *
+ * - **API ID**: `divider`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceDivider = prismic.SharedSliceVariation<'divider', Simplify<ProjectBlockSliceDividerPrimary>, never>;
+
+/**
  * Slice variation for *ProjectBlock*
  */
-type ProjectBlockSliceVariation = ProjectBlockSliceDefault | ProjectBlockSliceTwoImagesInARow | ProjectBlockSliceBigText | ProjectBlockSliceTwoColumnsText;
+type ProjectBlockSliceVariation =
+  | ProjectBlockSliceDefault
+  | ProjectBlockSliceTwoImagesInARow
+  | ProjectBlockSliceBigText
+  | ProjectBlockSliceTwoColumnsText
+  | ProjectBlockSliceGap
+  | ProjectBlockSliceDivider;
 
 /**
  * ProjectBlock Shared Slice
@@ -1147,11 +1212,15 @@ declare module '@prismicio/client' {
       ProjectBlockSliceTwoImagesInARowPrimary,
       ProjectBlockSliceBigTextPrimary,
       ProjectBlockSliceTwoColumnsTextPrimary,
+      ProjectBlockSliceGapPrimary,
+      ProjectBlockSliceDividerPrimary,
       ProjectBlockSliceVariation,
       ProjectBlockSliceDefault,
       ProjectBlockSliceTwoImagesInARow,
       ProjectBlockSliceBigText,
       ProjectBlockSliceTwoColumnsText,
+      ProjectBlockSliceGap,
+      ProjectBlockSliceDivider,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

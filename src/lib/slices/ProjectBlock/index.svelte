@@ -1,39 +1,71 @@
 <script lang="ts">
   import type { Content } from '@prismicio/client';
-  import type { SliceComponentProps } from '@prismicio/svelte';
+  import { PrismicImage, PrismicRichText, type SliceComponentProps } from '@prismicio/svelte';
 
   type Props = SliceComponentProps<Content.ProjectBlockSlice>;
 
   const { slice }: Props = $props();
+  let innerWidth = $state(0);
+  let isMobile = $derived(innerWidth <= 768);
 </script>
 
-<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-  Placeholder component for {slice.slice_type} (variation: {slice.variation}) slices.
-  <br />
-  <strong>You can edit this slice directly in your code editor.</strong>
-  <!--
-	💡 Use Prismic MCP with your code editor
-	
-	Get AI-powered help to build your slice components — based on your actual model.
-	
-	▶️ Setup:
-	1. Add a new MCP Server in your code editor:
-	
-	{
-	  "mcpServers": {
-	    "Prismic MCP": {
-	      "command": "npx",
-	      "args": ["-y", "@prismicio/mcp-server"]
-	    }
-	  }
-	}
-	
-	2. Select a model optimized for coding (e.g. Claude 3.7 Sonnet or similar)
-	
-	✅ Then open your slice file and ask your code editor:
-		"Code this slice"
-	
-	Your code editor reads your slice model and helps you code faster ⚡
-	📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
-	-->
-</section>
+<svelte:window bind:innerWidth />
+
+{#if slice.variation === 'default'}
+  <!--big image-->
+  <div class="project__main-img">
+    <PrismicImage field={slice.primary.image} />
+  </div>
+{/if}
+
+{#if slice.variation === 'twoImagesInARow'}
+  <div class="project__row">
+    <div class="project__col">
+      <PrismicImage field={slice.primary.left_image} />
+    </div>
+    <div class="project__col">
+      <PrismicImage field={slice.primary.rightimage} />
+    </div>
+  </div>
+{/if}
+
+{#if slice.variation === 'bigText'}
+  <div class="project__row">
+    <div class="project__col">
+      {#if slice.primary.title}
+        <div class="braced">({slice.primary.title})</div>
+      {/if}
+    </div>
+  </div>
+  <div class="project__row">
+    <div class="project__col">
+      <div class="project__heading2">
+        <PrismicRichText field={slice.primary.text} />
+      </div>
+    </div>
+  </div>
+{/if}
+
+{#if slice.variation === 'twoColumnsText'}
+  <div class="project__row">
+    <div class="project__col">
+      {#if slice.primary.title}
+        <div class="braced">({slice.primary.title})</div>
+      {/if}
+    </div>
+    <div class="project__col">
+      <div class="project__text">
+        <PrismicRichText field={slice.primary.text} />
+      </div>
+    </div>
+  </div>
+{/if}
+
+{#if slice.variation === 'gap'}
+  <div style:height="{isMobile ? slice.primary.mobile : slice.primary.desktop}px" />
+{/if}
+
+{#if slice.variation === 'divider'}
+  <div class={['project__divider', slice.primary.extended && 'project__divider--extended']}></div>
+{/if}
+
