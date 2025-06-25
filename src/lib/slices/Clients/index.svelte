@@ -16,7 +16,7 @@
       </div>
       <div class="clients-box__list">
         {#each slice.primary.clients as item, index (index)}
-          <div class="client hovered" data-client="{index}">
+          <div class="client {index === 0 ? 'hovered' : ''}" data-client="{index}">
             <span class="client__name">{item.name}</span>
             <div class="client__mobile-image">
               <img data-client={index} src={item.image.url} alt="">

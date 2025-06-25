@@ -15,7 +15,7 @@
     </div>
     <div class="works__row">
       {#each aboveTableItems as item, index (index)}
-        <div class="work work--{item.size === 'big' ? 'x2' : 'x1'}">
+        <div class="work work--{item.size === 'big' ? 'x2' : 'x1'}" data-work-reference={item.work_reference_id}>
           <div class="work__img">
             <PrismicImage field={item.big_image} />
             <span class="arrow-btn">

@@ -9,8 +9,20 @@
   import PreFooter from '$lib/components/PreFooter.svelte';
   import { SliceZone } from '@prismicio/svelte';
   import { components } from '$lib/slices';
+  import Preloader from '$lib/components/Preloader.svelte';
+  import Drawer from '$lib/components/Drawer.svelte';
+  import { onStart } from '$lib';
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
 
   let { children, data } = $props();
+
+  onMount(() => {
+    if (!browser) return;
+    onStart();
+ 
+  })
+
 </script>
 
 <svelte:head>
@@ -30,12 +42,16 @@
   <Header  />
   {@render children()}
   {#each data.projects as project (project.id)}
-    <SliceZone slices={project.data.slices} components={components}  />
+    <div data-project-id={project.uid} style="display: none;">
+      <SliceZone slices={project.data.slices} components={components}  />
+    </div>
   {/each}
   <footer>
     <PreFooter />
     <Footer  />
     <PostFooter />
   </footer>
+  <!-- <Preloader /> -->
+  <Drawer />
 </main>
 <PrismicPreview {repositoryName} />

@@ -7,27 +7,21 @@
   const { slice }: Props = $props();
 </script>
 
-<div class="hide-it">
-  <div>
+<div class="project__header">
+  <div class="project__title">
     {slice.primary.project_name}
   </div>
-  <div>
-    {slice.primary.project_place}
-  </div>
-  <div>
+  <div class="braced">({slice.primary.project_place})</div>
+</div>
+<div class="project__subheader">
+  <div class="project__tags">
     {#each slice.primary.tags as item, index (index)}
-      <div>
+      <div class="project__tag">
         {item.tag}
       </div>
     {/each}
   </div>
-  <div>
+  <div class="project__logo">
     <PrismicImage field={slice.primary.company_thumbnail} />
   </div>
 </div>
-
-<style lang="scss">
-  .hide-it {
-    display: none;
-  }
-</style>

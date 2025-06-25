@@ -99,6 +99,14 @@
 									"value": "big",
 									"type": "Select"
 								}
+							],
+							[
+								"work_reference_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "journey",
+									"type": "Text"
+								}
 							]
 						]
 					}

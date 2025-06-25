@@ -74,6 +74,13 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "work_reference_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Work Reference ID",
+                  "placeholder": ""
+                }
               }
             }
           }

@@ -121,7 +121,7 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, 'settings', Lang>;
 
-type Work1DocumentDataSlicesSlice = WorkHeaderSlice;
+type Work1DocumentDataSlicesSlice = ProjectBlockSlice | WorkHeaderSlice;
 
 /**
  * Content for Work (Project) documents
@@ -475,6 +475,146 @@ type IntroSliceVariation = IntroSliceDefault;
 export type IntroSlice = prismic.SharedSlice<'intro', IntroSliceVariation>;
 
 /**
+ * Primary content in *ProjectBlock → Big Image → Primary*
+ */
+export interface ProjectBlockSliceDefaultPrimary {
+  /**
+   * Image field in *ProjectBlock → Big Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_block.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Big Image variation for ProjectBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceDefault = prismic.SharedSliceVariation<'default', Simplify<ProjectBlockSliceDefaultPrimary>, never>;
+
+/**
+ * Primary content in *ProjectBlock → Two Images in a Row → Primary*
+ */
+export interface ProjectBlockSliceTwoImagesInARowPrimary {
+  /**
+   * Left Image field in *ProjectBlock → Two Images in a Row → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_block.twoImagesInARow.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * RightImage field in *ProjectBlock → Two Images in a Row → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_block.twoImagesInARow.primary.rightimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  rightimage: prismic.ImageField<never>;
+}
+
+/**
+ * Two Images in a Row variation for ProjectBlock Slice
+ *
+ * - **API ID**: `twoImagesInARow`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceTwoImagesInARow = prismic.SharedSliceVariation<'twoImagesInARow', Simplify<ProjectBlockSliceTwoImagesInARowPrimary>, never>;
+
+/**
+ * Primary content in *ProjectBlock → Big Text → Primary*
+ */
+export interface ProjectBlockSliceBigTextPrimary {
+  /**
+   * Title field in *ProjectBlock → Big Text → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title in braces above the text
+   * - **API ID Path**: project_block.bigText.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *ProjectBlock → Big Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text content
+   * - **API ID Path**: project_block.bigText.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Big Text variation for ProjectBlock Slice
+ *
+ * - **API ID**: `bigText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceBigText = prismic.SharedSliceVariation<'bigText', Simplify<ProjectBlockSliceBigTextPrimary>, never>;
+
+/**
+ * Primary content in *ProjectBlock → Two Columns Text → Primary*
+ */
+export interface ProjectBlockSliceTwoColumnsTextPrimary {
+  /**
+   * Title field in *ProjectBlock → Two Columns Text → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title in braces
+   * - **API ID Path**: project_block.twoColumnsText.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *ProjectBlock → Two Columns Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text content
+   * - **API ID Path**: project_block.twoColumnsText.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Two Columns Text variation for ProjectBlock Slice
+ *
+ * - **API ID**: `twoColumnsText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceTwoColumnsText = prismic.SharedSliceVariation<'twoColumnsText', Simplify<ProjectBlockSliceTwoColumnsTextPrimary>, never>;
+
+/**
+ * Slice variation for *ProjectBlock*
+ */
+type ProjectBlockSliceVariation = ProjectBlockSliceDefault | ProjectBlockSliceTwoImagesInARow | ProjectBlockSliceBigText | ProjectBlockSliceTwoColumnsText;
+
+/**
+ * ProjectBlock Shared Slice
+ *
+ * - **API ID**: `project_block`
+ * - **Description**: ProjectBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSlice = prismic.SharedSlice<'project_block', ProjectBlockSliceVariation>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -752,11 +892,11 @@ type TripleCSliceVariation = TripleCSliceDefault;
 export type TripleCSlice = prismic.SharedSlice<'triple_c', TripleCSliceVariation>;
 
 /**
- * Item in *WorkHeader → Default → Primary → Tags*
+ * Item in *ProjectHeader → Default → Primary → Tags*
  */
 export interface WorkHeaderSliceDefaultPrimaryTagsItem {
   /**
-   * tag field in *WorkHeader → Default → Primary → Tags*
+   * tag field in *ProjectHeader → Default → Primary → Tags*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -767,11 +907,11 @@ export interface WorkHeaderSliceDefaultPrimaryTagsItem {
 }
 
 /**
- * Primary content in *WorkHeader → Default → Primary*
+ * Primary content in *ProjectHeader → Default → Primary*
  */
 export interface WorkHeaderSliceDefaultPrimary {
   /**
-   * Project Name field in *WorkHeader → Default → Primary*
+   * Project Name field in *ProjectHeader → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -781,7 +921,7 @@ export interface WorkHeaderSliceDefaultPrimary {
   project_name: prismic.KeyTextField;
 
   /**
-   * Project Place field in *WorkHeader → Default → Primary*
+   * Project Place field in *ProjectHeader → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -791,7 +931,7 @@ export interface WorkHeaderSliceDefaultPrimary {
   project_place: prismic.KeyTextField;
 
   /**
-   * Tags field in *WorkHeader → Default → Primary*
+   * Tags field in *ProjectHeader → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -801,7 +941,7 @@ export interface WorkHeaderSliceDefaultPrimary {
   tags: prismic.GroupField<Simplify<WorkHeaderSliceDefaultPrimaryTagsItem>>;
 
   /**
-   * Company Thumbnail field in *WorkHeader → Default → Primary*
+   * Company Thumbnail field in *ProjectHeader → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -812,7 +952,7 @@ export interface WorkHeaderSliceDefaultPrimary {
 }
 
 /**
- * Default variation for WorkHeader Slice
+ * Default variation for ProjectHeader Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -821,12 +961,12 @@ export interface WorkHeaderSliceDefaultPrimary {
 export type WorkHeaderSliceDefault = prismic.SharedSliceVariation<'default', Simplify<WorkHeaderSliceDefaultPrimary>, never>;
 
 /**
- * Slice variation for *WorkHeader*
+ * Slice variation for *ProjectHeader*
  */
 type WorkHeaderSliceVariation = WorkHeaderSliceDefault;
 
 /**
- * WorkHeader Shared Slice
+ * ProjectHeader Shared Slice
  *
  * - **API ID**: `work_header`
  * - **Description**: WorkHeader
@@ -908,6 +1048,16 @@ export interface WorksScreenSliceDefaultPrimaryWorksItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   thumbnail: prismic.ImageField<never>;
+
+  /**
+   * Work Reference ID field in *WorksScreen → Default → Primary → Works*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works_screen.default.primary.works[].work_reference_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_reference_id: prismic.KeyTextField;
 }
 
 /**
@@ -992,6 +1142,16 @@ declare module '@prismicio/client' {
       IntroSliceDefaultPrimary,
       IntroSliceVariation,
       IntroSliceDefault,
+      ProjectBlockSlice,
+      ProjectBlockSliceDefaultPrimary,
+      ProjectBlockSliceTwoImagesInARowPrimary,
+      ProjectBlockSliceBigTextPrimary,
+      ProjectBlockSliceTwoColumnsTextPrimary,
+      ProjectBlockSliceVariation,
+      ProjectBlockSliceDefault,
+      ProjectBlockSliceTwoImagesInARow,
+      ProjectBlockSliceBigText,
+      ProjectBlockSliceTwoColumnsText,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,

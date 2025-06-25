@@ -12,6 +12,9 @@
   <div class="awards-follower">
     <img data-award="1" src="/award-1.png" alt="">
     <img data-award="2" src="/award-2.png" alt="">
+    {#each slice.primary.awards as item, i (i)}
+      <PrismicImage field={item.image} data-award={i} />
+    {/each}
   </div>
   <div class="awards__content">
     <div class="title">

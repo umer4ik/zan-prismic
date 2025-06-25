@@ -4,11 +4,12 @@ import AboutUs from './AboutUs/index.svelte';
 import Awards from './Awards/index.svelte';
 import Clients from './Clients/index.svelte';
 import Intro from './Intro/index.svelte';
+import ProjectBlock from './ProjectBlock/index.svelte';
 import RichText from './RichText/index.svelte';
 import SecondScreenProject from './SecondScreenProject/index.svelte';
 import Services from './Services/index.svelte';
 import TripleC from './TripleC/index.svelte';
-import WorkHeader from './WorkHeader/index.svelte';
+import ProjectHeader from './ProjectHeader/index.svelte';
 import WorksScreen from './WorksScreen/index.svelte';
 
 export const components = {
@@ -16,10 +17,11 @@ export const components = {
   awards: Awards,
   clients: Clients,
   intro: Intro,
+  project_block: ProjectBlock,
   rich_text: RichText,
   second_screen_project: SecondScreenProject,
   services: Services,
   triple_c: TripleC,
-  work_header: WorkHeader,
+  work_header: ProjectHeader,
   works_screen: WorksScreen,
 };
