@@ -108,6 +108,61 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
+
+  /**
+   * Email field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Site's email like info@example.com, used in header and footer
+   * - **API ID Path**: settings.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Phone Number field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.phone_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number: prismic.KeyTextField;
+
+  /**
+   * Address field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Address at the footer
+   * - **API ID Path**: settings.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * Instagram field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Full link to the instagram account
+   * - **API ID Path**: settings.instagram
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instagram: prismic.KeyTextField;
+
+  /**
+   * Link to twitter field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Full link to the twitter account
+   * - **API ID Path**: settings.link_to_twitter
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_to_twitter: prismic.KeyTextField;
 }
 
 /**

@@ -19,6 +19,41 @@
           "label": "Meta Description",
           "placeholder": ""
         }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": "Site's email like info@example.com, used in header and footer"
+        }
+      },
+      "phone_number": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": ""
+        }
+      },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Address",
+          "placeholder": "Address at the footer"
+        }
+      },
+      "instagram": {
+        "type": "Text",
+        "config": {
+          "label": "Instagram",
+          "placeholder": "Full link to the instagram account"
+        }
+      },
+      "link_to_twitter": {
+        "type": "Text",
+        "config": {
+          "label": "Link to twitter",
+          "placeholder": "Full link to the twitter account"
+        }
       }
     }
   }

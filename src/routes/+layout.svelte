@@ -20,7 +20,6 @@
   onMount(() => {
     if (!browser) return;
     onStart();
- 
   })
 
 </script>
@@ -48,7 +47,12 @@
   {/each}
   <footer>
     <PreFooter />
-    <Footer  />
+    <Footer
+      address={data.settings.data.address}
+      email={data.settings.data.email}
+      instagram={data.settings.data.instagram}
+      phone={data.settings.data.phone_number}
+      twitter={data.settings.data.link_to_twitter}  />
     <PostFooter />
   </footer>
   <!-- <Preloader /> -->
