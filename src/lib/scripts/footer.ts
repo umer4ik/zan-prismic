@@ -1,5 +1,5 @@
 import matterjs, { type Body } from 'matter-js';
-import { $ } from '../dom-helper';
+import { $, $$, assertIsHTMLElement } from '../dom-helper';
 import _ from "lodash";
 const { debounce, random } = _
 const {
@@ -15,7 +15,22 @@ const {
 const BOX_WIDTH = 16;
 
 export const handleFooter = () => {
-
+  $('.footer').addEventListener('mousedown', ({ target }) => {
+    assertIsHTMLElement(target)
+    if (target.tagName.toLowerCase() === 'canvas') {
+      $$('.footer__row').forEach(x => {
+        x.style.pointerEvents = 'none';
+      })
+    }
+  });
+  $('.footer').addEventListener('mouseup', ({ target }) => {
+    assertIsHTMLElement(target)
+    if (target.tagName.toLowerCase() === 'canvas') {
+      $$('.footer__row').forEach(x => {
+        x.style.pointerEvents = 'all';
+      })
+    }
+  });
   const renderIt = () => {
     const engine = Engine.create({
       gravity: {

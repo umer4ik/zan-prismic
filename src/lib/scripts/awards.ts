@@ -1,90 +1,90 @@
-import { type AnimatableObject, animate, createAnimatable, eases, JSAnimation, type RenderableCallbacks } from "animejs";
+import { animate, eases, JSAnimation } from "animejs";
 import { $, $$, assertIsHTMLElement } from "../dom-helper";
 import _ from "lodash";
 
 
-type Animations = Record<string, RenderableCallbacks<never>>
+// type Animations = Record<string, RenderableCallbacks<never>>
 
-const follower = $('.awards-follower');
-let shouldAnimate = false;
-let animatable: AnimatableObject;
+// const follower = $('.awards-follower');
+// let shouldAnimate = false;
+// let animatable: AnimatableObject;
 
-const makeAnimatable = (x: number, y: number) => {
-  const cursor = {
-    x,
-    y,
-  };
-  const animatable = createAnimatable(cursor, {
-    x: 700,
-    y: 700,
-    ease: 'out(3)',
-  });
-  (animatable.animations as Animations).x.onRender = () => {
-    if (!shouldAnimate) return;
-    const x = animatable!.x();
-    if (typeof x !== 'number') return;
-    follower.style.left = `${x - follower.getBoundingClientRect().width / 2}px`;
-  };
+// const makeAnimatable = (x: number, y: number) => {
+//   const cursor = {
+//     x,
+//     y,
+//   };
+//   const animatable = createAnimatable(cursor, {
+//     x: 700,
+//     y: 700,
+//     ease: 'out(3)',
+//   });
+//   (animatable.animations as Animations).x.onRender = () => {
+//     if (!shouldAnimate) return;
+//     const x = animatable!.x();
+//     if (typeof x !== 'number') return;
+//     follower.style.left = `${x - follower.getBoundingClientRect().width / 2}px`;
+//   };
 
-  (animatable.animations as Animations).y.onRender = () => {
-    if (!shouldAnimate) return;
-    const y = animatable!.y();
-    if (typeof y !== 'number') return;
-    follower.style.top = `${y - follower.getBoundingClientRect().height / 2}px`;
-  };
-  return animatable;
-}
+//   (animatable.animations as Animations).y.onRender = () => {
+//     if (!shouldAnimate) return;
+//     const y = animatable!.y();
+//     if (typeof y !== 'number') return;
+//     follower.style.top = `${y - follower.getBoundingClientRect().height / 2}px`;
+//   };
+//   return animatable;
+// }
 
 export const handleAwards = () => {
-  $('.awards').addEventListener('mouseenter', () => {
-    shouldAnimate = true;
-  })
-  const recordCursorPosition = (e: MouseEvent) => {
-    if (!animatable) {
-      animatable = makeAnimatable(e.clientX, e.clientY);
-    }
-    animatable.x(e.clientX);
-    animatable.y(e.clientY);
-  }
-  document.body.addEventListener('mousemove', recordCursorPosition);
-  $('.awards').addEventListener('mouseleave', () => {
-    shouldAnimate = false;
-    const hoveredRow = $('.award-row.hovered');
-    if (hoveredRow) {
-      hoveredRow.classList.remove('hovered');
-      follower.classList.remove('visible');
-    }
-  });
-  $('.awards-table').addEventListener('mouseover', (e) => {
-    if (window.innerWidth < 768) return;
-    const { target } = e;
-    if (!(target instanceof HTMLElement)) return;
-    const el = target.closest('.award-row');
-    if (!el) return;
-    assertIsHTMLElement(el);
-    $$('.award-row').forEach(x => {
-      x.classList.remove('hovered');
-    });
-    showFollower();
-    const index = el.getAttribute('data-award');
-    if (!index) return;
-    const shownImg = follower.querySelector(`img.show:not([data-award="${index}"])`);
-    if (shownImg) {
-      shownImg.classList.remove('show');
-    }
-    follower.querySelector(`img[data-award="${index}"]`)!.classList.add('show');
-    el.classList.add('hovered');
-  });
-  $('.awards-table').addEventListener('mouseleave', () => {
-    hideFollower();
-  });
-  window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 1024) {
-      if (follower.classList.contains('visible')) {
-        hideFollower();
-      }
-    }
-  });
+  // $('.awards').addEventListener('mouseenter', () => {
+  //   shouldAnimate = true;
+  // })
+  // const recordCursorPosition = (e: MouseEvent) => {
+  //   if (!animatable) {
+  //     animatable = makeAnimatable(e.clientX, e.clientY);
+  //   }
+  //   animatable.x(e.clientX);
+  //   animatable.y(e.clientY);
+  // }
+  // document.body.addEventListener('mousemove', recordCursorPosition);
+  // $('.awards').addEventListener('mouseleave', () => {
+  //   shouldAnimate = false;
+  //   const hoveredRow = $('.award-row.hovered');
+  //   if (hoveredRow) {
+  //     hoveredRow.classList.remove('hovered');
+  //     follower.classList.remove('visible');
+  //   }
+  // });
+  // $('.awards-table').addEventListener('mouseover', (e) => {
+  //   if (window.innerWidth < 768) return;
+  //   const { target } = e;
+  //   if (!(target instanceof HTMLElement)) return;
+  //   const el = target.closest('.award-row');
+  //   if (!el) return;
+  //   assertIsHTMLElement(el);
+  //   $$('.award-row').forEach(x => {
+  //     x.classList.remove('hovered');
+  //   });
+  //   showFollower();
+  //   const index = el.getAttribute('data-award');
+  //   if (!index) return;
+  //   const shownImg = follower.querySelector(`img.show:not([data-award="${index}"])`);
+  //   if (shownImg) {
+  //     shownImg.classList.remove('show');
+  //   }
+  //   follower.querySelector(`img[data-award="${index}"]`)!.classList.add('show');
+  //   el.classList.add('hovered');
+  // });
+  // $('.awards-table').addEventListener('mouseleave', () => {
+  //   hideFollower();
+  // });
+  // window.addEventListener('scroll', () => {
+  //   if (window.innerWidth <= 1024) {
+  //     if (follower.classList.contains('visible')) {
+  //       hideFollower();
+  //     }
+  //   }
+  // });
 
   let collapseAnimation: JSAnimation;
   let expandAnimation: JSAnimation;
@@ -146,9 +146,9 @@ export const handleAwards = () => {
   window.addEventListener('resize', resize);
 }
 
-const showFollower = () => {
-  follower.classList.add('visible');
-}
-const hideFollower = () => {
-  follower.classList.remove('visible');
-}
+// const showFollower = () => {
+//   follower.classList.add('visible');
+// }
+// const hideFollower = () => {
+//   follower.classList.remove('visible');
+// }

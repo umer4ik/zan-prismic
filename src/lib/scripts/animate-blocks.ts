@@ -1,6 +1,6 @@
 import { animate, stagger, eases, JSAnimation } from 'animejs';
 import { zanEasing } from './utils';
-import { $ } from '../dom-helper';
+import { $, $$ } from '../dom-helper';
 import { lenis } from './scroll';
 
 // intro title
@@ -107,6 +107,10 @@ export const animateHeader = () => {
         el: $('footer'),
         mode: 'light'
       },
+      ...(Array.from($$('.service-box')).map(el => ({
+        el,
+        mode: 'dark'
+      })))
     ];
     for (const { el, mode } of intersectionTargets) {
       if (!el) return;

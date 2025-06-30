@@ -33,8 +33,17 @@
       <tbody>
         {#each slice.primary.awards as item, i (i)}
           <tr class="award-row" data-award={i}>
-            <td>({_.padStart(`${i + 1}`, 2, '0')})</td>
-            <td>{item.name}</td>
+            <td>
+              ({_.padStart(`${i + 1}`, 2, '0')})
+              <div class="award-row__image">
+                <div>
+                  <PrismicImage field={item.image} />
+                </div>
+              </div>
+            </td>
+            <td>
+              {item.name}
+            </td>
             <td><PrismicImage field={item.image} /></td>
             <td>{item.award}</td>
             <td>{item.year}</td>

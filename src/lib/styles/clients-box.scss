@@ -16,6 +16,7 @@
     min-width: 473px;
     max-width: 473px;
     width: 473px;
+    padding-top: 0.25em;
     @media (max-width: 1400px) {
       min-width: 33.3333%;
       max-width: 33.3333%;
@@ -46,7 +47,7 @@
   }
   &__img {
     flex-grow: 1;
-    margin-top: calc(2.76em - 35px);
+    margin-top: 0;
     display: flex;
     justify-content: flex-end;
     overflow: hidden;
