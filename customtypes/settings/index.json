@@ -54,6 +54,20 @@
           "label": "Link to twitter",
           "placeholder": "Full link to the twitter account"
         }
+      },
+      "works_count": {
+        "type": "Text",
+        "config": {
+          "label": "Works Count",
+          "placeholder": "will be shown in header \"Works(x)\""
+        }
+      },
+      "services_count": {
+        "type": "Text",
+        "config": {
+          "label": "Services Count",
+          "placeholder": "will be shown in header \"Services(x)\""
+        }
       }
     }
   }

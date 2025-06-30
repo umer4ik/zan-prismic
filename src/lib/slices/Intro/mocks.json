@@ -45,6 +45,14 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"work_reference_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "zipper",
+									"type": "Text"
+								}
 							]
 						]
 					}

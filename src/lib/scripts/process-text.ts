@@ -12,19 +12,19 @@ export const processText = () => {
     invisibleCharClassName: 'transform-chars__end',
     visibleCharClassName: 'transform-chars__start',
   });
-  $$('.header__link sup').forEach(el => {
-    const sup = document.createElement('sup');
-    sup.className = 'transform-chars__container';
-    sup.innerHTML = `
-      <span class="transform-chars__end">${el.textContent}</span>
-      <span class="transform-chars__start">${el.textContent}</span>
-    `
-    el.parentNode!.querySelector('.transform-chars')!.appendChild(sup);
-    el.parentNode!.removeChild(el);
-  });
+  // $$('.header__link sup').forEach(el => {
+    // const sup = document.createElement('sup');
+    // sup.className = 'transform-chars__container';
+    // sup.innerHTML = `
+    //   <span class="transform-chars__end">${el.textContent}</span>
+    //   <span class="transform-chars__start">${el.textContent}</span>
+    // `
+    // el.parentNode!.querySelector('.transform-chars')!.appendChild(sup);
+    // el.parentNode!.removeChild(el);
+  // });
 
   splitText({
-    elements: $$('.intro-about__text div')
+    elements: $$('.intro-about__text > *')
   })
 
   curtainize($$('.intro-braces'));

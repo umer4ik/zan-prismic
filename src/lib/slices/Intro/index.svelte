@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Content } from '@prismicio/client';
-  import { PrismicRichText, type SliceComponentProps } from '@prismicio/svelte';
+  import { PrismicImage, PrismicRichText, type SliceComponentProps } from '@prismicio/svelte';
 
   type Props = SliceComponentProps<Content.IntroSlice>;
 
@@ -18,20 +18,18 @@
     </div>
   </div>
   <div class="intro-works">
-    <div class="intro-braces">( 9+ Works )</div>
+    <div class="intro-braces">( {slice.primary.number_of_works}+ Works )</div>
     <div class="intro-works__content">
-      <div class="intro-work">
-        <img src="/preloader-image-1.png" alt="" class="intro-work__bg">
-      </div>
-      <div class="intro-work">
-        <img src="/preloader-image-1.png" alt="" class="intro-work__bg">
-      </div>
-      <div class="intro-work">
-        <img src="/preloader-image-1.png" alt="" class="intro-work__bg">
-      </div>
-      <div class="intro-work">
+      {#each slice.primary.intro_works as item, index (index)}
+        <div class="intro-work" data-work-reference={item.work_reference_id}>
+          <PrismicImage field={item.thumbnail} class="intro-work__bg" />
+        </div>
+      {/each}
+      <div class="intro-work" data-scroll-to=".works">
         <div class="intro-work__arrow">
-          <img src="/intro-work-arrow-up-right.svg" alt="">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 5L5 1M5 1H1M5 1V5" stroke="#33092E"/>
+          </svg>
         </div>
         <div class="intro-work__text">
           More

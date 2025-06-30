@@ -11,13 +11,16 @@
   }
   &__links {
     display: flex;
-    margin-inline-start: auto;
+    margin-inline-start: calc(75% - 110px);
     align-items: center;
     gap: 27px;
     font-weight: 500;
     font-size: 16px;
     line-height: 100%;
     letter-spacing: 0px;
+    @media (max-width: 1600px) {
+      margin-inline-start: calc(66.666% - 110px);
+    }
     @media (max-width: 1230px) {
       display: none;
     }
@@ -25,9 +28,12 @@
   &__link {
     text-decoration: none;
     transition: color .4s ease;
-    color: #fff;
+    color: #F4EDDD  ;
     [data-mode="dark"] & {
       color: #634F1E;
+    }
+    sup {
+      top: -10px;
     }
   }
   &__button {

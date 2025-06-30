@@ -1,5 +1,5 @@
 import { type AnimatableObject, createAnimatable, type RenderableCallbacks } from "animejs";
-import { $$ } from "../dom-helper";
+import {  $$ } from "../dom-helper";
 
 type Animations = Record<string, RenderableCallbacks<never>>
 let arrow: HTMLElement | null = null;
@@ -46,7 +46,7 @@ export const handleWorks = () => {
     animatable.y(e.clientY);
   }
   document.body.addEventListener('mousemove', recordCursorPosition);
-  $$('.work__img').forEach(x => {
+  $$('.work__img, .mwf').forEach(x => {
     x.addEventListener('mouseenter', ({ currentTarget }) => {
       if (!(currentTarget instanceof HTMLElement)) return;
       arrow = currentTarget.querySelector('.arrow-btn')!;
@@ -57,5 +57,5 @@ export const handleWorks = () => {
       arrow = currentTarget.querySelector('.arrow-btn')!;
       arrow.classList.remove('show');
     })
-  })
+  });
 }

@@ -1,6 +1,7 @@
 import { animate, stagger, eases, JSAnimation } from 'animejs';
 import { zanEasing } from './utils';
 import { $ } from '../dom-helper';
+import { lenis } from './scroll';
 
 // intro title
 export const animateIntroTitle = () => {
@@ -26,7 +27,7 @@ export const animateHeader = () => {
     onComplete: () => {
       isShown = true;
       checkIntersection();
-      window.addEventListener('scroll', () => {
+      lenis.on('scroll', () => {
         const delta = window.scrollY - oldScroll;
         
         if (window.scrollY !== oldScroll) {
@@ -35,7 +36,7 @@ export const animateHeader = () => {
         if (delta < 0 && !isShown) { // scroll up
           showHeader();
           isShown = true
-        } else if (delta > 0 && isShown) {
+        } else if (delta > 0 && isShown && !document.body.classList.contains('burger-open')) {
           hideHeader();
           isShown = false
         }

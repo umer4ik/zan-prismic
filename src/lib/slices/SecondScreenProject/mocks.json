@@ -76,6 +76,11 @@
 						]
 					}
 				]
+			},
+			"work_reference_id": {
+				"__TYPE__": "FieldContent",
+				"value": "different",
+				"type": "Text"
 			}
 		},
 		"items": []

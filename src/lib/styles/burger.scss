@@ -25,6 +25,7 @@
     background-color: #F4EDDD;
     left: 9px;
     transition: background-color .4s ease;
+    transition-delay: .4s;
     &:first-child {
       top: 16px;
     }
@@ -32,6 +33,10 @@
       bottom: 16px;
     }
     [data-mode="dark"] & {
+      background-color: #634F1E;
+    }
+    .burger-open & {
+      transition-delay: 0s;
       background-color: #634F1E;
     }
   }

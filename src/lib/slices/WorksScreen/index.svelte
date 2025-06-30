@@ -8,7 +8,7 @@
   const aboveTableItems = slice.primary.works.filter(x => x.show_above_the_table);
 </script>
 
-<div class="works">
+<div class="works" id="works">
   <div class="works__content">
     <div class="title title--works">
       Works<sup>({slice.primary.works.length})</sup>

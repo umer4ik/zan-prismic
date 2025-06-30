@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "next_projects": {
+              "type": "SharedSlice"
+            },
             "project_block": {
               "type": "SharedSlice"
             },

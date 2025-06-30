@@ -25,25 +25,25 @@ const settings = {
     "delay": 0
   },
   "secondImages": {
-    "duration": 410,
+    "duration": 510,
     "delay": 210
   },
   "thirdImages": {
-    "duration": 450,
+    "duration": 550,
     "delay": 330
   },
   "imagesCollapse": {
-    "duration": 320,
+    "duration": 520,
     "delay": 600
   },
   "logoIn": {
-    "duration": 650,
-    "delay": 350
+    "duration": 750,
+    "delay": 50
   },
   "diamond": {
     "transform": {
       "duration": 830,
-      "delay": 430
+      "delay": 630
     },
     "opacity": {
       "duration": 200,
@@ -165,7 +165,7 @@ const preloader = {
       value: 100,
       modifier: utils.round(0),
       ease: 'inOut',
-      duration: 8000,
+      duration: 6000,
       onRender: () => {
         progressNumberEl.textContent = `${progress.value}`
       },

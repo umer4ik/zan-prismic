@@ -38,7 +38,10 @@
   {/if}
 </svelte:head>
 <main id="app" class="app">
-  <Header  />
+  <Header
+    worksCount={data.settings.data.works_count}
+    servicesCount={data.settings.data.services_count}
+    email={data.settings.data.email} />
   {@render children()}
   {#each data.projects as project (project.id)}
     <div data-project-id={project.uid} style="display: none;">
@@ -46,7 +49,7 @@
     </div>
   {/each}
   <footer>
-    <PreFooter />
+    <PreFooter mail={data.settings.data.email} />
     <Footer
       address={data.settings.data.address}
       email={data.settings.data.email}
@@ -55,7 +58,7 @@
       twitter={data.settings.data.link_to_twitter}  />
     <PostFooter />
   </footer>
-  <!-- <Preloader /> -->
+  <Preloader />
   <Drawer />
 </main>
 <PrismicPreview {repositoryName} />

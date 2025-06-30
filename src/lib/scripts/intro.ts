@@ -5,10 +5,20 @@ import {
 import GUI from "lil-gui";
 import { browser } from "$app/environment";
 
+interface KindaPoint {
+  x: number,
+  y: number,
+  index: number,
+  position: {
+    x: number,
+    y: number,
+  }
+}
+
 const settings = {
   animate: true,
   debug: false,
-  hoverAreaSize: browser ? window.innerWidth <= 1230 ? 150 : 350 : 150,
+  hoverAreaSize: browser ? window.innerWidth <= 1230 ? 150 : 23 : 9,
   rotate: true,
 }
 
@@ -26,16 +36,24 @@ const intro: {
   shouldAnimate: boolean
   guiEnabled: boolean
   shouldRotate: boolean
+  cursorInitialized: boolean
   appendDebugShape(): void
   handleMouseMove(e: MouseEvent | TouchEvent): void
   renderSquares(): void
   clearSquares(): void
-  renderSquare(x: number, y: number): HTMLDivElement
+  renderSquare(arg: {
+    top: number,
+    left: number,
+    x: number,
+    y: number,
+    offset: number,
+  }): HTMLDivElement
   initCursor(): void
-  extrapolateDistance(square: HTMLDivElement, x: number, y: number): number
+  nearestPoint(points: KindaPoint[], x: number, y: number): KindaPoint
   enableGui(): void
   init(): void
 } = {
+  cursorInitialized: false,
   animatable: null,
   shouldAnimate: settings.animate,
   shouldRotate: settings.rotate,
@@ -61,19 +79,33 @@ const intro: {
     const width = this.el.offsetWidth;
     const height = this.el.offsetHeight;
     const distance = width < 1230 ? 26 : 42;
-    const offset =  width < 1230 ? 15 : 20;
-    for (let i = 0; i < width ; i = i + distance) {
+    const offset = width < 1230 ? 15 : 20;
+    for (let i = 0; i < width; i = i + distance) {
       for (let j = 0; j < height; j = j + distance) {
-        this.squares.push(this.renderSquare(i + offset, j + offset));
+        this.squares.push(this.renderSquare({
+          top: j,
+          left: i,
+          x: i / distance,
+          y: j / distance,
+          offset
+        }));
       }
     }
   },
-  renderSquare(x: number, y: number) {
+  renderSquare({
+    top,
+    left,
+    x,
+    y,
+    offset,
+  }) {
     const square = document.createElement('div')
     square.innerHTML = '<div class="square__border"></div>'
     square.className = 'square';
-    square.style.left = `${x}px`;
-    square.style.top = `${y}px`;
+    square.style.left = `${left + offset}px`;
+    square.style.top = `${top + offset}px`;
+    square.dataset.x = `${x}`
+    square.dataset.y = `${y}`
     this.el.appendChild(square);
     return square;
   },
@@ -98,7 +130,7 @@ const intro: {
       x = touch.clientX;
       y = touch.clientY;
     }
-   
+
     this.cursor = {
       x,
       y,
@@ -114,6 +146,11 @@ const intro: {
   },
 
   initCursor() {
+    this.cursorInitialized = true;
+    // this.cursor = {
+    //   x: window.innerWidth / 2 - 60,
+    //   y: window.innerHeight / 2 - 60,
+    // };
     this.animatable = createAnimatable(this.cursor, {
       x: 500,
       y: 500,
@@ -141,8 +178,33 @@ const intro: {
       const x = this.shouldAnimate ? this.animatable.x() : this.cursor.x;
       const y = this.shouldAnimate ? this.animatable.y() : this.cursor.y;
       if (typeof x !== 'number' || typeof y !== 'number') return;
+      const points = this.squares.map((square, index) => {
+        const rect = square.getBoundingClientRect();
+        return {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2,
+          position: {
+            x: +square.dataset.x!,
+            y: +square.dataset.y!
+          },
+          index,
+        };
+      })
+      const nearestPoint = this.nearestPoint(points, x, y);
+      const lvl2 = getLevel2(nearestPoint);
+      const lvl3 = getLevel3(nearestPoint);
+
       this.squares.forEach(square => {
-        const coeff = this.extrapolateDistance(square, x, y);
+        const dataX = +square.dataset.x!
+        const dataY = +square.dataset.y!
+        let coeff = 0.1;
+        if (nearestPoint.position.x === dataX && nearestPoint.position.y === dataY) {
+          coeff = 1;
+        } else if (lvl2.some(({ x, y }) => dataX === x && dataY === y)) {
+          coeff = 0.5;
+        } else if (lvl3.some(({ x, y }) => dataX === x && dataY === y)) {
+          coeff = 0.2;
+        }
         const inside  = square.firstChild
         if (inside instanceof HTMLDivElement) {
           if (this.shouldRotate) {
@@ -157,18 +219,17 @@ const intro: {
     frame();
   },
 
-  extrapolateDistance(square, x, y) {
-    const box = square.getBoundingClientRect();
-    const x1 = x;
-    const y1 = y;
-    const x2 = x < box.left ? box.left : box.right;
-    const y2 = y < box.top ? box.top : box.bottom;
-    const cathetus1 = Math.max(x1, x2) - Math.min(x1, x2);
-    const cathetus2 = Math.max(y1, y2) - Math.min(y1, y2);
-    const distance = Math.sqrt(cathetus1 * cathetus1 + cathetus2 * cathetus2);
-    const radius = this.hoverAreaSize / 2;
-    const coeff = Math.max(Math.abs(Math.min(radius, distance) / radius - 1), 0.1);
-    return coeff;
+  nearestPoint(points, x, y) {
+    let minDistance = 100;
+    let closestPoint = points[0];
+    for (let i = 0; i < points.length; i++) {
+      const distance = Math.sqrt((x - points[i].x) * (x - points[i].x) + (y - points[i].y) * (y - points[i].y));
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestPoint = points[i];
+      }
+    }
+    return closestPoint;
   },
 
   enableGui() {
@@ -208,3 +269,61 @@ const intro: {
 }
 
 export default intro;
+
+const getLevel2 = (point: KindaPoint) => {
+  return [
+    {
+      x: point.position.x - 1,
+      y: point.position.y,
+    },
+    {
+      x: point.position.x,
+      y: point.position.y + 1,
+    },
+    {
+      x: point.position.x + 1,
+      y: point.position.y,
+    },
+    {
+      x: point.position.x,
+      y: point.position.y - 1,
+    },
+  ]
+}
+
+const getLevel3 = (point: KindaPoint) => {
+  return [
+    {
+      x: point.position.x - 2,
+      y: point.position.y,
+    },
+    {
+      x: point.position.x - 1,
+      y: point.position.y + 1,
+    },
+    {
+      x: point.position.x,
+      y: point.position.y + 2,
+    },
+    {
+      x: point.position.x + 1,
+      y: point.position.y + 1,
+    },
+    {
+      x: point.position.x + 2,
+      y: point.position.y,
+    },
+    {
+      x: point.position.x + 1,
+      y: point.position.y - 1,
+    },
+    {
+      x: point.position.x,
+      y: point.position.y - 2,
+    },
+    {
+      x: point.position.x - 1,
+      y: point.position.y - 1,
+    },
+  ]
+}

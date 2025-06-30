@@ -1,5 +1,5 @@
 import { createTimeline, eases } from "animejs";
-import { $ } from "../dom-helper";
+import { $, assertIsHTMLElement } from "../dom-helper";
 import { stagger } from "animejs";
 // import { lockScroll, unlockScroll } from "./lock-scroll";
 
@@ -10,7 +10,6 @@ export const burger = () => {
   tl1
     .add($('.burger__line:first-child'), {
       y: [0, 3],
-      backgroundColor: ['#F4EDDD', '#634F1E'],
       duration: 400,
     })
     .add($('.burger__line:first-child'), {
@@ -21,7 +20,6 @@ export const burger = () => {
   tl2
     .add($('.burger__line:last-child'), {
       y: [0, -3],
-      backgroundColor: ['#F4EDDD', '#634F1E'],
       duration: 400,
     })
     .add($('.burger__line:last-child'), {
@@ -57,6 +55,13 @@ export const burger = () => {
   }
 
   $('.burger').addEventListener('click', function () {
+    toggleBurger();
+  });
+  $('.burger-menu__items').addEventListener('click', ({ target }) => {
+    assertIsHTMLElement(target);
+    const link = target.closest('a');
+    if (!link) return;
+    assertIsHTMLElement(link);
     toggleBurger();
   })
 }

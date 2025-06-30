@@ -1,5 +1,18 @@
+<script lang="ts">
+  interface Props {
+    servicesCount?: string | null,
+    worksCount?: string | null
+    email?: string | null
+  }
+  const {
+    worksCount,
+    servicesCount,
+    email,
+  }: Props = $props();
+</script>
+
 <header class="header">
-  <a href="#" class="header-logo">
+  <a href="#" class="header-logo" data-scroll-to=".intro">
     <svg width="123" height="40" viewBox="0 0 123 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M62.3033 28.2696L69.7416 13.9613L76.0563 26.5456C76.0563 26.5456 64.954 25.6396 62.3033 28.2696ZM66.5978 4.82374H65.1339L67.2449 8.67551L53.4453 35.467H58.6224C58.8942 34.8561 59.267 34.2789 59.7251 33.7858C61.066 32.4462 63.7374 30.9785 69.2575 30.9811C74.4372 30.9824 78.2514 31.0018 78.2514 31.0018L80.453 35.467H85.5874C85.5874 35.467 72.5657 9.16475 72.2447 8.52667C70.6928 5.44759 68.9559 4.82374 66.5978 4.82374Z"
@@ -24,10 +37,10 @@
     </svg>
   </a>
   <div class="header__links">
-    <a href="#" class="header__link"><span>Works</span><sup>(9)</sup></a>
-    <a href="#" class="header__link"><span>Services</span><sup>(3)</sup></a>
-    <a href="#" class="header__link"><span>About Us</span></a>
-    <a href="#" class="header__button"><span>Contact Us</span></a>
+    <a href="#" data-scroll-to=".works" class="header__link"><span>Works</span><sup>({worksCount})</sup></a>
+    <a href="#" data-scroll-to=".services" class="header__link"><span>Services</span><sup>({servicesCount})</sup></a>
+    <a href="#" data-scroll-to=".about-us" class="header__link"><span>About Us</span></a>
+    <a href="mailto:{email}" class="header__button"><span>Contact Us</span></a>
   </div>
   <button class="burger">
     <span class="burger__line"></span>
@@ -83,23 +96,23 @@
     </div>
     <ul class="burger-menu__items">
       <li class="burger-menu__item">
-        <a href="#">
+        <a href="#" data-scroll-to=".works">
           Works<sup>(9)</sup>
         </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
-        <a href="#">
+        <a href="#" data-scroll-to=".services">
           Services<sup>(9)</sup>
         </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
-        <a href="#"> About Us </a>
+        <a href="#" data-scroll-to=".about-us"> About Us </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
-        <a href="#" class="burger-menu__button"> Contact Us </a>
+        <a href="mailto:{email}" class="burger-menu__button"> Contact Us </a>
       </li>
     </ul>
   </div>

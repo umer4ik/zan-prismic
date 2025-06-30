@@ -4,6 +4,7 @@ import AboutUs from './AboutUs/index.svelte';
 import Awards from './Awards/index.svelte';
 import Clients from './Clients/index.svelte';
 import Intro from './Intro/index.svelte';
+import NextProjects from './NextProjects/index.svelte';
 import ProjectBlock from './ProjectBlock/index.svelte';
 import RichText from './RichText/index.svelte';
 import SecondScreenProject from './SecondScreenProject/index.svelte';
@@ -17,6 +18,7 @@ export const components = {
   awards: Awards,
   clients: Clients,
   intro: Intro,
+  next_projects: NextProjects,
   project_block: ProjectBlock,
   rich_text: RichText,
   second_screen_project: SecondScreenProject,

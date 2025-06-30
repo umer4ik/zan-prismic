@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "work_reference_id": {
+          "type": "Text",
+          "config": {
+            "label": "Work Reference Id",
+            "placeholder": ""
+          }
+        },
         "background": {
           "type": "Image",
           "config": {

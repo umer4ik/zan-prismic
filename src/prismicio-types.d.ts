@@ -163,6 +163,28 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   link_to_twitter: prismic.KeyTextField;
+
+  /**
+   * Works Count field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: will be shown in header "Works(x)"
+   * - **API ID Path**: settings.works_count
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  works_count: prismic.KeyTextField;
+
+  /**
+   * Services Count field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: will be shown in header "Services(x)"
+   * - **API ID Path**: settings.services_count
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  services_count: prismic.KeyTextField;
 }
 
 /**
@@ -176,7 +198,7 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, 'settings', Lang>;
 
-type Work1DocumentDataSlicesSlice = ProjectBlockSlice | WorkHeaderSlice;
+type Work1DocumentDataSlicesSlice = NextProjectsSlice | ProjectBlockSlice | WorkHeaderSlice;
 
 /**
  * Content for Work (Project) documents
@@ -469,6 +491,16 @@ export interface IntroSliceDefaultPrimaryIntroWorksItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   thumbnail: prismic.ImageField<never>;
+
+  /**
+   * Work Reference ID field in *Intro → Default → Primary → Intro Works*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A reference to work UID
+   * - **API ID Path**: intro.default.primary.intro_works[].work_reference_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_reference_id: prismic.KeyTextField;
 }
 
 /**
@@ -528,6 +560,99 @@ type IntroSliceVariation = IntroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type IntroSlice = prismic.SharedSlice<'intro', IntroSliceVariation>;
+
+/**
+ * Item in *NextProjects → Default → Primary → projects*
+ */
+export interface NextProjectsSliceDefaultPrimaryProjectsItem {
+  /**
+   * Thumb field in *NextProjects → Default → Primary → projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[].thumb
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  thumb: prismic.ImageField<never>;
+
+  /**
+   * Name field in *NextProjects → Default → Primary → projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Location field in *NextProjects → Default → Primary → projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[].location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location: prismic.KeyTextField;
+
+  /**
+   * Tag field in *NextProjects → Default → Primary → projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+
+  /**
+   * Work Reference ID field in *NextProjects → Default → Primary → projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[].work_reference_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_reference_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *NextProjects → Default → Primary*
+ */
+export interface NextProjectsSliceDefaultPrimary {
+  /**
+   * projects field in *NextProjects → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_projects.default.primary.projects[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  projects: prismic.GroupField<Simplify<NextProjectsSliceDefaultPrimaryProjectsItem>>;
+}
+
+/**
+ * Default variation for NextProjects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NextProjectsSliceDefault = prismic.SharedSliceVariation<'default', Simplify<NextProjectsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *NextProjects*
+ */
+type NextProjectsSliceVariation = NextProjectsSliceDefault;
+
+/**
+ * NextProjects Shared Slice
+ *
+ * - **API ID**: `next_projects`
+ * - **Description**: NextProjects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NextProjectsSlice = prismic.SharedSlice<'next_projects', NextProjectsSliceVariation>;
 
 /**
  * Primary content in *ProjectBlock → Big Image → Primary*
@@ -791,6 +916,16 @@ export interface SecondScreenProjectSliceDefaultPrimaryTagsItem {
  * Primary content in *SecondScreenProject → Default → Primary*
  */
 export interface SecondScreenProjectSliceDefaultPrimary {
+  /**
+   * Work Reference Id field in *SecondScreenProject → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: second_screen_project.default.primary.work_reference_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_reference_id: prismic.KeyTextField;
+
   /**
    * Background field in *SecondScreenProject → Default → Primary*
    *
@@ -1262,6 +1397,11 @@ declare module '@prismicio/client' {
       IntroSliceDefaultPrimary,
       IntroSliceVariation,
       IntroSliceDefault,
+      NextProjectsSlice,
+      NextProjectsSliceDefaultPrimaryProjectsItem,
+      NextProjectsSliceDefaultPrimary,
+      NextProjectsSliceVariation,
+      NextProjectsSliceDefault,
       ProjectBlockSlice,
       ProjectBlockSliceDefaultPrimary,
       ProjectBlockSliceTwoImagesInARowPrimary,
