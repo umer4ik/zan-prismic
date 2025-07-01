@@ -2,15 +2,18 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(#634F1E, 15%);
-  height: 52px;
+  height: 52rem;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0px;
   position: relative;
+  font-size: 16rem;
   cursor: pointer;
   @media (max-width: 768px) {
     flex-wrap: wrap;
     overflow: hidden;
+    height: 52px;
+    font-size: 16px;
   }
   &:first-child {
     @media (max-width: 768px) {

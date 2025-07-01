@@ -141,7 +141,7 @@ const preloader = {
       })
       .add(diamond, {
         rotate: '0.5turn',
-        scale: Math.max(window.innerHeight, innerWidth) + 200,
+        scale: (Math.max(window.innerHeight, innerWidth) + 200) / 110,
         duration: settings.diamond.transform.duration,
         delay: settings.diamond.transform.delay,
         ease: 'cubicBezier(.18,.61,.46,.98)',

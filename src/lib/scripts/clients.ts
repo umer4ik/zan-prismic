@@ -109,7 +109,7 @@ export const handleClients = () => {
       const clientsInViewport = [];
       for (let i = 0; i < clients.length; i++) {
         const x = clients[i];
-        if (x.getBoundingClientRect().top > 20) {
+        if (x.getBoundingClientRect().top > 0) {
           clientsInViewport.push(x)
         }
       }

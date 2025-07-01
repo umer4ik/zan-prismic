@@ -4,20 +4,23 @@
   position: fixed;
   width: 100%;
   z-index: 4;
-  transform: translateY(-60px);
+  transform: translateY(-110%);
   @media (max-width: 1230px) {
     align-items: center;
     padding-top: 14px;
   }
   &__links {
     display: flex;
-    margin-inline-start: calc(75% - 110px);
+    margin-inline-start: auto;
     align-items: center;
-    gap: 27px;
+    gap: 20rem;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
+    width: 33.3333%;
+    max-width: 33.3333%;
+    min-width: 33.3333%;
     @media (max-width: 1600px) {
       margin-inline-start: calc(66.666% - 110px);
     }
@@ -42,11 +45,16 @@
     padding: 7px 10px;
     background-color: var(--Golden);
     border-radius: 5px;
+    margin-left: auto;
   }
 }
 .header-logo {
   position: relative;
   z-index: 2;
+  svg {
+    width: 123rem;
+    height: 40rem;
+  }
   path {
     transition: fill .4s ease;
   }

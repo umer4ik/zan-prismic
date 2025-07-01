@@ -1,7 +1,7 @@
 .clients-box {
   display: flex;
   align-items: flex-start;
-  font-size: 90px;
+  font-size: 90rem;
   @media (max-width: 1400px) and (min-width: 1021px) {
     font-size: 60px;
     .title {
@@ -13,9 +13,9 @@
     font-size: unset;
   }
   &__start {
-    min-width: 473px;
-    max-width: 473px;
-    width: 473px;
+    width: 33.3333%;
+    max-width: 33.3333%;
+    min-width: 33.3333%;
     padding-top: 0.25em;
     @media (max-width: 1400px) {
       min-width: 33.3333%;

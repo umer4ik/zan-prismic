@@ -22,9 +22,8 @@
   &__img {
     margin: 0;
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 16rem;
     position: relative;
-    border-radius: 5px;
     overflow: hidden;
     img {
       width: 100%;
@@ -33,13 +32,13 @@
     }
   }
   &--x1 {
-    width: calc(33.3333% - 20px);
-    max-width: calc(33.3333% - 20px);
-    min-width: calc(33.3333% - 20px);
+    width: calc(33.3333% - 10px);
+    max-width: calc(33.3333% - 10px);
+    min-width: calc(33.3333% - 10px);
     @media (max-width: 1024px) {
-      width: calc(50% - 20px);
-      max-width: calc(50% - 20px);
-      min-width: calc(50% - 20px);
+      width: calc(50% - 10px);
+      max-width: calc(50% - 10px);
+      min-width: calc(50% - 10px);
     }
     @media (max-width: 768px) {
       width: 100%;
@@ -48,13 +47,13 @@
     }
   }
   &--x2 {
-    width: calc(66.6666% - 20px);
-    max-width: calc(66.6666% - 20px);
-    min-width: calc(66.6666% - 20px);
+    width: calc(66.6666% - 10px);
+    max-width: calc(66.6666% - 10px);
+    min-width: calc(66.6666% - 10px);
      @media (max-width: 1024px) {
-      width: calc(50% - 20px);
-      max-width: calc(50% - 20px);
-      min-width: calc(50% - 20px);
+      width: calc(50% - 10px);
+      max-width: calc(50% - 10px);
+      min-width: calc(50% - 10px);
     }
     @media (max-width: 768px) {
       width: 100%;
@@ -80,7 +79,7 @@
     }
   }
   &__title {
-    font-size: 30px;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
     @media (max-width: 768px) {
@@ -89,17 +88,21 @@
     }
   }
   &__subtitle {
-    font-size: 16px;
+    font-size: 16rem;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
     line-height: 100%;
     letter-spacing: 0px;
   }
   &__tag {
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
     white-space: nowrap;
     @media (max-width: 768px) {
       margin-top: 30px;
+      font-size: 16px;
     }
   }
 }

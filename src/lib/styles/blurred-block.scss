@@ -1,5 +1,5 @@
 .blurred-block {
-  max-width: 690px;
+  max-width: 690rem;
   width: 100%;
   backdrop-filter: blur(12px);
   border-radius: 10px;
@@ -13,6 +13,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
+    max-width: 690px;
   }
   &__start {
     border-radius: 5px;
@@ -20,7 +21,7 @@
   }
   &__title {
     font-weight: 500;
-    font-size: 30px;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
     @media (max-width: 700px) {
@@ -30,9 +31,12 @@
   }
   &__subtitle {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
+    @media (max-width: 700px) {
+      font-size: 16px;
+    }
   }
   &__end {
     margin-inline-start: auto;
@@ -47,28 +51,18 @@
     border-radius: 5px;
     background-color: rgba(#F4EDDD, 40%);
     border: none;
-    height: 30px;
-    font-size: 16px;
+    height: 30rem;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
     color: #F4EDDD;
+    @media (max-width: 1024px) {
+      height: 30px;
+      font-size: 16px;
+    }
   }
   &__text {
     display: flex;
     flex-direction: column;
-  }
-  &__numbers {
-    color: #F4EDDD;
-    font-size: 10px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    margin-top: auto;
-    margin-bottom: 4px;
-    @media (max-width: 700px) {
-      display: none;
-    }
-    span {
-      opacity: 0.4;
-    }
   }
 }

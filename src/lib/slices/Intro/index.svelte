@@ -27,7 +27,7 @@
       {/each}
       <div class="intro-work" data-scroll-to=".works">
         <div class="intro-work__arrow">
-          <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 5L5 1M5 1H1M5 1V5" stroke="#33092E"/>
           </svg>
         </div>

@@ -49,7 +49,7 @@ export const animateHeader = () => {
       anim.cancel();
     }
     anim = animate('.header', {
-      y: [-60, 0],
+      y: ['-110%', 0],
       duration: 400,
       ease: eases.inOutQuad,
     })
@@ -59,7 +59,7 @@ export const animateHeader = () => {
       anim.cancel();
     }
     anim = animate('.header', {
-      y: [0, -60],
+      y: [0, '-110%'],
       duration: 400,
       ease: eases.inOutQuad,
     })
@@ -128,7 +128,7 @@ export const animateHeader = () => {
 
 export const animateIntroAbout = () => {
   animate('.intro-braces .curtain__popper, .intro-about__text .split-text__visible, .intro-work .curtain__popper', {
-    y: ['100%', 0],
+    y: ['101%', 0],
     duration: 600,
     delay: stagger(30),
     ease: eases.outCirc,

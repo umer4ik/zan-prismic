@@ -1,7 +1,10 @@
 .braced {
-  font-size: 16px;
+  font-size: 16rem;
   line-height: 100%;
   letter-spacing: 0px;
   opacity: 0.4;
   color: #634F1E;
+  @media (max-width: 1400px) {
+    font-size: 16px;
+  }
 }

@@ -2,20 +2,20 @@
   background-color: #F9F6EF;
   display: flex;
   color: #634F1E;
+  padding-inline: 20px;
   @media (max-width: 1220px) {
     flex-direction: column;
   }
   &__start {
-    width: calc(50% - 720px + 473px);
-    max-width: calc(50% - 720px + 473px);
-    min-width: calc(50% - 720px + 473px);
+    width: 33.3333%;
+    max-width: 33.3333%;
+    min-width: 33.3333%;
     display: flex;
     justify-content: flex-end;
     border-right: 1px solid rgba(#634F1E, 15%);
     padding-block: 12px;
     .title {
       padding-inline: 20px;
-      width: 473px;
       @media (max-width: 1220px) {
         width: 100%;
       }
@@ -37,14 +37,9 @@
     }
   }
   &__end {
-    width: calc(50% - 720px + 967px);
-    max-width: calc(50% - 720px + 967px);
-    min-width: calc(50% - 720px + 967px);
-    @media (max-width: 1420px) {
-      width: 66.6666%;
-      max-width: 66.6666%;
-      min-width: 66.6666%;
-    }
+    width: 66.6666%;
+    max-width: 66.6666%;
+    min-width: 66.6666%;
     @media (max-width: 1220px) {
       width: 100%;
       max-width: 100%;
@@ -53,17 +48,15 @@
   }
   &__top {
     padding: 12px 20px;
-    padding-bottom: 70px;
+    padding-bottom: 70rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
     @media (max-width: 768px) {
+      padding-bottom: 70px;
       padding-inline: 0;
     }
   }
   &__row {
     display: flex;
-    width: 927px;
-    max-width: 927px;
-    min-width: 927px;
     @media (max-width: 1023px) {
       width: 100%;
       max-width: 100%;
@@ -97,10 +90,13 @@
     }
   }
   &__top-text {
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
-    max-width: 308px;
+    max-width: 308rem;
+    @media (max-width: 1400px) {
+      font-size: 16px;
+    }
   }
   &__numbers {
     display: flex;
@@ -112,14 +108,20 @@
     gap: 20px;
   }
   &__number {
-    width: 142px;
-    max-width: 142px;
-    min-width: 142px;
-    font-size: 30px;
+    width: 142rem;
+    max-width: 142rem;
+    min-width: 142rem;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
+    @media (max-width: 1400px) {
+      font-size: 30px;
+    }
     @media (max-width: 768px) {
       font-size: 20px;
+      width: 142px;
+      max-width: 142px;
+      min-width: 142px;
     }
   }
   &__philosophy {
@@ -133,12 +135,16 @@
   &__philosophy-text {
     margin-top: 15px;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
-    max-width: 750px;
+    max-width: 750rem;
     p {
       margin: 0;
+    }
+    @media (max-width: 1439px) {
+      font-size: 30px;
+      max-width: 750px;
     }
     @media (max-width: 768px) {
       font-size: 20px;
@@ -149,8 +155,11 @@
     padding-bottom: 200px;
     display: flex;
     gap: 20px;
-    max-width: 780px;
+    max-width: 780rem;
     align-items: start;
+    @media (max-width: 1400px) {
+      max-width: 780px;
+    }
     @media (max-width: 768px) {
       flex-direction: column;
       padding-bottom: 130px;
@@ -177,9 +186,12 @@
   }
   &__belief-text-col {}
   &__belief-text {
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
     color: #634F1E;
+    @media (max-width: 1400px) {
+      font-size: 16px;
+    }
   }
 }

@@ -48,7 +48,7 @@ export const onStart = async () => {
 
   document.addEventListener('click',  (event) => {
     const { target } = event;
-    if (!(target instanceof HTMLElement)) return;
+    if (!(target instanceof HTMLElement) || !(target instanceof SVGElement)) return;
     if (target.closest('.project__back-to-top')) {
       $('.drawer__content').scrollTo(0, 0);
     }

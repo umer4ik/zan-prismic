@@ -1,9 +1,10 @@
 .title {
   font-weight: 500;
-  font-size: 90px;
+  font-size: 90rem;
   line-height: 92%;
   letter-spacing: -2px;
   color: #634F1E;
+  white-space: nowrap;
   @media (max-width: 1023px) {
     font-size: 34px;
     line-height: 1;
