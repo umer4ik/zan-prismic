@@ -24,10 +24,6 @@
     max-width: 33.3333%;
     min-width: 33.3333%;
 
-    @media (max-width: 1600px) {
-      margin-inline-start: calc(66.666% - 110px);
-    }
-
     @media (max-width: 1230px) {
       display: none;
     }
