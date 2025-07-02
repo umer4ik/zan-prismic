@@ -10,4 +10,4 @@ export async function load({ fetch, cookies }) {
     projects,
   };
 }
-export const prerender = 'auto';
+// export const prerender = 'auto';
