@@ -31,10 +31,10 @@
   <div class="footer__row">
     <div class="footer__dt braced">(Company)</div>
     <div class="footer__dd">
-      <a href="#">(Company)</a>
-      <a href="#">Works</a>
-      <a href="#">Services</a>
-      <a href="#">About Us</a>
+      <span>(Company)</span>
+      <a href="#" data-scroll-to=".works">Works</a>
+      <a href="#" data-scroll-to=".services">Services</a>
+      <a href="#" data-scroll-to=".about-us">About Us</a>
     </div>
   </div>
   {#if instagram || twitter}

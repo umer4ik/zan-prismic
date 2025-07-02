@@ -34,7 +34,6 @@ footer a {
   }
 
   &__content {
-    max-width: 1440px;
     flex-grow: 1;
     display: flex;
     padding-inline: 20px;
@@ -57,6 +56,8 @@ footer a {
     }
 
     img {
+      width: 217rem;
+
       @media (max-width: 768px) {
         width: 87px;
       }
@@ -76,13 +77,21 @@ footer a {
     max-width: 33.3333%;
     min-width: 33.3333%;
     color: #F4EDDD;
-    font-size: 30px;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
 
+    @media (max-width: 1400px) {
+      font-size: 30px;
+    }
+
     p {
       margin: 0;
-      max-width: 386px;
+      max-width: 386rem;
+
+      @media (max-width: 1400px) {
+        max-width: 386px;
+      }
 
       @media (max-width: 768px) {
         max-width: 264px
@@ -112,9 +121,9 @@ footer a {
 
     a {
       border: none;
-      height: 30px;
-      border-radius: 5px;
-      font-size: 16px;
+      height: 30rem;
+      border-radius: 5rem;
+      font-size: 16rem;
       line-height: 100%;
       letter-spacing: 0px;
       color: #33092E;
@@ -122,8 +131,48 @@ footer a {
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      padding-inline: 10px;
+      padding-inline: 10rem;
       justify-content: center;
+      position: relative;
+      will-change: padding-inline-end;
+      transition: padding-inline-end .4s ease;
+      &::after {
+        display: none;
+      }
+      &:hover {
+        @media (min-width: 1400px) {
+          padding-inline-end: 27rem;
+        }
+        svg {
+          @media (min-width: 1400px) {
+            opacity: 1;
+          }
+        }
+      }
+      svg {
+        position: absolute;
+        width: 12rem;
+        height: 12rem;
+        margin-left: 5rem;
+        right: 9rem;
+        transition: opacity .4s ease;
+        opacity: 0;
+      }
+      @media (max-width: 1400px) {
+        svg {
+          right: 10px;
+          margin-left: 5px;
+          width: 12px;
+          height: 12px;
+        }
+      }
+
+      @media (max-width: 1400px) {
+        border-radius: 5px;
+        height: 30px;
+        font-size: 16px;
+        padding-inline: 10px;
+      }
 
       @media (max-width: 768px) {
         display: flex;

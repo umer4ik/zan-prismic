@@ -3,11 +3,15 @@
   justify-content: center;
   color: #F4EDDD;
   border-top: 1px solid rgba(#F4EDDD, 15%);
+  font-size: 16rem;
+  @media (max-width: 1400px) {
+    font-size: 16px;
+  }
+
   @media (max-width: 768px) {
     display: none;
   }
   &__row {
-    max-width: 1440px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -17,7 +21,6 @@
   &__copyright {
     width: 33.33%;
     font-weight: 500;
-    font-size: 16px;
     line-height: 100%;
     letter-spacing: 0px;
     opacity: 0.4;

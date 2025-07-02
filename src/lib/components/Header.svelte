@@ -1,14 +1,10 @@
 <script lang="ts">
   interface Props {
-    servicesCount?: string | null,
-    worksCount?: string | null
-    email?: string | null
+    servicesCount?: string | null;
+    worksCount?: string | null;
+    email?: string | null;
   }
-  const {
-    worksCount,
-    servicesCount,
-    email,
-  }: Props = $props();
+  const { worksCount, servicesCount, email }: Props = $props();
 </script>
 
 <header class="header">
@@ -40,7 +36,12 @@
     <a href="#" data-scroll-to=".works" class="header__link"><span>Works</span><sup>({worksCount})</sup></a>
     <a href="#" data-scroll-to=".services" class="header__link"><span>Services</span><sup>({servicesCount})</sup></a>
     <a href="#" data-scroll-to=".about-us" class="header__link"><span>About Us</span></a>
-    <a href="mailto:{email}" class="header__button"><span>Contact Us</span></a>
+    <a href="mailto:{email}" class="header__button">
+      <span>Contact Us</span>
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.999771 6H10.2424M10.2424 6L5.62109 1.37868M10.2424 6L5.62109 10.6213" stroke="#33092E" stroke-width="1.4" />
+      </svg>
+    </a>
   </div>
   <button class="burger">
     <span class="burger__line"></span>

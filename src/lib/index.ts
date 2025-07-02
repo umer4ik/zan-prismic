@@ -48,11 +48,15 @@ export const onStart = async () => {
 
   document.addEventListener('click',  (event) => {
     const { target } = event;
-    if (!(target instanceof HTMLElement) || !(target instanceof SVGElement)) return;
+    if (!(target instanceof HTMLElement) && !(target instanceof SVGElement)) return;
     if (target.closest('.project__back-to-top')) {
+      $('.drawer__content').style.scrollBehavior = 'smooth';
       $('.drawer__content').scrollTo(0, 0);
+      setTimeout(() => {
+        $('.drawer__content').removeAttribute('style')
+      })
     }
-    if (target.closest('[data-scroll-to]')) {
+    if (target.closest('[data-scroll-to]') || target.hasAttribute('data-scroll-to')) {
       event?.preventDefault()
       const el = target.closest('[data-scroll-to]')!;
       assertIsHTMLElement(el);

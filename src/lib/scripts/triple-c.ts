@@ -68,8 +68,8 @@ export const handleTripleC = () => {
       }
       $$('.c').forEach(x => x.removeAttribute('style'))
       if ($('.c.expanded')) {
-        $('.c.expanded').removeAttribute('style');
-          $('c.expanded').classList.remove('expanded');
+        $('.c.expanded')?.removeAttribute('style');
+          $('c.expanded')?.classList.remove('expanded');
       }
     }
   }, 400)

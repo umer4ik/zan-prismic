@@ -5,10 +5,12 @@
   width: 100%;
   z-index: 4;
   transform: translateY(-110%);
+
   @media (max-width: 1230px) {
     align-items: center;
     padding-top: 14px;
   }
+
   &__links {
     display: flex;
     margin-inline-start: auto;
@@ -21,24 +23,30 @@
     width: 33.3333%;
     max-width: 33.3333%;
     min-width: 33.3333%;
+
     @media (max-width: 1600px) {
       margin-inline-start: calc(66.666% - 110px);
     }
+
     @media (max-width: 1230px) {
       display: none;
     }
   }
+
   &__link {
     text-decoration: none;
     transition: color .4s ease;
-    color: #F4EDDD  ;
+    color: #F4EDDD;
+
     [data-mode="dark"] & {
       color: #634F1E;
     }
+
     sup {
       top: -10px;
     }
   }
+
   &__button {
     text-decoration: none;
     color: var(--Cherry);
@@ -46,24 +54,54 @@
     background-color: var(--Golden);
     border-radius: 5px;
     margin-left: auto;
+    position: relative;
+    transition: padding-inline-end .4s ease;
+    &:hover {
+      @media (min-width: 1400px) {
+        padding-inline-end: 27rem;
+      }
+
+      svg {
+        @media (min-width: 1400px) {
+          opacity: 1;
+          right: 9rem;
+        }
+      }
+    }
+
+    svg {
+      position: absolute;
+      width: 12rem;
+      height: 12rem;
+      margin-left: 5rem;
+      right: 0;
+      top: 7rem;
+      transition: all .4s ease;
+      opacity: 0;
+    }
   }
 }
+
 .header-logo {
   position: relative;
   z-index: 2;
+
   svg {
     width: 123rem;
     height: 40rem;
   }
+
   path {
     transition: fill .4s ease;
   }
+
   .burger-open &,
   [data-mode="dark"] & {
     svg path {
       fill: #634F1E;
     }
   }
+
   @media (max-width: 1230px) {
     svg {
       height: 28px;
