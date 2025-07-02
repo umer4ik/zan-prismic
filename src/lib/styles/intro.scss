@@ -210,13 +210,13 @@
 
 .intro-works {
   margin-top: auto;
-  margin-inline-start: 66.6666%;
+  margin-inline-start: calc(66.6666% - 8px);
   padding-bottom: 20px;
   position: relative;
   z-index: 3;
 
   @media (max-width: 1600px) {
-    margin-inline-start: 66.6666%;
+    margin-inline-start: calc(66.6666% - 8px);
   }
 
   @media (max-width: 1230px) {
