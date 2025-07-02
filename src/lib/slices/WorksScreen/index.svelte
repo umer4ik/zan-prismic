@@ -47,7 +47,7 @@
         <div class="w-row__col desktop-hidden">(Other Projects)</div>
       </div>
       {#each slice.primary.works as item, index (index)}
-        <div class="w-row">
+        <div class="w-row" data-work-reference="{item.work_reference_id}">
           <div class="w-row__col">{item.name}</div>
           <div class="w-row__col">{item.location}</div>
           <div class="w-row__col">{item.tag}</div>

@@ -43,7 +43,7 @@ export const onStart = async () => {
     if (!(target instanceof HTMLElement)) return;
     const element = target.closest('[data-work-reference]')
     if (!(element instanceof HTMLElement)) return;
-    openDrawer(element.dataset.workReference!, element);
+    if (element.dataset.workReference) openDrawer(element.dataset.workReference!, element);
   });
 
   document.addEventListener('click',  (event) => {
