@@ -41,6 +41,5 @@ export const initScroll = () => {
 
 export const scrollTo = (target: string, options?: ScrollToOptions) => {
   const offsetTop = $(target).offsetTop;
-  console.log(offsetTop)
   lenis.scrollTo(offsetTop, options);
 };

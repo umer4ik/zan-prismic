@@ -36,9 +36,9 @@
 
   &__title {
     font-weight: 500;
-    font-size: 242px;
+    font-size: 242rem;
     line-height: 100%;
-    letter-spacing: -18px;
+    letter-spacing: -18rem;
     text-transform: uppercase;
     position: relative;
     display: flex;
@@ -59,6 +59,7 @@
 
     @media (max-width: 1439px) {
       font-size: 200px;
+      letter-spacing: -18px;
     }
 
     @media (max-width: 1230px) {
@@ -71,7 +72,7 @@
     }
 
     &--2 {
-      padding-inline-end: 14px;
+      padding-inline-end: 16rem;
     }
   }
 
@@ -81,8 +82,9 @@
       line-height: 100px;
       padding-top: 20px;
       margin-left: 7px;
+
       .split-text__visible {
-        height: 220px;
+        height: 220rem;
 
         @media (max-width: 1230px) {
           height: 70px;
@@ -323,6 +325,7 @@
     z-index: 2;
     position: relative;
     transition: background-color .4s ease;
+
     svg {
       width: 6rem;
       height: 6rem;
