@@ -1,6 +1,6 @@
 import { $ } from '$lib/dom-helper';
 import Lenis, { type ScrollToOptions } from 'lenis'
-import { ScrollTrigger } from "gsap/all";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { gsap } from 'gsap'
 gsap.registerPlugin(ScrollTrigger);
 

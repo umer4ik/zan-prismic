@@ -4,7 +4,7 @@ import { $$ } from "../dom-helper"
 // import gsap from 'gsap';
 // import { lenis } from "./scroll";
 // import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 // const { debounce } = _;
 // gsap.registerPlugin(ScrollTrigger)
 
