@@ -7,6 +7,7 @@ export const openDrawer = async (workRefId: string, trigger: HTMLElement) => {
   if (!trigger.classList.contains('next-project')) {
     $('.drawer .project').innerHTML = projectHTML;
     $('.drawer').classList.add('open');
+    $('.drawer__content').scrollTo(0, 0);
   } else { // clicking on a next project
     await slideOutProject();
     $('.drawer .project').innerHTML = projectHTML;

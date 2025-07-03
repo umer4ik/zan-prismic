@@ -1,10 +1,24 @@
 <script lang="ts">
+    import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
 
-  type Props = SliceComponentProps<Content.NextProjectsSlice>;
+  type Props = SliceComponentProps<Content.NextProjectsSlice> & {
+    context: {
+      locale: string
+    }
+  };
 
-  const { slice }: Props = $props();
+  const { slice, context }: Props = $props();
+  const arabic = isArabic(context.locale)
+  const titles = {
+    next: 'Next',
+    backToTop: 'Back to Top',
+  }
+  if (arabic) {
+    titles.next = 'التالي'
+    titles.backToTop = 'العودة إلى الأعلى'
+  }
 </script>
 <div class="project__next-header">
   <div class="title">Next<sup>({slice.primary.projects.length})</sup></div>

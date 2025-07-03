@@ -61,6 +61,21 @@
   </div>
 {/if}
 
+{#if slice.variation === 'oneColumnText'}
+  <div class="project__row">
+    <div class="project__col">
+    </div>
+    <div class="project__col">
+      {#if slice.primary.title}
+        <div class="braced" style="margin-bottom: 15px;">({slice.primary.title})</div>
+      {/if}
+      <div class="project__text">
+        <PrismicRichText field={slice.primary.text} />
+      </div>
+    </div>
+  </div>
+{/if}
+
 {#if slice.variation === 'gap'}
   <div style:height="{isMobile ? slice.primary.mobile : slice.primary.desktop}px" />
 {/if}

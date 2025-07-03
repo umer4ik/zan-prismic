@@ -1,17 +1,33 @@
 <script lang="ts">
+    import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicRichText, type SliceComponentProps } from '@prismicio/svelte';
   import _ from 'lodash';
 
-  type Props = SliceComponentProps<Content.AbountUsSlice>;
+  type Props = SliceComponentProps<Content.AbountUsSlice> & {
+    context: {
+      locale: string
+    }
+  };
 
-  const { slice }: Props = $props();
+  const { slice, context }: Props = $props();
   const rows = _.chunk(slice.primary.numbers, 2)
+  const arabic = isArabic(context.locale)
+  let aboutUsTitle = 'About Us'
+  let numbersTitle = 'Numbers'
+  let philosophyTitle = 'Philosophy'
+  let beliefTitle = 'Belief'
+  if (arabic) {
+    aboutUsTitle = 'نبذة عنا'
+    numbersTitle = 'الأرقام'
+    philosophyTitle = 'قصّتنا'
+    beliefTitle = 'الغاية'
+  }
 </script>
 <div class="about-us">
   <div class="about-us__start">
     <div class="title title--about-us">
-      About Us
+      {aboutUsTitle}
     </div>
   </div>
   <div class="about-us__end">
@@ -24,7 +40,7 @@
           </div>
         </div>
         <div class="about-us__col">
-          <div class="braced">(Numbers)</div>
+          <div class="braced">({numbersTitle})</div>
           <div class="about-us__numbers">
             {#each rows as row, i (i)}
               <div class="about-us__numbers-row">
@@ -40,7 +56,7 @@
       </div>
     </div>
     <div class="about-us__philosophy">
-      <div class="braced">(Philosophy)</div>
+      <div class="braced">({philosophyTitle})</div>
       <div class="about-us__philosophy-text">
         <PrismicRichText field={slice.primary.philosophy} />
       </div>
@@ -50,7 +66,7 @@
         <img src="/about-us-belief.png" alt="">
       </div>
       <div class="about-us__belief-text-col">
-        <div class="braced">(Belief)</div>
+        <div class="braced">({beliefTitle})</div>
         <div class="about-us__belief-text">
           <PrismicRichText field={slice.primary.belief} />
         </div>

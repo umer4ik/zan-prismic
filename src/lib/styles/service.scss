@@ -34,6 +34,7 @@
     overflow: hidden;
     border-radius: 10rem;
     max-width: 33.3333%;
+    min-width: 33.3333%;
     height: 100%;
 
     img {
@@ -135,8 +136,8 @@
       line-height: 100%;
       letter-spacing: 0px;
       width: 20%;
-      margin-left: auto;
-      text-align: right;
+      margin-inline-start: auto;
+      text-align: end;
     }
   }
 

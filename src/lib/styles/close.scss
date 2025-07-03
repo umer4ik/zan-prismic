@@ -3,6 +3,9 @@
   height: 30px;
   position: absolute;
   right: 20px;
+  html[dir="rtl"] & {
+    right: 917px;
+  }
   top: 20px;
   border-radius: 50px;
   background-color: #634f1e;

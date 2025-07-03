@@ -840,6 +840,40 @@ export interface ProjectBlockSliceDividerPrimary {
 export type ProjectBlockSliceDivider = prismic.SharedSliceVariation<'divider', Simplify<ProjectBlockSliceDividerPrimary>, never>;
 
 /**
+ * Primary content in *ProjectBlock → One Column Text → Primary*
+ */
+export interface ProjectBlockSliceOneColumnTextPrimary {
+  /**
+   * Title field in *ProjectBlock → One Column Text → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title in braces
+   * - **API ID Path**: project_block.oneColumnText.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *ProjectBlock → One Column Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text content
+   * - **API ID Path**: project_block.oneColumnText.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * One Column Text variation for ProjectBlock Slice
+ *
+ * - **API ID**: `oneColumnText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectBlockSliceOneColumnText = prismic.SharedSliceVariation<'oneColumnText', Simplify<ProjectBlockSliceOneColumnTextPrimary>, never>;
+
+/**
  * Slice variation for *ProjectBlock*
  */
 type ProjectBlockSliceVariation =
@@ -848,7 +882,8 @@ type ProjectBlockSliceVariation =
   | ProjectBlockSliceBigText
   | ProjectBlockSliceTwoColumnsText
   | ProjectBlockSliceGap
-  | ProjectBlockSliceDivider;
+  | ProjectBlockSliceDivider
+  | ProjectBlockSliceOneColumnText;
 
 /**
  * ProjectBlock Shared Slice
@@ -1371,6 +1406,7 @@ declare module '@prismicio/client' {
       ProjectBlockSliceTwoColumnsTextPrimary,
       ProjectBlockSliceGapPrimary,
       ProjectBlockSliceDividerPrimary,
+      ProjectBlockSliceOneColumnTextPrimary,
       ProjectBlockSliceVariation,
       ProjectBlockSliceDefault,
       ProjectBlockSliceTwoImagesInARow,
@@ -1378,6 +1414,7 @@ declare module '@prismicio/client' {
       ProjectBlockSliceTwoColumnsText,
       ProjectBlockSliceGap,
       ProjectBlockSliceDivider,
+      ProjectBlockSliceOneColumnText,
       SecondScreenProjectSlice,
       SecondScreenProjectSliceDefaultPrimaryTagsItem,
       SecondScreenProjectSliceDefaultPrimary,

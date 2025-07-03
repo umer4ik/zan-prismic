@@ -121,15 +121,18 @@
   &__image {
     position: absolute;
     z-index: 1;
-    left: 473px;
+    inset-inline-start: 473rem;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
     width: 335px;
     overflow: hidden;
     border-radius: 5px;
+    @media (max-width: 1400px) {
+      inset-inline-start: 473px;
+    }
     @media (max-width: 1024px) {
-      left: 33%;
+      inset-inline-start: 33%;
     }
     @media (max-width: 768px) {
       position: static;

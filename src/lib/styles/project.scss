@@ -97,9 +97,15 @@
   &__col {
     flex-grow: 1;
     position: relative;
+    &:has(img) {
+      border-radius: 10px;
+      overflow: hidden;
+    }
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      min-height: 383px;
     }
     &:not(:only-child) {
       width: calc(50% - 10px);

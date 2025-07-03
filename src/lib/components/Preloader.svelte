@@ -1,4 +1,4 @@
-<div class="preloader">
+<div class="preloader" dir="ltr">
   <div class="preloader-images">
     <div class="preloader-images__content">
       <div class="preloader-image preloader-image--left">

@@ -37,7 +37,7 @@
 @use "burger-menu.scss";
 @use "client.scss";
 html {
-  font-family: 'PP Neue Montreal';
+  font-family: 'PP Neue Montreal', LTZaridSans, sans-serif;
   font-weight: 500;
   font-size: 0.06944444444vw;
 }
@@ -59,4 +59,19 @@ img {
 }
 footer {
   background-color: #33092E;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal {
+  background: #634F1E;
+  border-radius: 3px;
 }

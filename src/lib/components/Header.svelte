@@ -1,10 +1,19 @@
 <script lang="ts">
+    import { isArabic } from "$lib/is-arabic";
+
   interface Props {
     servicesCount?: string | null;
     worksCount?: string | null;
     email?: string | null;
+    locale: string
   }
-  const { worksCount, servicesCount, email }: Props = $props();
+  let { worksCount, servicesCount, email, locale }: Props = $props();
+  let arabic = isArabic(locale)
+  let worksTitle = arabic ? 'الأعمال' : 'Works'
+  let servicesTitle = arabic ? 'الخدمات' : 'Services'
+  let aboutUsTitle = arabic ? 'نبذة عنا' : 'About Us'
+  let contactUsTitle = arabic ? 'اتصل بنا' : 'Contact Us'
+
 </script>
 
 <header class="header">
@@ -33,12 +42,12 @@
     </svg>
   </a>
   <div class="header__links">
-    <a href="#" data-scroll-to=".works" class="header__link"><span>Works</span><sup>({worksCount})</sup></a>
-    <a href="#" data-scroll-to=".services" class="header__link"><span>Services</span><sup>({servicesCount})</sup></a>
-    <a href="#" data-scroll-to=".about-us" class="header__link"><span>About Us</span></a>
+    <a href="#" data-scroll-to=".works" class="header__link"><span>{worksTitle}</span><sup>({worksCount})</sup></a>
+    <a href="#" data-scroll-to=".services" class="header__link"><span>{servicesTitle}</span><sup>({servicesCount})</sup></a>
+    <a href="#" data-scroll-to=".about-us" class="header__link"><span>{aboutUsTitle}</span></a>
     <a href="mailto:{email}" class="header__button">
-      <span>Contact Us</span>
-      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <span>{contactUsTitle}</span>
+      <svg style="transform: {arabic ? 'scaleX(-1)' : 'none'}" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0.999771 6H10.2424M10.2424 6L5.62109 1.37868M10.2424 6L5.62109 10.6213" stroke="#33092E" stroke-width="1.4" />
       </svg>
     </a>

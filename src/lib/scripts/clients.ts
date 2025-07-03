@@ -93,6 +93,7 @@ export const handleClients = () => {
     const stopBlock = $('.client:last-of-type');
     if (container.getBoundingClientRect().top < 0) {
       const titleRect = title.getBoundingClientRect();
+      title.style.width = `${titleRect.width}px`;
       title.style.left = `${titleRect.left}px`;
       title.style.top = `44px`;
       title.style.position = 'fixed';

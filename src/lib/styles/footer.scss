@@ -25,7 +25,7 @@
     width: 33.33%;
     min-width: 33.33%;
     max-width: 33.33%;
-    padding-left: 20px;
+    padding-inline-start: 20px;
     &.braced {
       color: rgba(#F4EDDD, 40%);
     }
@@ -63,6 +63,9 @@
     @media (max-width: 768px) {
       display: flex;
     }
+  }
+  .phone {
+    direction: ltr;
   }
 }
 .footer-canvas {

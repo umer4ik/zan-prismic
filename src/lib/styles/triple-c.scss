@@ -119,10 +119,15 @@
     }
   }
   &__title {
-    padding-inline-start: 20px;
     padding-inline-start: 0;
+    html[dir="rtl"] & {
+      padding-inline-start: 20px;
+    }
     font-size: 242rem;
     line-height: 213rem;
+    html[dir="rtl"] & {
+      font-size: 165rem;
+    }
     letter-spacing: -0.0578em;
     text-transform: uppercase;
     color: #634F1E;

@@ -1,17 +1,23 @@
 <script lang="ts">
+    import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
 
-  type Props = SliceComponentProps<Content.ClientsSlice>;
+  type Props = SliceComponentProps<Content.ClientsSlice> & {
+    context: {
+      locale: string
+    }
+  };
 
-  const { slice }: Props = $props();
+  const { slice, context }: Props = $props();
+  const clientsTitle = isArabic(context.locale) ? 'العملاء' : 'Clients';
 </script>
 <div class="clients">
   <div class="clients__content">
     <div class="clients-box">
       <div class="clients-box__start">
         <div class="title title--clients">
-          Clients<sup>({slice.primary.clients.length})</sup>
+          {clientsTitle}<sup>({slice.primary.clients.length})</sup>
         </div>
       </div>
       <div class="clients-box__list">

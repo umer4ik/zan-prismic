@@ -1,11 +1,29 @@
 <script lang="ts">
+  import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
 
-  type Props = SliceComponentProps<Content.WorksScreenSlice>;
+  type Props = SliceComponentProps<Content.WorksScreenSlice> & {
+    context: {
+      locale: string
+    }
+  };
 
-  const { slice }: Props = $props();
+  const { slice, context }: Props = $props();
   const aboveTableItems = slice.primary.works.filter(x => x.show_above_the_table);
+  const arabic = isArabic(context.locale);
+
+  let nameTitle = 'Name'
+  let locationTitle = 'Location'
+  let serviceTitle = 'Service'
+  let otherProjectsTitle = 'Other Projects'
+  if (arabic) {
+    nameTitle = 'الاسم'
+    locationTitle = 'الموقع'
+    serviceTitle = 'الخدمة'
+    otherProjectsTitle = 'مشاريع أخرى'
+  }
+  
 </script>
 
 <div class="works" id="works">
@@ -41,10 +59,10 @@
   <div class="w-table__content">
     <div class="w-table__body">
       <div class="w-row">
-        <div class="w-row__col">(Name)</div>
-        <div class="w-row__col">(Location)</div>
-        <div class="w-row__col">(Service)</div>
-        <div class="w-row__col desktop-hidden">(Other Projects)</div>
+        <div class="w-row__col">({nameTitle})</div>
+        <div class="w-row__col">({locationTitle})</div>
+        <div class="w-row__col">({serviceTitle})</div>
+        <div class="w-row__col desktop-hidden">({otherProjectsTitle})</div>
       </div>
       {#each slice.primary.works as item, index (index)}
         <div class="w-row" data-work-reference="{item.work_reference_id}">

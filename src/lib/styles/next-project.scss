@@ -16,7 +16,7 @@
   }
   &__btn {
     position: absolute;
-    right: 35px;
+    inset-inline-end: 35px;
     bottom: -49px;
     opacity: 0;
     transform: translateY(40px);

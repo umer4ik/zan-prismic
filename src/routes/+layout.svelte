@@ -9,7 +9,7 @@
   import PreFooter from '$lib/components/PreFooter.svelte';
   import { SliceZone } from '@prismicio/svelte';
   import { components } from '$lib/slices';
-  import Preloader from '$lib/components/Preloader.svelte';
+  // import Preloader from '$lib/components/Preloader.svelte';
   import Drawer from '$lib/components/Drawer.svelte';
   import { onStart } from '$lib';
   import { onMount } from 'svelte';
@@ -41,24 +41,31 @@
   <Header
     worksCount={data.settings.data.works_count}
     servicesCount={data.settings.data.services_count}
-    email={data.settings.data.email} />
+    email={data.settings.data.email}
+    locale={data.locale} />
   {@render children()}
   {#each data.projects as project (project.id)}
     <div data-project-id={project.uid} style="display: none;">
-      <SliceZone slices={project.data.slices} components={components}  />
+      <SliceZone
+        slices={project.data.slices}
+        context={{
+          locale: data.locale
+        }}
+        components={components}  />
     </div>
   {/each}
   <footer>
-    <PreFooter mail={data.settings.data.email} />
+    <PreFooter mail={data.settings.data.email} locale={data.locale} />
     <Footer
       address={data.settings.data.address}
       email={data.settings.data.email}
       instagram={data.settings.data.instagram}
       phone={data.settings.data.phone_number}
-      twitter={data.settings.data.link_to_twitter}  />
-    <PostFooter />
+      twitter={data.settings.data.link_to_twitter}
+      locale={data.locale} />
+    <PostFooter locale={data.locale} />
   </footer>
-  <Preloader />
+  <!-- <Preloader /> -->
   <Drawer />
 </main>
 <PrismicPreview {repositoryName} />

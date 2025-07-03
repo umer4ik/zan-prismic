@@ -1,11 +1,32 @@
 <script lang="ts">
+    import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
     import _ from 'lodash';
 
-  type Props = SliceComponentProps<Content.AwardsSlice>;
+  type Props = SliceComponentProps<Content.AwardsSlice> & {
+    context: {
+      locale: string;
+    };
+  };
+  const { slice, context }: Props = $props();
 
-  const { slice }: Props = $props();
+  const arabic = isArabic(context.locale);
+  const titles = {
+    awards: 'Awards',
+    number: 'Number',
+    projectName: 'Project Name',
+    award: 'Award',
+    year: 'Year'
+  }
+  if (arabic) {
+    titles.awards = 'الجوائز'
+    titles.number = 'الرقم'
+    titles.projectName = 'اسم المشروع'
+    titles.award = 'جائزة'
+    titles.year = 'السنة'
+  }
+
 </script>
 
 <div class="awards">
@@ -18,16 +39,16 @@
   </div>
   <div class="awards__content">
     <div class="title">
-      Awards<sup>({slice.primary.awards.length})</sup>
+      {titles.awards}<sup>({slice.primary.awards.length})</sup>
     </div>
     <table class="awards-table">
       <thead>
         <tr>
-          <th>(Number)</th>
-          <th>(Project Name)</th>
+          <th>({titles.number})</th>
+          <th>({titles.projectName})</th>
           <th></th>
-          <th>(Award)</th>
-          <th>(Year)</th>
+          <th>({titles.award})</th>
+          <th>({titles.year})</th>
         </tr>
       </thead>
       <tbody>

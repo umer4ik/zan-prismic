@@ -37,7 +37,7 @@
   }
   td, th {
     border-bottom: 1px solid rgba(#634F1E, 40%);
-    text-align: left;
+    text-align: start;
     font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
@@ -98,7 +98,7 @@
   }
   th:nth-child(5) {
     width: 45rem;
-    text-align: right;
+    text-align: end;
     @media (max-width: 1400px) {
       width: 45px;
     }
@@ -107,7 +107,7 @@
     }
   }
   td:nth-child(5) {
-    text-align: right;
+    text-align: end;
     @media (max-width: 767px) {
       width: 60px;
       padding-inline-start: 15px;
@@ -165,7 +165,7 @@
   &__image {
     position: absolute;
     z-index: 1;
-    right: 50px;
+    inset-inline-end: 50px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;

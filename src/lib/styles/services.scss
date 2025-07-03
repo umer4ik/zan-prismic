@@ -15,6 +15,9 @@
     line-height: 0.75;
     letter-spacing: -0.056em;
     color: #634F1E;
+    html[dir="rtl"] & {
+      font-size: 450rem;
+    }
     @media (max-width: 1400px) {
       font-size: 23vw;
     }

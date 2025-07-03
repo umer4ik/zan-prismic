@@ -7,4 +7,9 @@
   const { data }: PageProps = $props();
 </script>
 
-<SliceZone slices={data.page.data.slices} {components} />
+<SliceZone
+  context={{
+    locale: data.locale,
+  }}
+  slices={data.page.data.slices}
+  {components} />
