@@ -9,7 +9,7 @@
   import PreFooter from '$lib/components/PreFooter.svelte';
   import { SliceZone } from '@prismicio/svelte';
   import { components } from '$lib/slices';
-  // import Preloader from '$lib/components/Preloader.svelte';
+  import Preloader from '$lib/components/Preloader.svelte';
   import Drawer from '$lib/components/Drawer.svelte';
   import { onStart } from '$lib';
   import { onMount } from 'svelte';
@@ -65,7 +65,7 @@
       locale={data.locale} />
     <PostFooter locale={data.locale} />
   </footer>
-  <!-- <Preloader /> -->
+  <Preloader />
   <Drawer />
 </main>
 <PrismicPreview {repositoryName} />
