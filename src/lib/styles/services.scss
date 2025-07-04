@@ -20,14 +20,15 @@
     }
     @media (max-width: 1400px) {
       font-size: 23vw;
+      html[dir="rtl"] & {
+        font-size: 23vw;
+      }
     }
     @media (max-width: 768px) {
-      // font-size: 64px;
       font-size: 21vw;
       line-height: 100%;
       margin-bottom: 100px;
       padding-top: 3px;
-      // letter-spacing: -3.61px;
     }
   }
   &__list {

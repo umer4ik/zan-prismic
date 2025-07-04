@@ -64,6 +64,9 @@
           transform: rotate(90deg);
         }
       }
+      html[dir="rtl"] & {
+        direction: ltr;
+      }
     }
   }
   &__mobile-image {

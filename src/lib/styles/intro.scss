@@ -20,6 +20,7 @@
 
     @media (max-width: 1023px) {
       background: linear-gradient(0deg, #33092E 0%, rgba(51, 9, 46, 0) 50vh);
+      left: 0;
     }
   }
 
@@ -31,6 +32,9 @@
     @media (max-width: 1230px) {
       bottom: auto;
       top: 64px;
+    }
+    @media (max-width: 1023px) {
+      left: 20px;
     }
   }
 

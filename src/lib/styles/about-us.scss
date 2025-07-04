@@ -11,7 +11,7 @@
     max-width: 33.3333%;
     min-width: 33.3333%;
     display: flex;
-    border-right: 1px solid rgba(#634F1E, 15%);
+    border-inline-end: 1px solid rgba(#634F1E, 15%);
     padding-block: 12px;
     .title {
       padding-inline: 20px;
@@ -30,6 +30,7 @@
       min-width: 0;
       padding-block-start: 16px;
       padding-block-end: 100px;
+      border-inline-end: 0;
     }
     @media (max-width: 768px) {
       padding-block-end: 80px;

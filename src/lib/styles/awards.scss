@@ -76,6 +76,9 @@
       width: 100%;
       flex-grow: 1;
       padding: 20px 0 58px;
+      html[dir="rtl"] & {
+        direction: ltr;
+      }
     }
   }
   th:nth-child(1),
@@ -139,14 +142,14 @@
       &::before {
         width: 1px;
         height: 13px;
-        right: 6px;
+        inset-inline-end: 6px;
         top: 3px;
       }
       &::after {
         width: 13px;
         height: 1px;
         top: 9px;
-        right: 0;
+        inset-inline-end: 0;
       }
     }
   }

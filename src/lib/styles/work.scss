@@ -25,6 +25,9 @@
     border-radius: 16rem;
     position: relative;
     overflow: hidden;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     img {
       width: 100%;
       transition: 1.2s ease;
@@ -68,6 +71,9 @@
     color: #634F1E;
     @media (max-width: 768px) {
       gap: 20px;
+      html[dir="rtl"] & {
+        flex-direction: column;
+      }
     }
   }
   &__titles {
@@ -84,7 +90,6 @@
     letter-spacing: 0px;
     @media (max-width: 768px) {
       font-size: 20px;
-      white-space: nowrap;
     }
   }
   &__subtitle {
@@ -103,6 +108,9 @@
     @media (max-width: 768px) {
       margin-top: 30px;
       font-size: 16px;
+      html[dir="rtl"] & {
+        margin-top: 0;
+      }
     }
   }
 }

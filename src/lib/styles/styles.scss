@@ -40,6 +40,9 @@ html {
   font-family: 'PP Neue Montreal', LTZaridSans, sans-serif;
   font-weight: 500;
   font-size: 0.06944444444vw;
+  @media (max-width: 1400px) {
+    font-size: 1px;
+  }
 }
 body {
   background-color: #F9F6EF;

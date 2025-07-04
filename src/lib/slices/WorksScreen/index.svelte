@@ -12,12 +12,14 @@
   const { slice, context }: Props = $props();
   const aboveTableItems = slice.primary.works.filter(x => x.show_above_the_table);
   const arabic = isArabic(context.locale);
-
+  
+  let worksTitle = 'Works'
   let nameTitle = 'Name'
   let locationTitle = 'Location'
   let serviceTitle = 'Service'
   let otherProjectsTitle = 'Other Projects'
   if (arabic) {
+    worksTitle = 'أعمالنا'
     nameTitle = 'الاسم'
     locationTitle = 'الموقع'
     serviceTitle = 'الخدمة'
@@ -29,7 +31,7 @@
 <div class="works" id="works">
   <div class="works__content">
     <div class="title title--works">
-      Works<sup>({slice.primary.works.length})</sup>
+      {worksTitle}<sup>({slice.primary.works.length})</sup>
     </div>
     <div class="works__row">
       {#each aboveTableItems as item, index (index)}

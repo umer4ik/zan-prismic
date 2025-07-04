@@ -136,6 +136,10 @@
     @media (max-width: 1420px) {
       font-size: 16vw;
       line-height: 12vw;
+      html[dir="rtl"] & {
+        font-size: 12vw;
+        line-height: 12vw;
+      }
     }
     @media (max-width: 450px) {
       opacity: 1;
