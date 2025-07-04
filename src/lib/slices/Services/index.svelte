@@ -13,7 +13,7 @@
   const { slice, context }: Props = $props();
   const colors = ['#F9F6EF', '#EBE0C6', '#D5C291', '#EBE0C6', '#F4EDDD'];
   const arabic = isArabic(context.locale);
-  let servicesTitle = 'Services'
+  let servicesTitle = 'SERVICES'
   let explanationTitle = 'Explanation';
   if (arabic) {
     explanationTitle = 'شرح'
