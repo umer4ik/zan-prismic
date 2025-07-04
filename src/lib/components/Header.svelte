@@ -107,22 +107,22 @@
     <ul class="burger-menu__items">
       <li class="burger-menu__item">
         <a href="#" data-scroll-to=".works">
-          Works<sup>(9)</sup>
+          {worksTitle}<sup>({worksCount})</sup>
         </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
         <a href="#" data-scroll-to=".services">
-          Services<sup>(9)</sup>
+          {servicesTitle}<sup>({servicesCount})</sup>
         </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
-        <a href="#" data-scroll-to=".about-us"> About Us </a>
+        <a href="#" data-scroll-to=".about-us"> {aboutUsTitle} </a>
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
-        <a href="mailto:{email}" class="burger-menu__button"> Contact Us </a>
+        <a href="mailto:{email}" class="burger-menu__button"> {contactUsTitle} </a>
       </li>
     </ul>
   </div>
