@@ -19,7 +19,7 @@
   }
 </script>
 
-<div class="triple-c">
+<div class="triple-c" data-scroll-section>
   <div class="triple-c__content">
     <div class="title">
       {title}<sup>({slice.primary.terms.length})</sup>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { isArabic } from '$lib/is-arabic';
+  import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, PrismicRichText, type SliceComponentProps } from '@prismicio/svelte';
 
@@ -21,9 +21,21 @@
   }
 </script>
 
-<section class="intro" data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-  
-  <div class="intro-about">
+<section data-scroll-section class="intro" data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+  <div class="intro-row">
+    <div class="intro-col intro-col--title" dir="ltr">
+      <div class="intro-title-box">
+        <div class="intro-title intro-title--1">
+          <div class="intro-title-word">ZAN</div>
+          <div class="intro-title-word intro-title-word--r">®</div>
+        </div>
+        <div class="intro-title intro-title--2">
+          <div class="intro-title-word">Agency</div>
+        </div>
+      </div>
+    </div>
+    <div class="intro-col intro-col--other">
+      <div class="intro-about">
     <div class="intro-about__content">
       <div class="intro-braces">({aboutTitle})</div>
       <div class="intro-about__text">
@@ -51,16 +63,9 @@
       </div>
     </div>
   </div>
-  <div class="intro__content" dir="ltr">
-    <div class="intro__title-box">
-      <div class="intro__title intro__title--1">
-        <div class="intro__title-word">ZAN</div>
-        <div class="intro__title-word intro__title-word--r">®</div>
-      </div>
-      <div class="intro__title intro__title--2">
-        <div class="intro__title-word">Agency</div>
-      </div>
     </div>
   </div>
+  
+  
   <div class="squares"></div>
 </section>

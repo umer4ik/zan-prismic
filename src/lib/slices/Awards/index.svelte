@@ -29,7 +29,7 @@
 
 </script>
 
-<div class="awards">
+<div class="awards" data-scroll-section>
   <div class="awards-follower">
     <img data-award="1" src="/award-1.png" alt="">
     <img data-award="2" src="/award-2.png" alt="">

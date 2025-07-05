@@ -12,10 +12,16 @@
   const { slice, context }: Props = $props();
   const clientsTitle = isArabic(context.locale) ? 'العملاء' : 'Clients';
 </script>
-<div class="clients">
-  <div class="clients__content">
+<div class="clients" data-scroll-section>
+  <div class="clients__content" id="clients-content">
     <div class="clients-box">
-      <div class="clients-box__start">
+      <div
+      class="clients-box__start"
+      data-scroll
+      data-scroll-id="clients-start"
+      data-scroll-offset="-60"
+      data-scroll-sticky
+      data-scroll-target="#clients-content">
         <div class="title title--clients">
           {clientsTitle}<sup>({slice.primary.clients.length})</sup>
         </div>
@@ -30,7 +36,13 @@
           </div>
         {/each}
       </div>
-      <div class="clients-box__img">
+      <div
+        class="clients-box__img"
+        data-scroll
+        data-scroll-id="clients-end"
+        data-scroll-offset="-70"
+        data-scroll-sticky
+        data-scroll-target="#clients-content">
         {#each slice.primary.clients as item, index (index)}
           <PrismicImage class="show" data-client={index} field={item.image} />
         {/each}

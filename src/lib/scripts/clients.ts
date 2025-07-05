@@ -1,7 +1,8 @@
 import { animate, eases, JSAnimation } from "animejs";
 import { $, assertIsHTMLElement, $$ } from "../dom-helper"
 import _ from "lodash";
-import { lenis } from "./scroll";
+import { scroll } from "./scroll";
+// import { lenis } from "./scroll";
 
 export const handleClients = () => {
   // $('.clients').addEventListener('mouseover', ({ target }) => {
@@ -78,39 +79,12 @@ export const handleClients = () => {
     }
   }, 400)
   window.addEventListener('resize', resize);
-  lenis.on('scroll', () => {
-    const title = $('.title--clients');
-    const imageBox = $('.clients-box__img');
-    const resetStyle = () => {
-      title.setAttribute('style', '')
-      imageBox.setAttribute('style', '')
-    }
-    if (window.innerWidth <= 1020) {
-      resetStyle();
-      return;
-    }
-    const container = $('.clients');
-    const stopBlock = $('.client:last-of-type');
-    if (container.getBoundingClientRect().top < 0) {
-      const titleRect = title.getBoundingClientRect();
-      title.style.width = `${titleRect.width}px`;
-      title.style.left = `${titleRect.left}px`;
-      title.style.top = `44px`;
-      title.style.position = 'fixed';
-      const imageBoxRect = imageBox.getBoundingClientRect();
-      imageBox.style.left = `${imageBoxRect.left}px`;
-      imageBox.style.top = `20px`;
-      imageBox.style.position = 'fixed';
-      if (stopBlock.getBoundingClientRect().top < 20) {
-        title.style.top = `${stopBlock.getBoundingClientRect().top + 20}px`
-        imageBox.style.top = `${stopBlock.getBoundingClientRect().top}px`
-      }
-      // find a client in the viewport
+  scroll.on('scroll', () => {
       const clients = $$('.client');
       const clientsInViewport = [];
       for (let i = 0; i < clients.length; i++) {
         const x = clients[i];
-        if (x.getBoundingClientRect().top > 0) {
+        if (x.getBoundingClientRect().top > 60) {
           clientsInViewport.push(x)
         }
       }
@@ -123,8 +97,5 @@ export const handleClients = () => {
         const img = $(`.clients-box__img [data-client="${index}"]`);
         img.classList.add('show');
       }
-    } else {
-      resetStyle();
-    }
   })
 }

@@ -1,10 +1,10 @@
 // import { animate, eases, JSAnimation } from "animejs";
-import { $$ } from "../dom-helper"
+// import { $$ } from "../dom-helper"
 // import _ from "lodash";
 // import gsap from 'gsap';
 // import { lenis } from "./scroll";
 // import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+// import ScrollTrigger from "gsap/dist/ScrollTrigger";
 // const { debounce } = _;
 // gsap.registerPlugin(ScrollTrigger)
 
@@ -40,33 +40,33 @@ export const addServicesEventListeners = () => {
   // window.addEventListener('resize', resize);
  
   const initScrollTrigger = () => {
-    ScrollTrigger.create({
-      trigger: '.services__title-box',
-      start: 'top top',
-      pin: true,
-      pinType: 'fixed',
-    });
-    $$('.service-box').forEach((service, i) => {
-      if (i === 4) return
-      ScrollTrigger.create({
-        trigger: service,
-        start: 'top top',
-        pin: true,
-        pinType: 'transform',
-        pinSpacing: false,
-        // markers: true,
-        // onUpdate: ({ progress }) => {
-        //   if (progress > 0.6) {
-        //     const el = service.querySelector('.service');
-        //     if (el instanceof HTMLElement) {
-        //       el.style.transform = `scale(${1 - (progress - 0.6) / 10})`
-        //       el.style.opacity = `${1 - (progress - 0.6) / 10}`
-        //     }
+    // ScrollTrigger.create({
+    //   trigger: '.services__title-box',
+    //   start: 'top top',
+    //   pin: true,
+    //   pinType: 'fixed',
+    // });
+    // $$('.service-box').forEach((service, i) => {
+    //   if (i === 4) return
+    //   ScrollTrigger.create({
+    //     trigger: service,
+    //     start: 'top top',
+    //     pin: true,
+    //     pinType: 'transform',
+    //     pinSpacing: false,
+    //     // markers: true,
+    //     // onUpdate: ({ progress }) => {
+    //     //   if (progress > 0.6) {
+    //     //     const el = service.querySelector('.service');
+    //     //     if (el instanceof HTMLElement) {
+    //     //       el.style.transform = `scale(${1 - (progress - 0.6) / 10})`
+    //     //       el.style.opacity = `${1 - (progress - 0.6) / 10}`
+    //     //     }
             
-        //   }
-        // }
-      });
-    })
+    //     //   }
+    //     // }
+    //   });
+    // })
   }
   initScrollTrigger();
  

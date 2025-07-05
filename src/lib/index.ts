@@ -21,10 +21,10 @@ export const onStart = async () => {
       intro.cursor.y = e.clientY;
     }
   });
-  initScroll()
+  await initScroll();
   lockScroll(true);
   processText();
-  await preloader.init();
+  // await preloader.init();
   unlockScroll();
   burger();
   intro.init();
@@ -60,9 +60,7 @@ export const onStart = async () => {
       event?.preventDefault()
       const el = target.closest('[data-scroll-to]')!;
       assertIsHTMLElement(el);
-      scrollTo(el.dataset.scrollTo!, {
-        duration: 2,
-      })
+      scrollTo(el.dataset.scrollTo!)
     }
   });
   $('.close').addEventListener('click', closeDrawer)

@@ -3,7 +3,7 @@ import { splitText } from "./split-text"
 
 export const processText = () => {
   splitText({
-    elements: $$('.intro__title-word'),
+    elements: $$('.intro-title-word'),
   });
   splitText({
     elements: $$('.header__link span'),

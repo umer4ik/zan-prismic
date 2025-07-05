@@ -1,8 +1,10 @@
 .w-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid rgba(#634F1E, 15%);
-  height: 52rem;
+  padding-block-start: 18rem;
+  padding-block-end: 17rem;
+  min-height: 52rem;
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0px;
@@ -125,7 +127,8 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    width: 335px;
+    width: 335rem;
+    height: 272rem;
     overflow: hidden;
     border-radius: 5px;
     @media (max-width: 1400px) {
@@ -143,16 +146,27 @@
         width: 100%;
       }
     }
+    
     div {
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       border-radius: 10px;
-      transform: scale(0);
-      transition: transform .4s ease;
+      transform: scale(0.6);
+      opacity: 0;
+      transition: opacity .4s ease, transform .4s ease;
       @media (max-width: 768px) {
         transform: scale(1);
       }
       .w-row:hover & {
         transform: scale(1);
+        opacity: 1;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
       }
     }
   }

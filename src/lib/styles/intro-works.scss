@@ -1,0 +1,130 @@
+
+.intro-works {
+  margin-top: auto;
+  position: relative;
+  z-index: 3;
+  padding-bottom: 3rem;
+
+  &__content {
+    margin-top: 10rem;
+    display: flex;
+    gap: 21.5rem;
+    // justify-content: space-between;
+    @media (max-width: 1439px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .curtain__popper {
+    transform: translateY(101%);
+  }
+}
+
+.intro-work {
+  width: 98rem;
+  height: 98rem;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+
+  @media (max-width: 1439px) {
+    &:has(img):nth-child(3) {
+      display: none;
+    }
+  }
+
+  svg path {
+    transition: stroke .4s ease;
+  }
+
+  &:not(:has(img)) {
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #C8B687;
+      transform: translateY(101%);
+      transition: transform .4s ease;
+    }
+  }
+
+  img {
+    transition: transform .4s ease;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    &::before {
+      transform: translateY(0);
+    }
+
+    svg path {
+      stroke: #C8B687;
+    }
+
+    .intro-work__arrow {
+      background-color: #33092E;
+    }
+
+    .intro-work__text {
+      color: #33092E;
+    }
+  }
+
+  &__text {
+    padding-left: 10px;
+    padding-bottom: 7px;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+    transition: color .4s ease;
+    font-size: 16rem;
+  }
+
+  &__arrow {
+    width: 14rem;
+    height: 14rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Golden);
+    border-radius: 50%;
+    margin-inline-start: auto;
+    margin-top: 4px;
+    margin-inline-end: 4px;
+    z-index: 2;
+    position: relative;
+    transition: background-color .4s ease;
+
+    svg {
+      width: 6rem;
+      height: 6rem;
+    }
+
+  }
+
+  .curtain__reserve,
+  .curtain__popper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f4eddd34;
+    border-radius: 8px;
+  }
+}
+
