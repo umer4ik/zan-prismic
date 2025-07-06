@@ -1,6 +1,5 @@
 import { type AnimatableObject, createAnimatable, type RenderableCallbacks } from "animejs";
-import {  $, $$ } from "../dom-helper";
-import { scroll } from "./scroll";
+import { $, $$ } from "../dom-helper";
 
 type Animations = Record<string, RenderableCallbacks<never>>
 let arrow: HTMLElement | null = null;
@@ -63,16 +62,34 @@ export const handleWorks = () => {
   }
   document.body.addEventListener('mousemove', recordCursorPosition);
   arrow = $('#arrow-btn');
-  $$('.work, .mwf').forEach(x => {
-    x.addEventListener('mouseenter', ({ currentTarget }) => {
-      if (!(currentTarget instanceof HTMLElement)) return;
-      showArrow();
-    });
-    x.addEventListener('mouseleave', ({ currentTarget }) => {
-      if (!(currentTarget instanceof HTMLElement)) return;
-      hideArrow();
-    })
-  });
+  // $$('[data-work-reference]').forEach(x => {
+  //   x.addEventListener('mouseover', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     showArrow();
+  //   });
+  //   x.addEventListener('mouseenter', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     showArrow();
+  //   });
+  //   x.addEventListener('mouseleave', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     hideArrow();
+  //   })
+  // });
+
+  // const handle = ({ target }: MouseEvent) => {
+  //   if (!(target instanceof HTMLElement)) return;
+  //   const trigger = target.closest('[data-work-reference]');
+  //   if (trigger instanceof HTMLElement) {
+  //     showArrow();
+  //   } else {
+  //     hideArrow();
+  //   }
+  // }
+
+  // document.body.addEventListener('mousemove', handle)
+  // document.body.addEventListener('mouseover', handle)
+  // document.body.addEventListener('mouseleave', handle)
 
   const showArrow = () => {
     arrow!.classList.add('show');
@@ -83,21 +100,32 @@ export const handleWorks = () => {
     document.body.style.cursor = 'unset'
   }
 
-  const isInBounds = (inner: HTMLElement | null, outer: HTMLElement | null) => {
-    if (!inner || !outer) return false;
-    const _inner = inner.getBoundingClientRect();
+  const isInBounds = ({
+    x,
+    y,
+  }: {
+    x: number,
+    y: number,
+  }, outer: HTMLElement | null) => {
+    if (!outer) return false;
     const _outer = outer.getBoundingClientRect();
-    return _inner.top > _outer.top && _inner.bottom < _outer.bottom && _inner.left > _outer.left && _inner.right < _outer.right
+    return y > _outer.top && y < _outer.bottom && x > _outer.left && x < _outer.right
   }
 
-  scroll.on('scroll', () => {
-    if (!arrow) return;
-    const [work1, work2] = $$('.work');
-    if (isInBounds(arrow, $('.mwf')) || isInBounds(arrow, work1) || isInBounds(arrow, work2)) {
-      showArrow();
-    } else {
-      hideArrow();
-    }
-  })
+  const blocks = Array.from($$('[data-work-reference]'));
 
+  const check = () => {
+    if (arrow && animatable) {
+      if (blocks.some(block => isInBounds({
+        x: animatable.x() as number,
+        y: animatable.y() as number
+      }, block))) {
+        showArrow();
+      } else {
+        hideArrow();
+      }
+    }
+    requestAnimationFrame(check)
+  };
+  check();
 }

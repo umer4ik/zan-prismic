@@ -3,6 +3,7 @@
   display: flex;
   color: #634F1E;
   padding-inline: 20px;
+  margin-top: -50rem;
   @media (max-width: 1220px) {
     flex-direction: column;
   }
@@ -47,7 +48,7 @@
     }
   }
   &__top {
-    padding: 12px 20px;
+    padding: 20px;
     padding-bottom: 70rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
     @media (max-width: 768px) {
@@ -152,7 +153,7 @@
   }
   &__belief {
     padding: 20px;
-    padding-bottom: 200px;
+    padding-bottom: 200rem;
     display: flex;
     gap: 20px;
     max-width: 780rem;

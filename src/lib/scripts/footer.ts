@@ -153,7 +153,7 @@ export const handleFooter = () => {
   // run the engine
 
   scroll.on('scroll', ({ currentElements }) => {
-    if (currentElements['footer'].progress > 0.1) {
+    if (currentElements['footer']?.progress > 0.1) {
       runIt()
     }
   });

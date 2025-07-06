@@ -26,6 +26,7 @@
     "lil-gui": "^0.20.0",
     "locomotive-scroll": "^4.1.4",
     "lodash": "^4.17.21",
+    "mathjs": "^14.5.3",
     "matter-js": "^0.20.0",
     "negotiator": "^1.0.0",
     "normalize.css": "^8.0.1"
@@ -42,6 +43,7 @@
     "@types/gsap": "^1.20.2",
     "@types/locomotive-scroll": "^4.1.4",
     "@types/lodash": "^4.17.17",
+    "@types/mathjs": "^9.4.1",
     "@types/matter-js": "^0.19.8",
     "@types/negotiator": "^0.6.4",
     "concurrently": "^9.1.2",

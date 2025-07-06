@@ -22,9 +22,9 @@ export const onStart = async () => {
     }
   });
   await initScroll();
-  lockScroll(true);
+  lockScroll();
   processText();
-  // await preloader.init();
+  await preloader.init();
   unlockScroll();
   burger();
   intro.init();

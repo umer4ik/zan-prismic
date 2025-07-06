@@ -19,7 +19,7 @@
       class="clients-box__start"
       data-scroll
       data-scroll-id="clients-start"
-      data-scroll-offset="-60"
+      data-scroll-offset="-45"
       data-scroll-sticky
       data-scroll-target="#clients-content">
         <div class="title title--clients">
@@ -40,7 +40,7 @@
         class="clients-box__img"
         data-scroll
         data-scroll-id="clients-end"
-        data-scroll-offset="-70"
+        data-scroll-offset="-55"
         data-scroll-sticky
         data-scroll-target="#clients-content">
         {#each slice.primary.clients as item, index (index)}

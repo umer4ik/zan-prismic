@@ -1,6 +1,6 @@
 import { animate, stagger, eases, JSAnimation } from 'animejs';
 import { zanEasing } from './utils';
-import { $, $$ } from '../dom-helper';
+import { $ } from '../dom-helper';
 import { scroll } from './scroll';
 
 // intro title
@@ -71,10 +71,11 @@ export const animateHeader = () => {
 }
 
 export const animateIntroAbout = () => {
+  const isArabic = document.documentElement.getAttribute('dir') === 'rtl'
   animate('.intro-braces .curtain__popper, .intro-about__text .split-text__visible, .intro-work .curtain__popper', {
     y: ['101%', 0],
     duration: 600,
-    delay: stagger(30),
+    delay: stagger(isArabic ? 110 : 30),
     ease: eases.outCirc,
   })
 }

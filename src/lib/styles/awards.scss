@@ -1,8 +1,8 @@
 .awards {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 200px;
+  padding-top: 10rem;
+  padding-bottom: 200rem;
   &__content  {
     flex-grow: 1;
     padding-inline: 20px;
@@ -168,7 +168,7 @@
   &__image {
     position: absolute;
     z-index: 1;
-    inset-inline-end: 50px;
+    inset-inline-end: 92rem;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -178,14 +178,17 @@
     div {
       overflow: hidden;
       border-radius: 10px;
-      transform: scale(0);
-      transition: transform .4s ease;
+      transform: scale(0.6);
+      transition: opacity .4s ease, transform .4s ease;
+      opacity: 0;
       @media (max-width: 768px) {
         transform: scale(1);
+        opacity: 1;
       }
       .award-row:hover & {
         @media (min-width: 768px) {
           transform: scale(1);
+          opacity: 1;
         }
       }
     }

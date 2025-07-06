@@ -65,11 +65,14 @@
     </footer>
   </div>
   <span class="arrow-btn" id="arrow-btn">
-    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.57143 1L8 5M8 5L4.57143 9M8 5H0" stroke="#F4EDDD" />
+    <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.11573 10.7372L4.12619 9.74768L7.55262 6.32125H-0.000440352L-0.00113089 4.92154H7.55193L4.1255 1.49511L5.11573 0.504886L10.2319 5.62105L5.11573 10.7372Z"
+        fill="#F4EDDD"
+      />
     </svg>
   </span>
-  <!-- <Preloader /> -->
+  <Preloader />
   <Drawer />
 </main>
 <PrismicPreview {repositoryName} />
