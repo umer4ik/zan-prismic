@@ -7,8 +7,6 @@
   position: relative;
   z-index: 1;
   transition: opacity .45s ease;
-  // height: 30vh;
-  padding-top: 0.25em;
   &.hovered {
     opacity: 1;
   }
@@ -26,6 +24,7 @@
     opacity: 1;
   }
   &:first-child {
+    padding-top: 0.25em;
     @media (max-width: 1020px) {
       border-top: 1px solid rgba(#634F1E, 15%);
     }

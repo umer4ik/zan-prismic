@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { isArabic } from "$lib/is-arabic";
+  import { isArabic } from "$lib/is-arabic";
 
   interface Props {
     servicesCount?: string | null;
@@ -17,7 +17,8 @@
 </script>
 
 <header class="header">
-  <a href="#" class="header-logo" data-scroll-to=".intro">
+  <div class="header-logo">
+    <a href="#" data-scroll-to=".intro">
     <svg viewBox="0 0 123 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M62.3033 28.2696L69.7416 13.9613L76.0563 26.5456C76.0563 26.5456 64.954 25.6396 62.3033 28.2696ZM66.5978 4.82374H65.1339L67.2449 8.67551L53.4453 35.467H58.6224C58.8942 34.8561 59.267 34.2789 59.7251 33.7858C61.066 32.4462 63.7374 30.9785 69.2575 30.9811C74.4372 30.9824 78.2514 31.0018 78.2514 31.0018L80.453 35.467H85.5874C85.5874 35.467 72.5657 9.16475 72.2447 8.52667C70.6928 5.44759 68.9559 4.82374 66.5978 4.82374Z"
@@ -41,14 +42,18 @@
       />
     </svg>
   </a>
+  </div>
   <div class="header__links">
     <a href="#" data-scroll-to=".works" class="header__link"><span>{worksTitle}</span><sup>({worksCount})</sup></a>
     <a href="#" data-scroll-to=".services" class="header__link"><span>{servicesTitle}</span><sup>({servicesCount})</sup></a>
     <a href="#" data-scroll-to=".about-us" class="header__link"><span>{aboutUsTitle}</span></a>
+    <span class="header__langs" dir="ltr">
+      <a data-sveltekit-reload href="/"  class="header__link {arabic ? '' : 'active'}"><span>En</span></a> | <a data-sveltekit-reload href="/?lang=ar"  class="header__link {arabic ? 'active' : ''}"><span>Ar</span></a>
+    </span>
     <a href="mailto:{email}" class="header__button">
       <span>{contactUsTitle}</span>
-      <svg style="transform: {arabic ? 'scaleX(-1)' : 'none'}" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.999771 6H10.2424M10.2424 6L5.62109 1.37868M10.2424 6L5.62109 10.6213" stroke="#33092E" stroke-width="1.4" />
+      <svg style="transform: {arabic ? 'scaleX(-1)' : 'none'}" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.11573 10.7372L4.12619 9.74768L7.55262 6.32125H-0.000440352L-0.00113089 4.92154H7.55193L4.1255 1.49511L5.11573 0.504886L10.2319 5.62105L5.11573 10.7372Z" fill="#33092E"/>
       </svg>
     </a>
   </div>

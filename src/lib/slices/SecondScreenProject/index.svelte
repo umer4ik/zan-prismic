@@ -8,14 +8,10 @@
 </script>
 
 <div
+  data-scroll-section
   data-work-reference={slice.primary.work_reference_id}
   class="mwf"
   style:background-image="url({slice.primary.background.url})">
-  <span class="arrow-btn">
-    <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.57143 1L8 5M8 5L4.57143 9M8 5H0" stroke="#F4EDDD" />
-    </svg>
-  </span>
   <div class="mwf__content">
     <div class="blurred-block">
       <div class="blurred-block__start">

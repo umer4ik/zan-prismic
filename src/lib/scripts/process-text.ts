@@ -3,7 +3,7 @@ import { splitText } from "./split-text"
 
 export const processText = () => {
   splitText({
-    elements: $$('.intro__title-word'),
+    elements: $$('.intro-title-word'),
   });
   splitText({
     elements: $$('.header__link span'),
@@ -23,9 +23,16 @@ export const processText = () => {
     // el.parentNode!.removeChild(el);
   // });
 
-  splitText({
-    elements: $$('.intro-about__text > *')
-  })
+  if (document.documentElement.getAttribute('dir') === 'ltr') {
+    splitText({
+      elements: $$('.intro-about__text > *')
+    })
+  } else {
+    splitText({
+      elements: $$('.intro-about__text > *'),
+      isWord: true
+    })
+  }
 
   curtainize($$('.intro-braces'));
   curtainize($$('.intro-work'));

@@ -1,6 +1,7 @@
 import matterjs, { type Body } from 'matter-js';
 import { $, $$, assertIsHTMLElement } from '../dom-helper';
 import _ from "lodash";
+import { scroll } from './scroll';
 const { debounce, random } = _
 const {
   Engine,
@@ -56,6 +57,7 @@ export const handleFooter = () => {
         background: 'transparent',
         wireframes: false,
         showInternalEdges: false,
+        pixelRatio: 2,
       },
       engine: engine
     });
@@ -150,18 +152,17 @@ export const handleFooter = () => {
   let run = false;
   // run the engine
 
-  addEventListener('scroll', () => {
-    runIt()
+  scroll.on('scroll', ({ currentElements }) => {
+    if (currentElements['footer']?.progress > 0.1) {
+      runIt()
+    }
   });
   const runIt = () => {
-    const footerOffset = $('.footer').offsetTop;
-    // if (footerOffset - currentTarget.scrollY)
-    if (footerOffset - window.scrollY < window.innerHeight && !run) {
+    if (!run) {
       run = true;
       renderIt();
     }
   };
-  runIt();
   window.addEventListener('resize', debounce(() => { 
     renderIt();
   }, 400));

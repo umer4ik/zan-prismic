@@ -1,12 +1,26 @@
+.sh-hidden {
+  transition: transform 1.2s ease, opacity .8s ease;
+  transform: translate(0, 180px);
+  opacity: 0;
+}
+
 .project {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font-size: 16rem;
+  .show {
+    transform: none;
+    opacity: 1;
+  }
+  &__header {
+    @extend .sh-hidden;
+  }
 
   &__title {
-    font-size: 90px;
+    font-size: 90rem;
     line-height: 92%;
-    letter-spacing: -2px;
+    letter-spacing: -2rem;
     color: #634F1E;
     margin-bottom: 20px;
 
@@ -35,6 +49,7 @@
     justify-content: space-between;
     align-items: flex-end;
     gap: 20px;
+    @extend .sh-hidden;
   }
 
   &__tags {
@@ -53,7 +68,7 @@
     align-items: center;
     justify-content: center;
     padding-inline: 10px;
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
     display: inline-flex;
@@ -62,7 +77,8 @@
 
   &__main-img {
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 10rem;
+    @extend .sh-hidden;
 
     @media (max-width: 767px) {
       img {
@@ -75,6 +91,7 @@
   &__divider {
     height: 1px;
     background-color: rgba(#634F1E, 15%);
+    @extend .sh-hidden;
 
     &--extended {
       margin-inline: -20px;
@@ -88,6 +105,7 @@
   &__row {
     display: flex;
     gap: 20px;
+    @extend .sh-hidden;
 
     @media (max-width: 767px) {
       flex-direction: column;
@@ -97,7 +115,7 @@
   &__col {
     flex-grow: 1;
     position: relative;
-    &:has(img) {
+    &:has(img):not(:has(.next-project)) {
       border-radius: 10px;
       overflow: hidden;
     }
@@ -125,8 +143,8 @@
   }
 
   &__text {
-    max-width: 335px;
-    font-size: 16px;
+    max-width: 335rem;
+    font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
     color: #634f1e;
@@ -144,14 +162,14 @@
   }
 
   &__heading2 {
-    font-size: 30px;
+    font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
     color: #634f1e;
-    max-width: 592px;
+    max-width: 592rem;
 
     @media (max-width: 767px) {
-      font-size: 20px;
+      font-size: 20rem;
       line-height: 100%;
       letter-spacing: 0px;
     }
@@ -162,6 +180,7 @@
     align-items: start;
     justify-content: space-between;
     margin-bottom: 150px;
+    @extend .sh-hidden;
     @media (max-width: 767px) {
       margin-bottom: 50px;
     }
@@ -169,7 +188,7 @@
 
   &__back-to-top {
     text-decoration: underline;
-    font-size: 16px;
+    font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
     color: #634F1E;

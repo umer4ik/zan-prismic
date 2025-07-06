@@ -1,11 +1,13 @@
 .header {
   display: flex;
-  padding: 20px;
+  padding: 20rem;
   position: fixed;
   width: 100%;
   z-index: 4;
+  gap: 20rem;
+  color: #F4EDDD;
   transform: translateY(-110%);
-
+  align-items: flex-start;
   @media (max-width: 1230px) {
     align-items: center;
     padding-top: 14px;
@@ -13,17 +15,16 @@
 
   &__links {
     display: flex;
-    margin-inline-start: auto;
     align-items: center;
-    gap: 20rem;
+    gap: 27rem;
     font-weight: 500;
     font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
-    width: 33.3333%;
-    max-width: 33.3333%;
-    min-width: 33.3333%;
-
+    width: calc(33.3333% - 10rem);
+    max-width: calc(33.3333% - 10rem);
+    min-width: calc(33.3333% - 10rem);
+    white-space: nowrap;
     @media (max-width: 1230px) {
       display: none;
     }
@@ -39,24 +40,34 @@
     [data-mode="dark"] & {
       color: #634F1E;
     }
+    &.active {
+      pointer-events: none;
+      opacity: 0.4;
+    }
 
     sup {
       top: -10px;
     }
   }
 
+  &__langs {
+    display: flex;
+    gap: 4rem;
+  }
+
   &__button {
     text-decoration: none;
     color: var(--Cherry);
-    padding: 7px 10px;
+    padding: 7rem 10rem;
     background-color: var(--Golden);
     border-radius: 5px;
-    margin-inline-start: auto;
+    margin-inline-start: 7rem;
     position: relative;
-    transition: padding-inline-end .4s ease;
+    transition: padding-inline-end .4s ease-out, margin-inline-start .4s ease-out;
     &:hover {
       @media (min-width: 1400px) {
         padding-inline-end: 27rem;
+        margin-inline-start: -11rem;
       }
 
       svg {
@@ -69,11 +80,11 @@
 
     svg {
       position: absolute;
-      width: 12rem;
-      height: 12rem;
+      width: 11rem;
+      height: 11rem;
       margin-inline-start: 5rem;
       inset-inline-end: 0;
-      top: 7rem;
+      top: 9rem;
       transition: all .4s ease;
       opacity: 0;
     }
@@ -83,7 +94,9 @@
 .header-logo {
   position: relative;
   z-index: 2;
-
+  width: calc(66.6666% - 10rem);
+  max-width: calc(66.6666% - 10rem);
+  min-width: calc(66.6666% - 10rem);
   svg {
     width: 123rem;
     height: 40rem;

@@ -1,11 +1,11 @@
 import { animate, stagger, eases, JSAnimation } from 'animejs';
 import { zanEasing } from './utils';
-import { $, $$ } from '../dom-helper';
-import { lenis } from './scroll';
+import { $ } from '../dom-helper';
+import { scroll } from './scroll';
 
 // intro title
 export const animateIntroTitle = () => {
-  animate('.intro__title .split-text__visible', {
+  animate('.intro-title .split-text__visible', {
     y: ['100%', 0],
     duration: 1300,
     delay: stagger(180),
@@ -26,21 +26,25 @@ export const animateHeader = () => {
     ease: zanEasing,
     onComplete: () => {
       isShown = true;
-      checkIntersection();
-      lenis.on('scroll', () => {
-        const delta = window.scrollY - oldScroll;
-        
+      scroll.on('scroll', ({ direction, delta }) => {
+        if (
+          delta.y > $('.intro').getBoundingClientRect().height && delta.y < $('footer').offsetTop
+        ) {
+          header.dataset['mode'] = 'dark';
+        } else {
+          header.dataset['mode'] = 'light';
+
+        }
         if (window.scrollY !== oldScroll) {
           oldScroll = window.scrollY;
         }
-        if (delta < 0 && !isShown) { // scroll up
+        if (direction === 'up' && !isShown) { // scroll up
           showHeader();
           isShown = true
-        } else if (delta > 0 && isShown && !document.body.classList.contains('burger-open')) {
+        } else if (direction =='down' && isShown && !document.body.classList.contains('burger-open')) {
           hideHeader();
           isShown = false
         }
-        checkIntersection();
       })
     }
   })
@@ -64,73 +68,14 @@ export const animateHeader = () => {
       ease: eases.inOutQuad,
     })
   }
-
-  const checkIntersection = () => {
-    const intersectionTargets = [
-      {
-        el: $('.intro'),
-        mode: 'light',
-      },
-      {
-        el: $('.mwf'),
-        mode: 'dark'
-      },
-      {
-        el: $('.works'),
-        mode: 'dark'
-      },
-      {
-        el: $('.w-table'),
-        mode: 'dark'
-      },
-      {
-        el: $('.clients'),
-        mode: 'dark'
-      },
-      {
-        el: $('.services'),
-        mode: 'dark'
-      },
-      {
-        el: $('.about-us'),
-        mode: 'dark'
-      },
-      {
-        el: $('.triple-c'),
-        mode: 'dark'
-      },
-      {
-        el: $('.awards'),
-        mode: 'dark'
-      },
-      {
-        el: $('footer'),
-        mode: 'light'
-      },
-      ...(Array.from($$('.service-box')).map(el => ({
-        el,
-        mode: 'dark'
-      })))
-    ];
-    for (const { el, mode } of intersectionTargets) {
-      if (!el) return;
-      if (inHeader(el.getBoundingClientRect().top, el.getBoundingClientRect().bottom)) {
-        header.dataset['mode'] = mode;
-      }
-    }
-  }
-
-  const inHeader = (top: number, bottom: number) => {
-    const rect = header.getBoundingClientRect();
-    return top <= rect.top && bottom >= rect.bottom;
-  }
 }
 
 export const animateIntroAbout = () => {
+  const isArabic = document.documentElement.getAttribute('dir') === 'rtl'
   animate('.intro-braces .curtain__popper, .intro-about__text .split-text__visible, .intro-work .curtain__popper', {
     y: ['101%', 0],
     duration: 600,
-    delay: stagger(30),
+    delay: stagger(isArabic ? 110 : 30),
     ease: eases.outCirc,
   })
 }

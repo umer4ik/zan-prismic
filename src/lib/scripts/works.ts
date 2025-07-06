@@ -1,9 +1,24 @@
 import { type AnimatableObject, createAnimatable, type RenderableCallbacks } from "animejs";
-import {  $$ } from "../dom-helper";
+import { $, $$ } from "../dom-helper";
 
 type Animations = Record<string, RenderableCallbacks<never>>
 let arrow: HTMLElement | null = null;
 let animatable: AnimatableObject;
+
+const updateTransform = ({
+  x,
+  y,
+}: {
+  x?: number,
+  y?: number,
+}) => {
+  if (typeof x === 'number') {
+    document.documentElement.style.setProperty('--cursor-x', `${x / window.innerWidth}`)
+  }
+  if (typeof y === 'number') {
+    document.documentElement.style.setProperty('--cursor-y', `${y / window.innerHeight}`)
+  }
+}
 
 const makeAnimatable = (x: number, y: number) => {
   const cursor = {
@@ -20,9 +35,9 @@ const makeAnimatable = (x: number, y: number) => {
     const x = animatable!.x();
     if (typeof x !== 'number') return;
     if (!arrow) return;
-    const parentEl = arrow.parentElement!;
-    const offset = parentEl.getBoundingClientRect().left;
-    arrow.style.left = `${-offset + x - arrow.getBoundingClientRect().width / 2}px`;
+    updateTransform({
+      x
+    })
   };
 
   (animatable.animations as Animations).y.onRender = () => {
@@ -30,9 +45,9 @@ const makeAnimatable = (x: number, y: number) => {
     const y = animatable!.y();
     if (typeof y !== 'number') return;
     if (!arrow) return;
-    const parentEl = arrow.parentElement!;
-    const offset = parentEl.getBoundingClientRect().top;
-    arrow.style.top = `${-offset + y - arrow.getBoundingClientRect().height / 2}px`;
+    updateTransform({
+      y
+    });
   };
   return animatable;
 }
@@ -46,16 +61,71 @@ export const handleWorks = () => {
     animatable.y(e.clientY);
   }
   document.body.addEventListener('mousemove', recordCursorPosition);
-  $$('.work__img, .mwf').forEach(x => {
-    x.addEventListener('mouseenter', ({ currentTarget }) => {
-      if (!(currentTarget instanceof HTMLElement)) return;
-      arrow = currentTarget.querySelector('.arrow-btn')!;
-      arrow.classList.add('show');
-    });
-    x.addEventListener('mouseleave', ({ currentTarget }) => {
-      if (!(currentTarget instanceof HTMLElement)) return;
-      arrow = currentTarget.querySelector('.arrow-btn')!;
-      arrow.classList.remove('show');
-    })
-  });
+  arrow = $('#arrow-btn');
+  // $$('[data-work-reference]').forEach(x => {
+  //   x.addEventListener('mouseover', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     showArrow();
+  //   });
+  //   x.addEventListener('mouseenter', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     showArrow();
+  //   });
+  //   x.addEventListener('mouseleave', ({ currentTarget }) => {
+  //     if (!(currentTarget instanceof HTMLElement)) return;
+  //     hideArrow();
+  //   })
+  // });
+
+  // const handle = ({ target }: MouseEvent) => {
+  //   if (!(target instanceof HTMLElement)) return;
+  //   const trigger = target.closest('[data-work-reference]');
+  //   if (trigger instanceof HTMLElement) {
+  //     showArrow();
+  //   } else {
+  //     hideArrow();
+  //   }
+  // }
+
+  // document.body.addEventListener('mousemove', handle)
+  // document.body.addEventListener('mouseover', handle)
+  // document.body.addEventListener('mouseleave', handle)
+
+  const showArrow = () => {
+    arrow!.classList.add('show');
+    document.body.style.cursor = 'none'
+  }
+  const hideArrow = () => {
+    arrow!.classList.remove('show');
+    document.body.style.cursor = 'unset'
+  }
+
+  const isInBounds = ({
+    x,
+    y,
+  }: {
+    x: number,
+    y: number,
+  }, outer: HTMLElement | null) => {
+    if (!outer) return false;
+    const _outer = outer.getBoundingClientRect();
+    return y > _outer.top && y < _outer.bottom && x > _outer.left && x < _outer.right
+  }
+
+  const blocks = Array.from($$('[data-work-reference]'));
+
+  const check = () => {
+    if (arrow && animatable) {
+      if (blocks.some(block => isInBounds({
+        x: animatable.x() as number,
+        y: animatable.y() as number
+      }, block))) {
+        showArrow();
+      } else {
+        hideArrow();
+      }
+    }
+    requestAnimationFrame(check)
+  };
+  check();
 }

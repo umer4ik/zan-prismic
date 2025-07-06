@@ -14,7 +14,7 @@
     phone: 'Phone',
     email: 'Email',
     address: 'Address',
-    location: 'Based in Riyadh, Saudi Arabia get directions',
+    location: 'Based in Riyadh, Saudi Arabia',
     company: 'Company',
     works: 'Works',
     services: 'Services',
@@ -47,7 +47,7 @@
   }
 </script>
 
-<div class="footer">
+<div class="footer" data-scroll data-scroll-id="footer">
   {#if phone}
     <div class="footer__row">
       <div class="footer__dt braced">({titles.phone})</div>

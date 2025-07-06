@@ -6,6 +6,9 @@
       html[dir="rtl"] & {
         transform: translateX(-100%);
       }
+      html[dir="rtl"] .header__langs & {
+        transform: translateX(100%);
+      }
     }
   }
   &__container {

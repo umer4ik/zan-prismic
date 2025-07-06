@@ -24,7 +24,7 @@
     beliefTitle = 'الغاية'
   }
 </script>
-<div class="about-us">
+<div class="about-us" data-scroll-section>
   <div class="about-us__start">
     <div class="title title--about-us">
       {aboutUsTitle}

@@ -3,7 +3,7 @@
   padding-top: 20px;
   display: flex;
   justify-content: center;
-  padding-bottom: 200px;
+  padding-bottom: 200rem;
   border-bottom: 1px solid rgba(#634F1E, 15%);
   @media (max-width: 1020px) {
     padding-top: 16px;
@@ -11,5 +11,6 @@
   &__content {
     flex-grow: 1;
     padding-inline: 20px;
+    padding-bottom: 30rem;
   }
 }

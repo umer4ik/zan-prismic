@@ -1,10 +1,11 @@
 @use "reset.scss";
-@use 'lenis/dist/lenis.css';
 @use "fonts.scss";
 @use "variables.scss";
 @use "split-text.scss";
 @use "preloader.scss";
 @use "intro.scss";
+@use "intro-content.scss";
+@use "intro-works.scss";
 @use "header.scss";
 @use "mwf.scss";
 @use "blurred-block.scss";
@@ -40,7 +41,7 @@ html {
   font-family: 'PP Neue Montreal', LTZaridSans, sans-serif;
   font-weight: 500;
   font-size: 0.06944444444vw;
-  @media (max-width: 1400px) {
+  @media (max-width: 1440px) {
     font-size: 1px;
   }
 }
@@ -58,23 +59,9 @@ img {
 }
 .app {
   max-width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 footer {
   background-color: #33092E;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track-piece {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb:vertical,
-::-webkit-scrollbar-thumb:horizontal {
-  background: #634F1E;
-  border-radius: 3px;
-}

@@ -1,104 +1,90 @@
-// import { animate, eases, JSAnimation } from "animejs";
-import { $$ } from "../dom-helper"
-// import _ from "lodash";
-// import gsap from 'gsap';
-// import { lenis } from "./scroll";
-// import { gsap } from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-// const { debounce } = _;
-// gsap.registerPlugin(ScrollTrigger)
+import { $, $$ } from "$lib/dom-helper";
+import { scroll } from "./scroll"
+import { extrapolate } from "./utils";
 
 export const addServicesEventListeners = () => {
-  // $('.services').addEventListener('click', ({ target }) => {
-  //   if (window.innerWidth > 768) return;
-  //   assertIsHTMLElement(target);
-  //   const trigger = target.closest('.service');
-  //   if (!trigger || trigger.classList.contains('hovered')) return;
-  //   assertIsHTMLElement(trigger);
-  //   if ($('.service.hovered')) {
-  //     collapse($('.service.hovered'));
-  //     $('.service.hovered').classList.remove('hovered');
-  //   }
-  //   trigger.classList.add('hovered');
-  //   expand(trigger)
-  // });
+  // get the title height
+  // get the services height
+  // get the service height
+  // start of service 1 animation = title height / services height <- progress
+  // end of service 1 animation = (title height + service 1 height) / services height <- progress
 
-  // const resize = debounce(() => {
-  //   // if (window.innerWidth > 768) {
-  //   if (expandAnimation) {
-  //     expandAnimation.cancel()
-  //   }
-  //   if (collapseAnimation) {
-  //     collapseAnimation.cancel()
-  //   }
-  //   if ($('.service.expanded')) {
-  //     $('.service.expanded').classList.remove('expanded');
-  //   }
-  //   $$('.service').forEach(x => x.removeAttribute('style'))
-  //   // }
-  // }, 400)
-  // window.addEventListener('resize', resize);
- 
-  const initScrollTrigger = () => {
-    ScrollTrigger.create({
-      trigger: '.services__title-box',
-      start: 'top top',
-      pin: true,
-      pinType: 'fixed',
+  const servicesHeight = $('.services').offsetHeight;
+  const titleHeight = $('.services__title-box').offsetHeight
+  const service0Height = $$('.service-box')[0].offsetHeight
+  const service1Height = $$('.service-box')[1].offsetHeight
+  const service2Height = $$('.service-box')[2].offsetHeight
+  const service3Height = $$('.service-box')[3].offsetHeight
+  const endOfService0Animation = (titleHeight / 2) / servicesHeight;
+  const endOfService1Animation = (titleHeight / 2 + service0Height) / servicesHeight;
+  const endOfService2Animation = (titleHeight / 2 + service0Height + service1Height) / servicesHeight;
+  const endOfService3Animation = (titleHeight / 2 + service0Height + service1Height + service2Height) / servicesHeight;
+  const endOfService4Animation = (titleHeight / 2 + service0Height + service1Height + service2Height + service3Height) / servicesHeight;
+  scroll.on('scroll', ({ currentElements }) => {
+    return;
+    const el = currentElements['services-title'];
+    const services = $$('.service-box')
+    if (!el) return;
+    const { progress } = el;
+    if (!progress) return
+    moveService({
+      progress,
+      distance: titleHeight,
+      endOfAnimation: endOfService0Animation,
+      service: services[0],
+      totalHeight: servicesHeight,
     });
-    $$('.service-box').forEach((service, i) => {
-      if (i === 4) return
-      ScrollTrigger.create({
-        trigger: service,
-        start: 'top top',
-        pin: true,
-        pinType: 'transform',
-        pinSpacing: false,
-        // markers: true,
-        // onUpdate: ({ progress }) => {
-        //   if (progress > 0.6) {
-        //     const el = service.querySelector('.service');
-        //     if (el instanceof HTMLElement) {
-        //       el.style.transform = `scale(${1 - (progress - 0.6) / 10})`
-        //       el.style.opacity = `${1 - (progress - 0.6) / 10}`
-        //     }
-            
-        //   }
-        // }
-      });
-    })
-  }
-  initScrollTrigger();
- 
+
+    moveService({
+      progress,
+      distance: titleHeight + service0Height,
+      endOfAnimation: endOfService1Animation,
+      service: services[1],
+      totalHeight: servicesHeight,
+    });
+
+    moveService({
+      progress,
+      distance: titleHeight + service0Height + service1Height,
+      endOfAnimation: endOfService2Animation,
+      service: services[2],
+      totalHeight: servicesHeight,
+    });
+
+    moveService({
+      progress,
+      distance: titleHeight + service0Height + service1Height + service2Height,
+      endOfAnimation: endOfService3Animation,
+      service: services[3],
+      totalHeight: servicesHeight,
+    });
+
+    moveService({
+      progress,
+      distance: titleHeight + service0Height + service1Height + service2Height + service3Height,
+      endOfAnimation: endOfService4Animation,
+      service: services[4],
+      totalHeight: servicesHeight,
+    });
+
+  })
 }
 
-// let collapseAnimation: JSAnimation;
-// let expandAnimation: JSAnimation;
+interface MoveServiceProps {
+  progress: number
+  totalHeight: number
+  distance: number
+  endOfAnimation: number
+  service: HTMLElement
+}
 
-// const getTargetHeight = () => {
-//   const width = window.innerWidth;
-//   if (width > 1200) return 120;
-//   if (width <= 1200 && width > 1024) return 105;
-//   if (width <= 1024 && width > 768) return 90;
-//   return 70;
-// }
-
-// const collapse = (service: HTMLElement) => {
-//   collapseAnimation = animate(service, {
-//     height: [service.getBoundingClientRect().height, getTargetHeight()],
-//     duration: 400,
-//     ease: eases.inOutQuad,
-//   })
-// }
-
-// const expand = (service: HTMLElement) => {
-//   const startHeight = service.getBoundingClientRect().height;
-//   service.style.height = 'auto';
-//   const targetHeight = service.getBoundingClientRect().height;
-//   service.removeAttribute('style');
-//   expandAnimation = animate(service, {
-//     height: [startHeight, targetHeight],
-//     duration: 400,
-//     ease: eases.inOutQuad,
-//   })
-// }
+const moveService = ({
+  progress,
+  distance,
+  endOfAnimation,
+  service,
+  totalHeight,
+}: MoveServiceProps) => {
+  const _progress = extrapolate(0, endOfAnimation, progress, distance);
+  service.style.transform = `translateY(calc(${-Math.min(_progress, endOfAnimation * totalHeight)}px))`
+}
