@@ -1,5 +1,5 @@
 import { $, $$ } from "../dom-helper";
-import { stagger } from "animejs";
+import { eases, stagger } from "animejs";
 import { createTimeline, utils, Timeline } from 'animejs';
 import GUI from 'lil-gui';
 
@@ -9,7 +9,7 @@ const leftImage1 = $('.preloader-image:nth-of-type(2)');
 const leftImage2 = $('.preloader-image:nth-of-type(1)');
 const rightImage1 = $('.preloader-image:nth-of-type(4)');
 const rightImage2 = $('.preloader-image:nth-of-type(5)');
-const logo = $('.preloader-logo__img');
+const logo = $$('.preloader-logo__svg path');
 const diamond = $('.preloader-diamond');
 const preloaderEl = $('.preloader')
 
@@ -37,12 +37,12 @@ const settings = {
     "delay": 600
   },
   "logoIn": {
-    "duration": 750,
+    "duration": 1200,
     "delay": 50
   },
   "diamond": {
     "transform": {
-      "duration": 830,
+      "duration": 750,
       "delay": 630
     },
     "opacity": {
@@ -134,24 +134,31 @@ const preloader = {
         ease: 'cubicBezier(1,0,0.41,1)',
       })
       .add(logo, {
-        height: '100%',
-        duration: settings.logoIn.duration,
-        delay: settings.logoIn.delay,
-        ease: 'cubicBezier(1,0,0.41,1)',
+        y: ['100%', 0],
+        duration: 1000,
+        delay: stagger(150),
+        ease: eases.outQuad,
       })
       .add(diamond, {
-        rotate: '0.5turn',
-        scale: (Math.max(window.innerHeight, innerWidth) + 200) / 110,
-        duration: settings.diamond.transform.duration,
-        delay: settings.diamond.transform.delay,
+        rotate: ['-0.125turn', '0turn'],
+        width: '100%',
+        height: '100%',
+        left: '0',
+        top: '0',
+        duration: 750,
+        delay: 350,
         ease: 'cubicBezier(.18,.61,.46,.98)',
         opacity: {
           to: 1,
           ease: 'linear',
-          duration: settings.diamond.opacity.duration,
-          delay: settings.diamond.opacity.delay,
+          duration: 300,
+          delay: 100,
         },
-      }, '-=400')
+        onBegin: () => {
+          diamond.style.left = $('#preloader-hidden-logo svg path').getBoundingClientRect().left + 7 + 'px'
+          diamond.style.top = $('#preloader-hidden-logo svg path').getBoundingClientRect().top + 7  + 'px'
+        }
+      }, '-=700')
       .add(preloaderEl, {
         opacity: 0,
         duration: 400,
@@ -200,7 +207,7 @@ const preloader = {
         image.removeAttribute('style');
         image.parentElement?.removeAttribute('style');
       }
-      logo.removeAttribute('style');
+      // logo.removeAttribute('style');
       progress.value = 0;
       progressNumberEl.textContent = '0';
       progressEl.removeAttribute('style');
