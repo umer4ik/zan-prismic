@@ -33,7 +33,7 @@
   <div class="project__row">
     <div class="project__col">
       {#if slice.primary.title}
-        <div class="braced">({slice.primary.title})</div>
+        <div class="braced">{slice.primary.title}</div>
       {/if}
     </div>
   </div>
@@ -50,7 +50,7 @@
   <div class="project__row">
     <div class="project__col">
       {#if slice.primary.title}
-        <div class="braced">({slice.primary.title})</div>
+        <div class="braced">{slice.primary.title}</div>
       {/if}
     </div>
     <div class="project__col">
@@ -67,7 +67,7 @@
     </div>
     <div class="project__col">
       {#if slice.primary.title}
-        <div class="braced" style="margin-bottom: 15px;">({slice.primary.title})</div>
+        <div class="braced" style="margin-bottom: 15px;">{slice.primary.title}</div>
       {/if}
       <div class="project__text">
         <PrismicRichText field={slice.primary.text} />
@@ -77,7 +77,7 @@
 {/if}
 
 {#if slice.variation === 'gap'}
-  <div style:height="{isMobile ? slice.primary.mobile : slice.primary.desktop}px" />
+  <div style:height="{isMobile ? slice.primary.mobile : slice.primary.desktop}px"></div>
 {/if}
 
 {#if slice.variation === 'divider'}
