@@ -44,11 +44,11 @@
     <table class="awards-table">
       <thead>
         <tr>
-          <th>({titles.number})</th>
-          <th>({titles.projectName})</th>
+          <th>{titles.number}</th>
+          <th>{titles.projectName}</th>
           <th></th>
-          <th>({titles.award})</th>
-          <th>({titles.year})</th>
+          <th>{titles.award}</th>
+          <th>{titles.year}</th>
         </tr>
       </thead>
       <tbody>

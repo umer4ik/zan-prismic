@@ -56,10 +56,10 @@
   <div class="w-table__content">
     <div class="w-table__body">
       <div class="w-row">
-        <div class="w-row__col">({nameTitle})</div>
-        <div class="w-row__col">({locationTitle})</div>
-        <div class="w-row__col">({serviceTitle})</div>
-        <div class="w-row__col desktop-hidden">({otherProjectsTitle})</div>
+        <div class="w-row__col">{nameTitle}</div>
+        <div class="w-row__col">{locationTitle}</div>
+        <div class="w-row__col">{serviceTitle}</div>
+        <div class="w-row__col desktop-hidden">{otherProjectsTitle}</div>
       </div>
       {#each slice.primary.works as item, index (index)}
         <div class="w-row" data-work-reference="{item.work_reference_id}">

@@ -37,14 +37,14 @@
     <div class="intro-col intro-col--other">
       <div class="intro-about">
     <div class="intro-about__content">
-      <div class="intro-braces">({aboutTitle})</div>
+      <div class="intro-braces">{aboutTitle}</div>
       <div class="intro-about__text">
         <PrismicRichText field={slice.primary.description} />
       </div>
     </div>
   </div>
   <div class="intro-works">
-    <div class="intro-braces">( {worksTitle} )</div>
+    <div class="intro-braces">{worksTitle}</div>
     <div class="intro-works__content">
       {#each slice.primary.intro_works as item, index (index)}
         <div class="intro-work" data-work-reference={item.work_reference_id}>

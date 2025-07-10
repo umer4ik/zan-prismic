@@ -52,14 +52,14 @@
               <div class="service__title">
                 {item.name}
               </div>
-              <div class="service__explanation">({explanationTitle})</div>
+              <div class="service__explanation">{explanationTitle}</div>
               <div class="service__description">
                 <PrismicRichText field={item.explanation} />
               </div>
             </div>
             <div class="service__number">{_.padStart(`${index + 1}`, 2, '0')}</div>
             <div class="service__mobile">
-              <div class="service__explanation">({explanationTitle})</div>
+              <div class="service__explanation">{explanationTitle}</div>
               <div class="service__description">
                 <PrismicRichText field={item.explanation} />
               </div>
