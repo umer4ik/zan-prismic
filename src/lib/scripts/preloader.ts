@@ -79,9 +79,9 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: 510,
+        duration: 650,
         delay: 210,
-        ease: 'cubicBezier(1,0,0.41,1)'
+        ease: eases.inOutQuad
       })
       .add(rightImage1, {
         x: {
@@ -92,10 +92,10 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: 510,
+        duration: 650,
         delay: 210,
-        ease: 'cubicBezier(1,0,0.41,1)'
-      }, `-=${510 + 210}`)
+        ease: eases.inOutQuad
+      }, `-=${650 + 210}`)
       .add(leftImage2, {
         x: {
           from: -120,
@@ -105,9 +105,9 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: 550,
-        delay: 330,
-        ease: 'cubicBezier(1,0,0.41,1)'
+        duration: 650,
+        delay: 210,
+        ease: eases.inOutQuad
       })
       .add(rightImage2, {
         x: {
@@ -118,9 +118,9 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: 550,
-        delay: 330,
-        ease: 'cubicBezier(1,0,0.41,1)',
+        duration: 650,
+        delay: 210,
+        ease: eases.inOutQuad,
         onComplete: () => {
           for (const image of images) {
             image.classList.add('stick-to-top');
@@ -129,14 +129,14 @@ const preloader = {
       }, `-=${550 + 330}`)
       .add(images, {
         height: 0,
-        duration: 520,
-        delay: stagger([600, 100]),
-        ease: 'cubicBezier(1,0,0.41,1)',
+        duration: 650,
+        delay: stagger([650, 100]),
+        ease: eases.inOutQuad,
       })
       .add(logo, {
         y: ['100%', 0],
-        duration: 1000,
-        delay: stagger(150),
+        duration: 800,
+        delay: stagger(130),
         ease: eases.outQuad,
       })
       .add(diamond, {
@@ -251,8 +251,16 @@ const preloader = {
 
   init() {
     return new Promise<void>((resolve) => {
-      this.animate().onComplete = () => {
-        resolve();
+      // this.animate().onComplete = () => {
+      //   resolve();
+      // }
+      let resolved = false;
+      const tl = this.animate()
+      tl.onUpdate = () => {
+        if (tl.progress > 0.9 && !resolved) {
+          resolved = true;
+          resolve();
+        }
       }
     })
     // this.complete();
