@@ -66,9 +66,9 @@ const preloader = {
     const elementsTl = createTimeline();
     elementsTl.add(centralImage, {
       height: '100%',
-      duration: settings.firstImage.duration,
-      delay: settings.firstImage.delay,
-      ease: 'cubicBezier(1,0,0.41,1)'
+      duration: 760,
+      delay: 0,
+      ease: eases.inOutQuad,
     })
       .add(leftImage1, {
         x: {
@@ -79,8 +79,8 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: settings.secondImages.duration,
-        delay: settings.secondImages.delay,
+        duration: 510,
+        delay: 210,
         ease: 'cubicBezier(1,0,0.41,1)'
       })
       .add(rightImage1, {
@@ -92,10 +92,10 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: settings.secondImages.duration,
-        delay: settings.secondImages.delay,
+        duration: 510,
+        delay: 210,
         ease: 'cubicBezier(1,0,0.41,1)'
-      }, `-=${settings.secondImages.duration + settings.secondImages.delay}`)
+      }, `-=${510 + 210}`)
       .add(leftImage2, {
         x: {
           from: -120,
@@ -105,8 +105,8 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: settings.thirdImages.duration,
-        delay: settings.thirdImages.delay,
+        duration: 550,
+        delay: 330,
         ease: 'cubicBezier(1,0,0.41,1)'
       })
       .add(rightImage2, {
@@ -118,19 +118,19 @@ const preloader = {
           from: 0,
           to: 1,
         },
-        duration: settings.thirdImages.duration,
-        delay: settings.thirdImages.delay,
+        duration: 550,
+        delay: 330,
         ease: 'cubicBezier(1,0,0.41,1)',
         onComplete: () => {
           for (const image of images) {
             image.classList.add('stick-to-top');
           }
         }
-      }, `-=${settings.thirdImages.duration + settings.thirdImages.delay}`)
+      }, `-=${550 + 330}`)
       .add(images, {
         height: 0,
-        duration: settings.imagesCollapse.duration,
-        delay: stagger([settings.imagesCollapse.delay, 100]),
+        duration: 520,
+        delay: stagger([600, 100]),
         ease: 'cubicBezier(1,0,0.41,1)',
       })
       .add(logo, {

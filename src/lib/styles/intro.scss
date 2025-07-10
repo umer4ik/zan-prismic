@@ -79,6 +79,10 @@
   display: flex;
   position: relative;
   z-index: 3;
+  margin-top: 9rem;
+  @media (max-width: 1230px) {
+    margin-top: 0;
+  }
 
   &__content {
     font-weight: 500;

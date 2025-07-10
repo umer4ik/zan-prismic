@@ -63,7 +63,7 @@
 .intro-title {
   font-weight: 500;
   font-size: 242rem;
-  line-height: 181rem;
+  line-height: 189rem;
   text-transform: uppercase;
   position: relative;
   display: flex;
@@ -109,7 +109,7 @@
   }
 
   &--2 {
-    padding-top: 5rem;
+    margin-top: -4rem;
     margin-left: -2rem;
     .split-text__char-container:nth-child(1) {
       margin-right: -23rem;
@@ -156,7 +156,7 @@
 .intro-title-word {
   &--r {
     font-size: 100rem;
-    line-height: 84rem;
+    line-height: 96rem;
     margin-left: 10rem;
 
     @media (max-width: 1439px) {
