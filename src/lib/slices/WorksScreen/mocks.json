@@ -107,6 +107,21 @@
 									"value": "journey",
 									"type": "Text"
 								}
+							],
+							[
+								"tag2",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "since",
+									"type": "Text"
+								}
+							],
+							[
+								"full_screen",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
 							]
 						]
 					}

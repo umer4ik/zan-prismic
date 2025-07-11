@@ -2,6 +2,9 @@
   padding-block: 200px;
   display: flex;
   justify-content: center;
+  background-color: #F9F6EF;
+  z-index: 1;
+  position: relative;
   &__content {
     flex-grow: 1;
   }

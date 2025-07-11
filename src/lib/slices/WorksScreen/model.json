@@ -67,6 +67,13 @@
                   "placeholder": ""
                 }
               },
+              "tag2": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag2",
+                  "placeholder": ""
+                }
+              },
               "thumbnail": {
                 "type": "Image",
                 "config": {
@@ -80,6 +87,15 @@
                 "config": {
                   "label": "Work Reference ID",
                   "placeholder": ""
+                }
+              },
+              "full_screen": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Full Screen",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
                 }
               }
             }

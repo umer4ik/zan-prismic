@@ -1292,6 +1292,16 @@ export interface WorksScreenSliceDefaultPrimaryWorksItem {
   tag: prismic.KeyTextField;
 
   /**
+   * Tag2 field in *WorksScreen → Default → Primary → Works*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works_screen.default.primary.works[].tag2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag2: prismic.KeyTextField;
+
+  /**
    * Thumbnail field in *WorksScreen → Default → Primary → Works*
    *
    * - **Field Type**: Image
@@ -1310,6 +1320,17 @@ export interface WorksScreenSliceDefaultPrimaryWorksItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   work_reference_id: prismic.KeyTextField;
+
+  /**
+   * Full Screen field in *WorksScreen → Default → Primary → Works*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: works_screen.default.primary.works[].full_screen
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  full_screen: prismic.BooleanField;
 }
 
 /**

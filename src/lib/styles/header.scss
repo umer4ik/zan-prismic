@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 4;
   gap: 20rem;
-  color: #F4EDDD;
+  color: #F2EDDE;
   transform: translateY(-110%);
   align-items: flex-start;
   @media (max-width: 1230px) {
@@ -33,7 +33,7 @@
   &__link {
     text-decoration: none;
     transition: color .4s ease;
-    color: #F4EDDD;
+    color: #F2EDDE;
     html[dir="rtl"] & {
       line-height: 1.3;
     }

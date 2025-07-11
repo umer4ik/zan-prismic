@@ -11,7 +11,7 @@
   };
 
   const { slice, context }: Props = $props();
-  const colors = ['#F9F6EF', '#EBE0C6', '#D5C291', '#EBE0C6', '#F4EDDD'];
+  const colors = ['#F9F6EF', '#EBE0C6', '#D5C291', '#EBE0C6', '#F2EDDE'];
   const arabic = isArabic(context.locale);
   let servicesTitle = 'SERVICES';
   let explanationTitle = 'Explanation';

@@ -112,7 +112,7 @@ export const handleWorks = () => {
     return y > _outer.top && y < _outer.bottom && x > _outer.left && x < _outer.right
   }
 
-  const blocks = Array.from($$('[data-work-reference]'));
+  const blocks = Array.from($$('.w-table [data-work-reference], .work[data-work-reference], .mwf[data-work-reference]'));
 
   const check = () => {
     if (arrow && animatable) {

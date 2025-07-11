@@ -4,6 +4,7 @@ import {
 } from "../dom-helper";
 import GUI from "lil-gui";
 import { browser } from "$app/environment";
+import { scroll } from "./scroll";
 
 interface KindaPoint {
   x: number,
@@ -265,6 +266,11 @@ const intro: {
       this.renderSquares();
     };
     window.addEventListener('resize', onWindowResize);
+    scroll.on('scroll', ({ currentElements }) => {
+      if (currentElements.intro) {
+        $('.intro__curtain').style.opacity = currentElements.intro.progress - 0.5 + '';
+      }
+    })
   }
 }
 

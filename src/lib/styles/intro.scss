@@ -2,7 +2,7 @@
   min-height: 100vh;
   width: 100%;
   background-color: var(--Cherry);
-  color: #F4EDDD;
+  color: #F2EDDE;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -10,6 +10,17 @@
   justify-content: flex-end;
   p {
     margin: 0;
+  }
+  &__curtain {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, .8);
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
   }
 }
 

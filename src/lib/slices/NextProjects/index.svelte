@@ -34,7 +34,7 @@
           </div>
           <span class="next-project__btn arrow-btn">
             <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.57143 1L8 5M8 5L4.57143 9M8 5H0" stroke="#F4EDDD" />
+              <path d="M4.57143 1L8 5M8 5L4.57143 9M8 5H0" stroke="#F2EDDE" />
             </svg>
           </span>
         </div>

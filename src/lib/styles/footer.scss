@@ -15,7 +15,7 @@
     margin-inline: auto;
     width: 100%;
     display: flex;
-    color: #f4eddd;
+    color: #F2EDDE;
     @media (max-width: 500px) {
       flex-wrap: wrap;
       padding-inline: 20px;
@@ -27,7 +27,7 @@
     max-width: 33.33%;
     padding-inline-start: 20px;
     &.braced {
-      color:#F4EDDD;
+      color:#F2EDDE;
     }
     @media (max-width: 500px) {
       width: 100%;
