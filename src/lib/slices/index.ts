@@ -6,7 +6,6 @@ import Clients from './Clients/index.svelte';
 import Intro from './Intro/index.svelte';
 import NextProjects from './NextProjects/index.svelte';
 import ProjectBlock from './ProjectBlock/index.svelte';
-import SecondScreenProject from './SecondScreenProject/index.svelte';
 import Services from './Services/index.svelte';
 import TripleC from './TripleC/index.svelte';
 import ProjectHeader from './ProjectHeader/index.svelte';
@@ -19,7 +18,6 @@ export const components = {
   intro: Intro,
   next_projects: NextProjects,
   project_block: ProjectBlock,
-  second_screen_project: SecondScreenProject,
   services: Services,
   triple_c: TripleC,
   work_header: ProjectHeader,

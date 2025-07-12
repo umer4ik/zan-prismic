@@ -3,7 +3,7 @@
   padding-top: 20px;
   display: flex;
   justify-content: center;
-  padding-bottom: 200rem;
+  padding-bottom: calc(100vh - 120rem);
   border-bottom: 1px solid rgba(#634F1E, 15%);
   @media (max-width: 1020px) {
     padding-top: 16px;

@@ -97,6 +97,13 @@
                   "placeholder_true": "true",
                   "default_value": false
                 }
+              },
+              "year": {
+                "type": "Text",
+                "config": {
+                  "label": "Year",
+                  "placeholder": ""
+                }
               }
             }
           }

@@ -16,6 +16,7 @@
     awards: 'Awards',
     number: 'Number',
     projectName: 'Project Name',
+    category: 'Category',
     award: 'Award',
     year: 'Year'
   }
@@ -24,6 +25,7 @@
     titles.number = 'الرقم'
     titles.projectName = 'اسم المشروع'
     titles.award = 'جائزة'
+    titles.category = 'فئة'
     titles.year = 'السنة'
   }
 
@@ -44,18 +46,18 @@
     <table class="awards-table">
       <thead>
         <tr>
-          <th>{titles.number}</th>
-          <th>{titles.projectName}</th>
-          <th></th>
-          <th>{titles.award}</th>
           <th>{titles.year}</th>
+          <th>{titles.award}</th>
+          <th></th>
+          <th>{titles.category}</th>
+          <th>{titles.projectName}</th>
         </tr>
       </thead>
       <tbody>
         {#each slice.primary.awards as item, i (i)}
           <tr class="award-row" data-award={i}>
             <td>
-              ({_.padStart(`${i + 1}`, 2, '0')})
+              {item.year}
               <div class="award-row__image">
                 <div>
                   <PrismicImage field={item.image} />
@@ -63,11 +65,11 @@
               </div>
             </td>
             <td>
-              {item.name}
+              {item.award}
             </td>
             <td><PrismicImage field={item.image} /></td>
             <td>{item.award}</td>
-            <td>{item.year}</td>
+            <td>{item.name}</td>
           </tr>
         {/each}
       </tbody>

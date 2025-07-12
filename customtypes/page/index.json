@@ -45,9 +45,6 @@
             "works_screen": {
               "type": "SharedSlice"
             },
-            "second_screen_project": {
-              "type": "SharedSlice"
-            },
             "intro": {
               "type": "SharedSlice"
             }

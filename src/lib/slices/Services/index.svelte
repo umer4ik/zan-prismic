@@ -28,7 +28,7 @@
   data-scroll-id="services-container"
   style="position: relative;"
   id="services">
-  <div class="services__title-box" data-scroll data-scroll-id="services-title" data-scroll-sticky data-scroll-target="#services">
+  <div class="services__title-box" data-scroll data-scroll-id="services-title" data-scroll-sticky data-scroll-target="#services" data-scroll-offset="0, 100%">
     <div class="services__title">{servicesTitle}</div>
   </div>
   {#each services as item, index (index)}
@@ -41,7 +41,8 @@
     ></div>
   {/each}
   {#each services as item, index (index)}
-    <div style="width: 100%;" data-scroll data-scroll-id="service-{index}" data-scroll-sticky data-scroll-target="#service-anchor-{index}">
+    <!-- <div style="width: 100%;" data-scroll data-scroll-id="service-{index}" data-scroll-sticky data-scroll-target="#service-anchor-{index}"> -->
+    <div class="service-wrapper" style="width: 100%;" data-scroll data-scroll-id="service-{index}" data-scroll-sticky data-scroll-offset="{200 * index + 100}, 100%" data-scroll-target="#services">
       <div class="service-box" style="background-color: {colors[index % 5]};">
         <div class="service">
           <div class="service__content">
@@ -52,7 +53,7 @@
               <div class="service__title">
                 {item.name}
               </div>
-              <div class="service__explanation">{explanationTitle}</div>
+              <!-- <div class="service__explanation">{explanationTitle}</div> -->
               <div class="service__description">
                 <PrismicRichText field={item.explanation} />
               </div>
@@ -67,10 +68,13 @@
           </div>
         </div>
         {#if index === services.length - 1}
-          <div class="services-gap"></div>
+          <!-- <div class="services-gap"></div> -->
         {/if}
       </div>
     </div>
   {/each}
+  <div class="services-gap"></div>
 </div>
-<div class="services-gap"></div>
+<!-- <div class="after-services" data-scroll-section>
+</div> -->
+

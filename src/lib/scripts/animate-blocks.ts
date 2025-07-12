@@ -17,8 +17,10 @@ export const animateIntroTitle = () => {
 // site header
 export const animateHeader = () => {
   let oldScroll = 0;
+  let animCurtain: JSAnimation;
   let anim: JSAnimation;
   let isShown = false;
+  let isCurtainShown = false;
   const header = $('.header')
   animate('.header', {
     y: ['-60px', 0],
@@ -33,7 +35,6 @@ export const animateHeader = () => {
           header.dataset['mode'] = 'dark';
         } else {
           header.dataset['mode'] = 'light';
-
         }
         if (window.scrollY !== oldScroll) {
           oldScroll = window.scrollY;
@@ -44,6 +45,16 @@ export const animateHeader = () => {
         } else if (direction =='down' && isShown && !document.body.classList.contains('burger-open')) {
           hideHeader();
           isShown = false
+        }
+      });
+      scroll.on('scroll', ({ direction, delta }) => {
+        if (direction === 'up' && !isCurtainShown) {
+          isCurtainShown = true;
+          showCurtain();
+        }
+        if (delta.y === 0 && isCurtainShown) {
+          hideCurtain();
+          isCurtainShown = false;
         }
       })
     }
@@ -64,6 +75,28 @@ export const animateHeader = () => {
     }
     anim = animate('.header', {
       y: [0, '-110%'],
+      duration: 400,
+      ease: eases.inOutQuad,
+    })
+  }
+
+  const hideCurtain = () => {
+    if (animCurtain) {
+      animCurtain.cancel();
+    }
+    animCurtain = animate('.header__curtain', {
+      y: [0, '-110%'],
+      duration: 400,
+      ease: eases.inOutQuad,
+    })
+  }
+
+  const showCurtain = () => {
+    if (animCurtain) {
+      animCurtain.cancel();
+    }
+    animCurtain = animate('.header__curtain', {
+      y: ['-110%', 0],
       duration: 400,
       ease: eases.inOutQuad,
     })

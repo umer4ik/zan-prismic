@@ -4,15 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice =
-  | AwardsSlice
-  | TripleCSlice
-  | AbountUsSlice
-  | ServicesSlice
-  | ClientsSlice
-  | WorksScreenSlice
-  | SecondScreenProjectSlice
-  | IntroSlice;
+type PageDocumentDataSlicesSlice = AwardsSlice | TripleCSlice | AbountUsSlice | ServicesSlice | ClientsSlice | WorksScreenSlice | IntroSlice;
 
 /**
  * Content for Page documents
@@ -895,109 +887,6 @@ type ProjectBlockSliceVariation =
 export type ProjectBlockSlice = prismic.SharedSlice<'project_block', ProjectBlockSliceVariation>;
 
 /**
- * Item in *SecondScreenProject → Default → Primary → Tags*
- */
-export interface SecondScreenProjectSliceDefaultPrimaryTagsItem {
-  /**
-   * Tag field in *SecondScreenProject → Default → Primary → Tags*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.tags[].tag
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  tag: prismic.KeyTextField;
-}
-
-/**
- * Primary content in *SecondScreenProject → Default → Primary*
- */
-export interface SecondScreenProjectSliceDefaultPrimary {
-  /**
-   * Work Reference Id field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.work_reference_id
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  work_reference_id: prismic.KeyTextField;
-
-  /**
-   * Background field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.background
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background: prismic.ImageField<never>;
-
-  /**
-   * Project Name field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.project_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  project_name: prismic.KeyTextField;
-
-  /**
-   * Project Place field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.project_place
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  project_place: prismic.KeyTextField;
-
-  /**
-   * Thumbnail field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.thumbnail
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  thumbnail: prismic.ImageField<never>;
-
-  /**
-   * Tags field in *SecondScreenProject → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: second_screen_project.default.primary.tags[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  tags: prismic.GroupField<Simplify<SecondScreenProjectSliceDefaultPrimaryTagsItem>>;
-}
-
-/**
- * Default variation for SecondScreenProject Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SecondScreenProjectSliceDefault = prismic.SharedSliceVariation<'default', Simplify<SecondScreenProjectSliceDefaultPrimary>, never>;
-
-/**
- * Slice variation for *SecondScreenProject*
- */
-type SecondScreenProjectSliceVariation = SecondScreenProjectSliceDefault;
-
-/**
- * SecondScreenProject Shared Slice
- *
- * - **API ID**: `second_screen_project`
- * - **Description**: SecondScreenProject
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SecondScreenProjectSlice = prismic.SharedSlice<'second_screen_project', SecondScreenProjectSliceVariation>;
-
-/**
  * Item in *Services → Default → Primary → Services*
  */
 export interface ServicesSliceDefaultPrimaryServicesItem {
@@ -1331,6 +1220,16 @@ export interface WorksScreenSliceDefaultPrimaryWorksItem {
    * - **Documentation**: https://prismic.io/docs/field#boolean
    */
   full_screen: prismic.BooleanField;
+
+  /**
+   * Year field in *WorksScreen → Default → Primary → Works*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works_screen.default.primary.works[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
 }
 
 /**
@@ -1436,11 +1335,6 @@ declare module '@prismicio/client' {
       ProjectBlockSliceGap,
       ProjectBlockSliceDivider,
       ProjectBlockSliceOneColumnText,
-      SecondScreenProjectSlice,
-      SecondScreenProjectSliceDefaultPrimaryTagsItem,
-      SecondScreenProjectSliceDefaultPrimary,
-      SecondScreenProjectSliceVariation,
-      SecondScreenProjectSliceDefault,
       ServicesSlice,
       ServicesSliceDefaultPrimaryServicesItem,
       ServicesSliceDefaultPrimary,

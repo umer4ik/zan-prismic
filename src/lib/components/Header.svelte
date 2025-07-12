@@ -17,6 +17,7 @@
 </script>
 
 <header class="header">
+  <div class="header__curtain"></div>
   <div class="header-logo">
     <a href="#" data-scroll-to=".intro">
     <svg viewBox="0 0 123 40" fill="none" xmlns="http://www.w3.org/2000/svg">

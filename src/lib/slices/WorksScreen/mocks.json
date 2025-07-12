@@ -122,6 +122,14 @@
 									"__TYPE__": "BooleanContent",
 									"value": false
 								}
+							],
+							[
+								"year",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "verb",
+									"type": "Text"
+								}
 							]
 						]
 					}

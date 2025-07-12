@@ -7,6 +7,12 @@
   position: relative;
   z-index: 1;
   transition: opacity .45s ease;
+  @media (min-width: 1439px) {
+    height: max(83px, 14.2857vh);
+    &:last-child {
+      height: auto;
+    }
+  }
   &.hovered {
     opacity: 1;
   }

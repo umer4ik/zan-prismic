@@ -17,13 +17,13 @@
 
   let worksTitle = 'Works';
   let nameTitle = 'Name';
-  let locationTitle = 'Location';
+  let yearTitle = 'Year';
   let serviceTitle = 'Service';
   let otherProjectsTitle = 'Other Projects';
   if (arabic) {
     worksTitle = 'أعمالنا';
     nameTitle = 'الاسم';
-    locationTitle = 'الموقع';
+    yearTitle = 'السنة';
     serviceTitle = 'الخدمة';
     otherProjectsTitle = 'مشاريع أخرى';
   }
@@ -59,7 +59,7 @@
     </div>
   </div>
     
-    <div class="works" id="works" data-scroll data-scroll-speed="2">
+    <div class="works" id="works">
       <div class="works__content">
         <div class="title title--works">
           {worksTitle}<sup>({slice.primary.works.length})</sup>
@@ -73,9 +73,9 @@
               <div class="work__description">
                 <div class="work__titles">
                   <div class="work__title">{item.name}</div>
-                  <div class="work__subtitle">{item.location}</div>
+                  <div class="work__tag">{item.tag}</div>
+                  <!-- <div class="work__subtitle">{item.location}</div> -->
                 </div>
-                <div class="work__tag">{item.tag}</div>
               </div>
             </div>
           {/each}
@@ -86,17 +86,17 @@
     <div class="w-table" data-scroll>
       <div class="w-table__content">
         <div class="w-table__body">
-          <div class="w-row">
+          <div class="w-row" data-scroll>
             <div class="w-row__col">{nameTitle}</div>
-            <div class="w-row__col">{locationTitle}</div>
             <div class="w-row__col">{serviceTitle}</div>
+            <div class="w-row__col">{yearTitle}</div>
             <div class="w-row__col desktop-hidden">{otherProjectsTitle}</div>
           </div>
           {#each otherProjects as item, index (index)}
-            <div class="w-row" data-work-reference={item.work_reference_id}>
+            <div class="w-row" data-work-reference={item.work_reference_id} data-scroll>
               <div class="w-row__col">{item.name}</div>
-              <div class="w-row__col">{item.location}</div>
               <div class="w-row__col">{item.tag}</div>
+              <div class="w-row__col">{item.year}</div>
               <div class="w-row__image">
                 <div>
                   <PrismicImage field={item.thumbnail} />
@@ -104,6 +104,7 @@
               </div>
             </div>
           {/each}
+          <div class="w-row" data-scroll></div>
         </div>
       </div>
     </div>

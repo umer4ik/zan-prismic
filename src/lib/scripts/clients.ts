@@ -5,21 +5,21 @@ import { scroll } from "./scroll";
 // import { lenis } from "./scroll";
 
 export const handleClients = () => {
-  // $('.clients').addEventListener('mouseover', ({ target }) => {
-  //   if (window.innerWidth > 1020) {
-  //     assertIsHTMLElement(target)
-  //     const trigger = target.closest('.client');
-  //     if (!trigger) return;
-  //     $$('.client').forEach(x => x.classList.remove('hovered'));
-  //     trigger.classList.add('hovered');
-  //     const index = trigger.getAttribute('data-client')!;
+  $('.clients').addEventListener('mouseover', ({ target }) => {
+    if (window.innerWidth > 1020) {
+      assertIsHTMLElement(target)
+      const trigger = target.closest('.client');
+      if (!trigger) return;
+      $$('.client').forEach(x => x.classList.remove('hovered'));
+      trigger.classList.add('hovered');
+      const index = trigger.getAttribute('data-client')!;
 
-  //     $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
-  //     const img = $(`.clients-box__img [data-client="${index}"]`);
-      
-  //     img.classList.add('show');
-  //   }
-  // });
+      $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
+      const img = $(`.clients-box__img [data-client="${index}"]`);
+
+      img.classList.add('show');
+    }
+  });
 
   let collapseAnimation: JSAnimation;
   let expandAnimation: JSAnimation;
@@ -44,7 +44,7 @@ export const handleClients = () => {
       ease: eases.inOutQuad,
     })
   }
-  
+
   $('.clients').addEventListener('click', ({ target }) => {
     if (window.innerWidth > 1020) return;
     assertIsHTMLElement(target)
@@ -73,29 +73,29 @@ export const handleClients = () => {
       }
       if ($('.client.expanded')) {
         $('.client.expanded').removeAttribute('style');
-          $('.client.expanded').classList.remove('expanded');
+        $('.client.expanded').classList.remove('expanded');
       }
-      
+
     }
   }, 400)
   window.addEventListener('resize', resize);
   scroll.on('scroll', () => {
-      const clients = $$('.client');
-      const clientsInViewport = [];
-      for (let i = 0; i < clients.length; i++) {
-        const x = clients[i];
-        if (x.getBoundingClientRect().top > 60) {
-          clientsInViewport.push(x)
-        }
+    const clients = $$('.client');
+    const clientsInViewport = [];
+    for (let i = 0; i < clients.length; i++) {
+      const x = clients[i];
+      if (x.getBoundingClientRect().top > 60) {
+        clientsInViewport.push(x)
       }
-      const clientInViewport = clientsInViewport[0];
-      if (clientInViewport) {
-        $$('.client').forEach(x => x.classList.remove('hovered'));
-        clientInViewport.classList.add('hovered');
-        const index = clientInViewport.getAttribute('data-client')!;
-        $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
-        const img = $(`.clients-box__img [data-client="${index}"]`);
-        img.classList.add('show');
-      }
+    }
+    const clientInViewport = clientsInViewport[0];
+    if (clientInViewport) {
+      $$('.client').forEach(x => x.classList.remove('hovered'));
+      clientInViewport.classList.add('hovered');
+      const index = clientInViewport.getAttribute('data-client')!;
+      $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
+      const img = $(`.clients-box__img [data-client="${index}"]`);
+      img.classList.add('show');
+    }
   })
 }

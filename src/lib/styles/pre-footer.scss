@@ -32,10 +32,12 @@ footer a {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  padding-bottom: 120px;
   border-bottom: 1px solid rgba(#F2EDDE, 15%);
   font-size: 16rem;
+  height: 260rem;
   @media (max-width: 1400) {
+    padding-bottom: 120px;
+    height: auto;
     font-size: 16px;
   }
   @media (max-width: 768px) {

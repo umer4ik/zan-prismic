@@ -35,7 +35,7 @@ export const handleFooter = () => {
   const renderIt = () => {
     const engine = Engine.create({
       gravity: {
-        y: 0.3
+        y: 0.4
       }
     });
 
@@ -132,7 +132,7 @@ export const handleFooter = () => {
     }
 
     // add all of the bodies to the world
-    Composite.add(engine.world, [mouseConstraint, ...generateBoxes(getBoxesCount(3)), ...generateWalls(), ]);
+    Composite.add(engine.world, [mouseConstraint, ...generateBoxes(getBoxesCount(2)), ...generateWalls(), ]);
 
     
     // @ts-expect-error asdf

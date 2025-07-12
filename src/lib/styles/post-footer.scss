@@ -4,7 +4,9 @@
   color: #F2EDDE;
   border-top: 1px solid rgba(#F2EDDE, 15%);
   font-size: 16rem;
+  height: 55rem;
   @media (max-width: 1400px) {
+    height: auto;
     font-size: 16px;
   }
 
@@ -15,7 +17,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    min-height: 54px;
+    min-height: 54rem;
     padding-inline: 20px;
   }
   &__copyright {

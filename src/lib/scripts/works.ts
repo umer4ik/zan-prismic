@@ -26,8 +26,8 @@ const makeAnimatable = (x: number, y: number) => {
     y,
   };
   const animatable = createAnimatable(cursor, {
-    x: 700,
-    y: 700,
+    x: 150,
+    y: 150,
     ease: 'out(3)',
   });
   (animatable.animations as Animations).x.onRender = () => {
@@ -93,11 +93,11 @@ export const handleWorks = () => {
 
   const showArrow = () => {
     arrow!.classList.add('show');
-    document.body.style.cursor = 'none'
+    // document.body.style.cursor = 'none'
   }
   const hideArrow = () => {
     arrow!.classList.remove('show');
-    document.body.style.cursor = 'unset'
+    // document.body.style.cursor = 'unset'
   }
 
   const isInBounds = ({
