@@ -1,4 +1,4 @@
-import matterjs, { type Body } from 'matter-js';
+import matterjs, { type Body as BodyType } from 'matter-js';
 import { $, $$, assertIsHTMLElement } from '../dom-helper';
 import _ from "lodash";
 import { scroll } from './scroll';
@@ -10,7 +10,8 @@ const {
   Bodies,
   Composite,
   Mouse,
-  MouseConstraint,
+  // MouseConstraint,
+  Body,
 } = matterjs;
 
 const BOX_WIDTH = 16;
@@ -78,15 +79,15 @@ export const handleFooter = () => {
 
 
     const mouse = Mouse.create(render.canvas);
-    const mouseConstraint = MouseConstraint.create(engine, {
-      mouse,
-      constraint: {
-        stiffness: 0.2,
-        render: {
-          visible: false
-        }
-      }
-    });
+    // const mouseConstraint = MouseConstraint.create(engine, {
+    //   mouse,
+    //   constraint: {
+    //     stiffness: 0.2,
+    //     render: {
+    //       visible: false
+    //     }
+    //   }
+    // });
 
     const generateWalls = () => {
       const ceiling = Bodies.rectangle(width / 2, 0, width, 1, {
@@ -112,7 +113,7 @@ export const handleFooter = () => {
     }
 
     const generateBoxes = (n: number) => {
-      const boxes: Body[] = [];
+      const boxes: BodyType[] = [];
       for (let i = 0; i < n; i++) {
         const box = Bodies.rectangle(random(20, width), 50, BOX_WIDTH, BOX_WIDTH, {
           torque: random(-0.01, 0.01, true),
@@ -131,10 +132,12 @@ export const handleFooter = () => {
       return Math.floor(canvasBox.clientWidth / BOX_WIDTH * numberOfLayers);
     }
 
-    // add all of the bodies to the world
-    Composite.add(engine.world, [mouseConstraint, ...generateBoxes(getBoxesCount(2)), ...generateWalls(), ]);
+    const boxes = generateBoxes(getBoxesCount(2));
 
-    
+    // add all of the bodies to the world
+    Composite.add(engine.world, [...boxes, ...generateWalls(),]);
+
+
     // @ts-expect-error asdf
     mouse.element.removeEventListener('wheel', mouse.mousewheel);
     // @ts-expect-error asdf
@@ -145,10 +148,63 @@ export const handleFooter = () => {
 
     // create runner
     const runner = Runner.create();
-    
+
+    const cursor = {
+      mouseX: -1000,
+      mouseY: -1000
+    }
+
+    render.canvas.addEventListener('mousemove', (e) => {
+      console.log('here')
+      const rect = render.canvas.getBoundingClientRect();
+      cursor.mouseX = e.clientX - rect.left;
+      cursor.mouseY = e.clientY - rect.top;
+    });
+
+    render.canvas.addEventListener('mouseleave', () => {
+      cursor.mouseX = -1000;
+      cursor.mouseY = -1000;
+    });
+
+    const forceRadius = 100;
+    const forceStrength = forceRadius / 75000;
+
+    const applyForceField = ()  => {
+        if (cursor.mouseX < 0 || cursor.mouseY < 0) return;
+        boxes.forEach(box => {
+            const bodyPos = box.position;
+            const dx = bodyPos.x - cursor.mouseX;
+            const dy = bodyPos.y - cursor.mouseY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < forceRadius && distance > 0) {
+                const force = (forceRadius - distance) / forceRadius;
+                const forceX = (dx / distance) * force * forceStrength;
+                const forceY = (dy / distance) * force * forceStrength;
+                
+                Body.applyForce(box, bodyPos, { x: forceX, y: forceY });
+                
+                // Ефект свічення
+                // box.glowIntensity = Math.min(force * 2, 1);
+                
+                // Обертання при впливі сили
+                const torque = (Math.random() - 0.5) * force * 0.01;
+                Body.setAngularVelocity(box, box.angularVelocity + torque);
+            } else {
+                // box.glowIntensity *= 0.95;
+            }
+        });
+    }
+    const frame = () => {
+      applyForceField();
+      requestAnimationFrame(frame)
+    }
+
+    requestAnimationFrame(frame)
+
     Runner.run(runner, engine);
   }
-  
+
   let run = false;
   // run the engine
 
@@ -163,7 +219,7 @@ export const handleFooter = () => {
       renderIt();
     }
   };
-  window.addEventListener('resize', debounce(() => { 
+  window.addEventListener('resize', debounce(() => {
     renderIt();
   }, 400));
 }
