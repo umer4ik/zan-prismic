@@ -3,7 +3,10 @@
   display: flex;
   color: #634F1E;
   padding-inline: 20px;
-  margin-top: -50rem;
+  margin-top: -150rem;
+  @media (max-width: 1440px) {
+    margin-top: -250rem;
+  }
   @media (max-width: 1220px) {
     flex-direction: column;
   }

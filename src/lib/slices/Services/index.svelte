@@ -59,7 +59,6 @@
               <div class="service__title">
                 {item.name}
               </div>
-              <!-- <div class="service__explanation">{explanationTitle}</div> -->
               <div class="service__description">
                 <PrismicRichText field={item.explanation} />
               </div>
@@ -73,14 +72,10 @@
             </div>
           </div>
         </div>
-        {#if index === services.length - 1}
-          <!-- <div class="services-gap"></div> -->
-        {/if}
       </div>
     </div>
   {/each}
   <div class="services-gap"></div>
 </div>
-<!-- <div class="after-services" data-scroll-section>
-</div> -->
+
 
