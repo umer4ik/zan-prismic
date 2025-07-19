@@ -55,7 +55,10 @@
     }
   }
   td {
+    vertical-align: top;
     position: relative;
+    padding-top: 20rem;
+    padding-bottom: 20rem;
     @media (max-width: 767px) {
       color: #634F1E;
       display: flex;
@@ -88,16 +91,13 @@
     }
   }
   th:nth-child(2) {
-    width: 22.2222%;
+    width: 16.6666%;
     @media (max-width: 767px) {
       display: none;
     }
   }
   th:nth-child(4) {
-    width: 22.2222%;
-    @media (max-width: 1400px) {
-      width: 22.2222%;
-    }
+    width: 33.3333%;
     @media (max-width: 767px) {
       display: flex;
       align-items: center;
