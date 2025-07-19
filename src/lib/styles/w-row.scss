@@ -61,10 +61,34 @@
     }
   }
 
+  &__arrow {
+    margin-top: 4rem;
+    width: 8rem;
+    height: 8rem;
+    transform: translate(-20rem, 0);
+    opacity: 0;
+    transition:
+      transform .45s ease,
+      opacity .45s ease;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    .w-row:hover & {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
   &__col {
     opacity: 0.4;
     color: #634F1E;
     transition: opacity .45s ease;
+
+    &--year {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
 
     .w-row:hover:not(:first-child) &:not(.desktop-hidden) {
       opacity: 1;
@@ -146,6 +170,7 @@
       min-width: 0;
       max-width: 100%;
     }
+
   }
 
   &__col:nth-child(1) {

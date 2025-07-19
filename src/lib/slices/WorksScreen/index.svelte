@@ -96,7 +96,15 @@
             <div class="w-row" data-work-reference={item.work_reference_id} data-scroll>
               <div class="w-row__col">{item.name}</div>
               <div class="w-row__col">{item.tag}</div>
-              <div class="w-row__col">{item.year}</div>
+              <div class="w-row__col w-row__col--year">
+                <span>{item.year}</span>
+                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-row__arrow">
+                  <path
+                    d="M5.11573 10.7372L4.12619 9.74768L7.55262 6.32125H-0.000440352L-0.00113089 4.92154H7.55193L4.1255 1.49511L5.11573 0.504886L10.2319 5.62105L5.11573 10.7372Z"
+                    fill="#634F1E"
+                  />
+                </svg>
+              </div>
               <div class="w-row__image">
                 <div>
                   <PrismicImage field={item.thumbnail} />
