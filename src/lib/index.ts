@@ -24,10 +24,10 @@ export const onStart = async () => {
   await initScroll();
   lockScroll();
   processText();
+  intro.init();
   await preloader.init();
   unlockScroll();
   burger();
-  intro.init();
   handleWRows();
   animateIntroTitle();
   animateHeader();

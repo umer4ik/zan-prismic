@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { isArabic } from '$lib/is-arabic';
+  import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
 
@@ -19,7 +19,7 @@
       class="clients-box__start"
       data-scroll
       data-scroll-id="clients-start"
-      data-scroll-offset="-45"
+      data-scroll-offset="-50"
       data-scroll-sticky
       data-scroll-target="#clients-content">
         <div class="title title--clients">

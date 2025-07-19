@@ -146,18 +146,19 @@ const preloader = {
         left: '0',
         top: '0',
         duration: 750,
-        delay: 350,
+        delay: 100,
         ease: 'cubicBezier(.18,.61,.46,.98)',
         opacity: {
           to: 1,
           ease: 'linear',
-          duration: 300,
-          delay: 100,
+          duration: 20,
         },
-        onBegin: () => {
-          diamond.style.left = $('#preloader-hidden-logo svg path').getBoundingClientRect().left + 7 + 'px'
-          diamond.style.top = $('#preloader-hidden-logo svg path').getBoundingClientRect().top + 7  + 'px'
-        }
+        backgroundColor: {
+          to: '#33092E',
+          ease: 'cubicBezier(.18,.61,.46,.98)',
+          duration: 400,
+          delay: 0,
+        },
       }, '-=700')
       .add(preloaderEl, {
         opacity: 0,

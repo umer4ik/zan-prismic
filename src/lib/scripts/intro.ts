@@ -199,18 +199,29 @@ const intro: {
         const dataX = +square.dataset.x!
         const dataY = +square.dataset.y!
         let coeff = 0.1;
+        const lvl2Square = lvl2.find(({ x, y }) => dataX === x && dataY === y)
+        const lvl3Square = lvl3.find(({ x, y }) => dataX === x && dataY === y)
+        let shift = {
+          x: 0,
+          y: 0,
+        }
         if (nearestPoint.position.x === dataX && nearestPoint.position.y === dataY) {
           coeff = 1;
-        } else if (lvl2.some(({ x, y }) => dataX === x && dataY === y)) {
+        } else if (lvl2Square) {
           coeff = 0.5;
-        } else if (lvl3.some(({ x, y }) => dataX === x && dataY === y)) {
+          shift = lvl2Square.shift
+        } else if (lvl3Square) {
           coeff = 0.2;
+          shift = lvl3Square.shift
         }
         const inside  = square.firstChild
         if (inside instanceof HTMLDivElement) {
+          const translate = `translate(${shift.x}px, ${shift.y}px)`
+          let rotate = ''
           if (this.shouldRotate) {
-            inside.style.transform = `rotate(${coeff > 0.1 ? '135deg' : '45deg'})`;
+            rotate = 'rotate(45deg)';
           }
+          inside.style.transform = `${translate} ${rotate}`;
           inside.style.borderColor = `rgba(213, 194, 145, ${coeff})`;
           inside.style.backgroundColor = `rgba(213, 194, 145, ${coeff > 0.1 ? coeff : 0})`;
         }
@@ -276,23 +287,42 @@ const intro: {
 
 export default intro;
 
+const LVL2_SHIFT = 4;
+const LVL3_SHIFT = 4;
+
 const getLevel2 = (point: KindaPoint) => {
   return [
     {
       x: point.position.x - 1,
       y: point.position.y,
+      shift: {
+        x: LVL2_SHIFT,
+        y: 0,
+      },
     },
     {
       x: point.position.x,
       y: point.position.y + 1,
+      shift: {
+        x: 0,
+        y: -LVL2_SHIFT,
+      },
     },
     {
       x: point.position.x + 1,
       y: point.position.y,
+      shift: {
+        x: -LVL2_SHIFT,
+        y: 0,
+      },
     },
     {
       x: point.position.x,
       y: point.position.y - 1,
+      shift: {
+        x: 0,
+        y: LVL2_SHIFT,
+      },
     },
   ]
 }
@@ -302,34 +332,66 @@ const getLevel3 = (point: KindaPoint) => {
     {
       x: point.position.x - 2,
       y: point.position.y,
+      shift: {
+        x: LVL3_SHIFT * 2,
+        y: 0,
+      },
     },
     {
       x: point.position.x - 1,
       y: point.position.y + 1,
+      shift: {
+        x: LVL3_SHIFT,
+        y: -LVL3_SHIFT,
+      },
     },
     {
       x: point.position.x,
       y: point.position.y + 2,
+      shift: {
+        x: 0,
+        y: -LVL3_SHIFT * 2,
+      },
     },
     {
       x: point.position.x + 1,
       y: point.position.y + 1,
+      shift: {
+        x: -LVL3_SHIFT,
+        y: -LVL3_SHIFT,
+      },
     },
     {
       x: point.position.x + 2,
       y: point.position.y,
+      shift: {
+        x: -LVL3_SHIFT * 2,
+        y: 0,
+      },
     },
     {
       x: point.position.x + 1,
       y: point.position.y - 1,
+      shift: {
+        x: -LVL3_SHIFT,
+        y: LVL3_SHIFT,
+      },
     },
     {
       x: point.position.x,
       y: point.position.y - 2,
+      shift: {
+        x: 0,
+        y: LVL3_SHIFT * 2,
+      },
     },
     {
       x: point.position.x - 1,
       y: point.position.y - 1,
+      shift: {
+        x: LVL3_SHIFT,
+        y: LVL3_SHIFT,
+      },
     },
   ]
 }

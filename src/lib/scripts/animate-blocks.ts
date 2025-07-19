@@ -47,14 +47,14 @@ export const animateHeader = () => {
           isShown = false
         }
       });
-      scroll.on('scroll', ({ direction, delta }) => {
-        if (direction === 'up' && !isCurtainShown) {
+      scroll.on('scroll', ({ delta }) => {
+        if (delta.y >= window.innerHeight && !isCurtainShown) {
           isCurtainShown = true;
           showCurtain();
         }
-        if (delta.y === 0 && isCurtainShown) {
-          hideCurtain();
+        if (delta.y < window.innerHeight && isCurtainShown) {
           isCurtainShown = false;
+          hideCurtain();
         }
       })
     }

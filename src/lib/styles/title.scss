@@ -1,25 +1,44 @@
 .title {
   font-weight: 500;
-  font-size: 90rem;
-  line-height: 92%;
+  font-size: 80rem;
+  line-height: 90%;
   letter-spacing: -2px;
   color: #634F1E;
   white-space: nowrap;
+
   @media (max-width: 1023px) {
     font-size: 34px;
     line-height: 1;
     letter-spacing: 0;
   }
+
   sup {
     font-weight: 500;
     font-size: 16rem;
     line-height: 100%;
     letter-spacing: 0px;
     vertical-align: super;
-    top: -1.4em;
+    top: -1.2em;
+
     @media (max-width: 1023px) {
       font-size: 10px;
       top: -.75em;
+    }
+  }
+
+  &--works,
+  &--about-us,
+  &--triple-c,
+  &--awards {
+    transform: translate3d(0, 100%, 0);
+    clip-path: polygon(-10% -100%, 110% -100%, 110% 0%, -10% 0%);
+    transition:
+      clip-path .9s cubic-bezier(0.215, 0.61, 0.355, 1),
+      transform .9s cubic-bezier(0.215, 0.61, 0.355, 1);
+    .works.is-inview &,
+    &.is-inview {
+      transform: translate3d(0, 0, 0);
+      clip-path: polygon(-10% 0%, 110% 0%, 110% 110%, -10% 110%);
     }
   }
 }

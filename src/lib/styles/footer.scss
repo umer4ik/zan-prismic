@@ -6,9 +6,9 @@
   // padding-bottom: 240px;
   position: relative;
   font-size: 16rem;
-  height: calc(100vh - 260rem - 55rem);
+  height: calc(100vh - 315rem);
   @media (max-width: 1400px) {
-    height: auto;
+    // height: auto;
     font-size: 16px;
   }
   &__row {

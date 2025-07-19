@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { isArabic } from '$lib/is-arabic';
+  import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
-    import _ from 'lodash';
 
   type Props = SliceComponentProps<Content.AwardsSlice> & {
     context: {
@@ -40,7 +39,7 @@
     {/each}
   </div>
   <div class="awards__content">
-    <div class="title">
+    <div class="title title--awards" data-scroll>
       {titles.awards}<sup>({slice.primary.awards.length})</sup>
     </div>
     <table class="awards-table">

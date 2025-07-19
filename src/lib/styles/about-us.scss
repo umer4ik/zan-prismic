@@ -14,6 +14,7 @@
     display: flex;
     border-inline-end: 1px solid rgba(#634F1E, 15%);
     padding-block: 12px;
+    align-items: flex-start;
     .title {
       padding-inline: 20px;
       @media (max-width: 1220px) {

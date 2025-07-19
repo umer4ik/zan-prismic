@@ -59,7 +59,7 @@
     </div>
   </div>
     
-    <div class="works" id="works">
+    <div class="works" id="works" data-scroll>
       <div class="works__content">
         <div class="title title--works">
           {worksTitle}<sup>({slice.primary.works.length})</sup>

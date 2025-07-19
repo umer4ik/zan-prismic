@@ -1,12 +1,13 @@
 .client {
-  font-size: 90rem;
-  line-height: 92%;
+  font-size: 80rem;
+  line-height: 90%;
   letter-spacing: -2px;
   color: #634F1E;
   opacity: 0.2;
   position: relative;
   z-index: 1;
   transition: opacity .45s ease;
+  padding-top: 0.28em;
   @media (min-width: 1439px) {
     height: max(83px, 14.2857vh);
     &:last-child {
@@ -30,7 +31,6 @@
     opacity: 1;
   }
   &:first-child {
-    padding-top: 0.25em;
     @media (max-width: 1020px) {
       border-top: 1px solid rgba(#634F1E, 15%);
     }
