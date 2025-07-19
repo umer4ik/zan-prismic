@@ -2,7 +2,7 @@
   background-color: #F9F6EF;
   display: flex;
   color: #634F1E;
-  padding-inline: 20px;
+  padding-inline: 20rem;
   margin-top: -150rem;
   @media (max-width: 1440px) {
     margin-top: -250rem;
@@ -16,10 +16,10 @@
     min-width: 33.3333%;
     display: flex;
     border-inline-end: 1px solid rgba(#634F1E, 15%);
-    padding-block: 12px;
+    padding-block: 12rem;
     align-items: flex-start;
     .title {
-      padding-inline: 20px;
+      padding-inline: 20rem;
       @media (max-width: 1220px) {
         width: 100%;
       }
@@ -52,8 +52,8 @@
     }
   }
   &__top {
-    padding: 20px;
-    padding-bottom: 70rem;
+    padding: 20rem;
+    padding-bottom: 96rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
     @media (max-width: 768px) {
       padding-bottom: 70px;
@@ -130,8 +130,8 @@
     }
   }
   &__philosophy {
-    padding: 20px;
-    padding-bottom: 96px;
+    padding: 20rem;
+    padding-bottom: 96rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
     @media (max-width: 768px) {
       border-bottom: 0;
@@ -156,10 +156,10 @@
     }
   }
   &__belief {
-    padding: 20px;
+    padding: 20rem;
     padding-bottom: 200rem;
     display: flex;
-    gap: 20px;
+    gap: 41rem;
     max-width: 780rem;
     align-items: start;
     @media (max-width: 1400px) {
@@ -172,8 +172,10 @@
   }
   &__belief-img {
     overflow: hidden;
-    border-radius: 8px;
-    min-width: 433px;
+    border-radius: 8rem;
+    width: 433rem;
+    flex-grow: 1;
+    flex-shrink: 0;
     img {
       width: 100%;
       transition: transform .4s ease;
@@ -189,7 +191,11 @@
       min-width: 0;
     }
   }
-  &__belief-text-col {}
+  &__belief-text-col {
+    width: 273rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
   &__belief-text {
     font-size: 16rem;
     line-height: 110%;
