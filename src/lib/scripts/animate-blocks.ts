@@ -28,7 +28,7 @@ export const animateHeader = () => {
     ease: zanEasing,
     onComplete: () => {
       isShown = true;
-      scroll.on('scroll', ({ direction, delta }) => {
+      scroll.on('scroll', ({ direction, delta, currentElements }) => {
         if (
           delta.y > $('.intro').getBoundingClientRect().height && delta.y < $('footer').offsetTop
         ) {
@@ -39,7 +39,8 @@ export const animateHeader = () => {
         if (window.scrollY !== oldScroll) {
           oldScroll = window.scrollY;
         }
-        if (direction === 'up' && !isShown) { // scroll up
+        if (direction === 'up' && !isShown && !currentElements['post-footer']) { // scroll up
+          console.log('here')
           showHeader();
           isShown = true
         } else if (direction =='down' && isShown && !document.body.classList.contains('burger-open')) {

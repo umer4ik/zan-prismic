@@ -17,7 +17,7 @@
   }
 </script>
 
-<div class="post-footer">
+<div class="post-footer" data-scroll data-scroll-id="post-footer">
   <div class="post-footer__row">
     <div class="post-footer__copyright" style={arabic ? 'direction: ltr; text-align: end;' : ''}>
       <span>© 2025 Zan Agency.</span> <span style="direction: {arabic ? 'rtl' : 'ltr'}">{titles.brand}</span>

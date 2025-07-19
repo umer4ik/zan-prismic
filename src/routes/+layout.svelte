@@ -52,16 +52,23 @@
       </div>
     {/each}
     <footer data-scroll-section>
-      <PreFooter mail={data.settings.data.email} locale={data.locale} />
-      <Footer
-        address={data.settings.data.address}
-        email={data.settings.data.email}
-        instagram={data.settings.data.instagram}
-        phone={data.settings.data.phone_number}
-        twitter={data.settings.data.link_to_twitter}
-        locale={data.locale}
-      />
-      <PostFooter locale={data.locale} />
+      <div
+        data-scroll-section
+        data-scroll
+        data-scroll-speed="-3.5"
+        data-scroll-id="footer-full">
+        <PreFooter mail={data.settings.data.email} locale={data.locale} />
+        <Footer
+          address={data.settings.data.address}
+          email={data.settings.data.email}
+          instagram={data.settings.data.instagram}
+          phone={data.settings.data.phone_number}
+          twitter={data.settings.data.link_to_twitter}
+          locale={data.locale}
+        />
+        <PostFooter locale={data.locale} />
+      </div>
+      <div class="footer-curtain"></div>
     </footer>
   </div>
   <span class="arrow-btn" id="arrow-btn">

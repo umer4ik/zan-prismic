@@ -155,7 +155,6 @@ export const handleFooter = () => {
     }
 
     render.canvas.addEventListener('mousemove', (e) => {
-      console.log('here')
       const rect = render.canvas.getBoundingClientRect();
       cursor.mouseX = e.clientX - rect.left;
       cursor.mouseY = e.clientY - rect.top;
@@ -213,6 +212,12 @@ export const handleFooter = () => {
       runIt()
     }
   });
+  scroll.on('scroll', ({ currentElements }) => {
+    if (currentElements['footer-full']) {
+      const opacity = 1 - currentElements['footer-full'].progress - 0.5
+      $('.footer-curtain').style.opacity = (opacity < 0 ? 0 : opacity) + '';
+    }
+  })
   const runIt = () => {
     if (!run) {
       run = true;
