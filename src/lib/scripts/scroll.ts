@@ -18,7 +18,7 @@ export const initScroll = async () => {
   const serviceTitleHeight = $('.service__title').offsetHeight
   const serviceHeight = $('.service').offsetHeight
   const serviceContentPaddingTop = parseInt(getComputedStyle($('.service__content')).paddingBlockStart, 10);
-  const additionalOffset = window.innerWidth > 1440 ? 50 : 50
+  const additionalOffset = 0 // window.innerWidth > 1440 ? 50 : 50
   $$('.service-wrapper').forEach((service, i) => {
     const offset = titleHeight / 2 + additionalOffset + serviceHeight * i - (serviceTitleHeight + serviceContentPaddingTop * 2) * i
     // anchor.style.height = `${height + (titleHeight / 2 + 50) + paddingBottom + ((i - services.length) * 10)}px`

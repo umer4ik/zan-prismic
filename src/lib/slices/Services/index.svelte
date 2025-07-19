@@ -41,7 +41,14 @@
     ></div>
   {/each}
   {#each services as item, index (index)}
-    <div class="service-wrapper" style="width: 100%;" data-scroll data-scroll-id="service-{index}" data-scroll-sticky data-scroll-offset="{200 * index + 100}, 100%" data-scroll-target="#services">
+    <div
+      class="service-wrapper"
+      style="width: 100%;"
+      data-scroll
+      data-scroll-id="service-{index}"
+      data-scroll-sticky
+      data-scroll-offset="{200 * index + 100}, 100%"
+      data-scroll-target="#services">
       <div class="service-box" style="background-color: {colors[index % 5]};">
         <div class="service">
           <div class="service__content">
