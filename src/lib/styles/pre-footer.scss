@@ -12,6 +12,7 @@ footer a {
     inset-inline-start: 0;
     transition: transform .4s ease;
     transform-origin: 100% 50%;
+
     html[dir="rtl"] & {
       transform-origin: 0% 50%;
     }
@@ -21,6 +22,7 @@ footer a {
     &::after {
       transform: scaleX(1);
       transform-origin: 0 50%;
+
       html[dir="rtl"] & {
         transform-origin: 100% 50%;
       }
@@ -35,11 +37,13 @@ footer a {
   border-bottom: 1px solid rgba(#F2EDDE, 15%);
   font-size: 16rem;
   height: 260rem;
+
   @media (max-width: 1400) {
     padding-bottom: 120px;
     height: auto;
     font-size: 16px;
   }
+
   @media (max-width: 768px) {
     padding-bottom: 140px;
   }
@@ -145,21 +149,46 @@ footer a {
       padding-inline: 10rem;
       justify-content: center;
       position: relative;
-      will-change: padding-inline-end;
-      transition: padding-inline-end .4s ease;
+      overflow: hidden;
+
       &::after {
         display: none;
       }
+
+      span {
+        position: relative;
+        z-index: 2;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #F2EDDE;
+        z-index: 1;
+        transform: scaleY(0);
+        transition: transform .3s ease;
+        transform-origin: 0 0;
+      }
+
       &:hover {
         @media (min-width: 1400px) {
-          padding-inline-end: 27rem;
+          &::before {
+            transform-origin: 0 100%;
+            transform: none;
+          }
         }
+
         svg {
           @media (min-width: 1400px) {
             opacity: 1;
           }
         }
       }
+
       svg {
         position: absolute;
         width: 12rem;
@@ -168,10 +197,12 @@ footer a {
         inset-inline-end: 9rem;
         transition: opacity .4s ease;
         opacity: 0;
+
         html[dir="rtl"] & {
           transform: scaleX(-1);
         }
       }
+
       @media (max-width: 1400px) {
         svg {
           inset-inline-end: 10px;
@@ -214,6 +245,7 @@ footer a {
     margin-inline-start: auto;
     color: rgba(#F2EDDE, 40%);
     font-size: 16rem;
+
     @media (max-width: 1400px) {
       font-size: 16px;
     }
