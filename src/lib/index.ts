@@ -13,6 +13,7 @@ import { handleWorks } from './scripts/works';
 import { initScroll, lockScroll, scrollTo, unlockScroll } from './scripts/scroll';
 import { burger } from './scripts/burger';
 import { handleWRows } from './scripts/handle-w-rows';
+import { handleTitles } from './scripts/titles';
 
 export const onStart = async () => {
   document.body.addEventListener('mouseover', (e) => {
@@ -28,6 +29,7 @@ export const onStart = async () => {
   await preloader.init();
   unlockScroll();
   burger();
+  handleTitles();
   handleWRows();
   animateIntroTitle();
   animateHeader();

@@ -60,9 +60,10 @@
   </div>
     
     <div class="works" id="works" data-scroll>
-      <div class="works__content">
+      <div class="works__content" data-scroll data-scroll-id="works-content">
         <div class="title title--works">
-          {worksTitle}<sup>({slice.primary.works.length})</sup>
+          <span class="split">{worksTitle}</span>
+          <sup>({slice.primary.works.length})</sup>
         </div>
         <div class="works__row">
           {#each aboveTableItems as item, index (index)}

@@ -69,6 +69,7 @@
     font-size: 80rem;
     line-height: 77%;
     letter-spacing: -2rem;
+    font-weight: 500;
 
     @media (max-width: 1200px) {
       font-size: 75px;
@@ -118,6 +119,7 @@
   }
 
   &__number {
+    font-weight: 500;
     font-size: 80rem;
     line-height: 77%;
     letter-spacing: -2rem;

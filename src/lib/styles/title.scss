@@ -27,18 +27,31 @@
   }
 
   &--works,
-  &--about-us,
+  &--triple-c,
+  &--about,
+  &--awards {
+    height: 79rem;
+  }
+  &--works,
   &--triple-c,
   &--awards {
-    transform: translate3d(0, 100%, 0);
-    clip-path: polygon(-10% -100%, 110% -100%, 110% 0%, -10% 0%);
-    transition:
-      clip-path .9s cubic-bezier(0.215, 0.61, 0.355, 1),
-      transform .9s cubic-bezier(0.215, 0.61, 0.355, 1);
-    .works.is-inview &,
-    &.is-inview {
-      transform: translate3d(0, 0, 0);
-      clip-path: polygon(-10% 0%, 110% 0%, 110% 110%, -10% 110%);
+    letter-spacing: 0;
+    .split-text__char-container {
+      margin-right: -2rem;
+    }
+    sup {
+      vertical-align: baseline;
+      height: 50rem;
+      margin-left: -14rem;
+      display: inline-block;
+      transform: translateY(3rem);
+      .split-text__char-container {
+        height: 100%;
+      }
+      .split-text__visible,
+      .split-text__invisible {
+        height: 100%;
+      }
     }
   }
 }

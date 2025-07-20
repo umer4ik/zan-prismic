@@ -40,7 +40,6 @@ export const animateHeader = () => {
           oldScroll = window.scrollY;
         }
         if (direction === 'up' && !isShown && !currentElements['post-footer']) { // scroll up
-          console.log('here')
           showHeader();
           isShown = true
         } else if (direction =='down' && isShown && !document.body.classList.contains('burger-open')) {

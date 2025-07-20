@@ -39,8 +39,9 @@
     {/each}
   </div>
   <div class="awards__content">
-    <div class="title title--awards" data-scroll>
-      {titles.awards}<sup>({slice.primary.awards.length})</sup>
+    <div class="title title--awards" data-scroll data-scroll-id="awards-title">
+      <span class="split">{titles.awards}</span>
+      <sup>({slice.primary.awards.length})</sup>
     </div>
     <div class="awards-table">
       <div class="awards-table__head">

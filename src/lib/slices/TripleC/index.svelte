@@ -21,8 +21,9 @@
 
 <div class="triple-c" data-scroll-section>
   <div class="triple-c__content">
-    <div class="title title--triple-c" data-scroll>
-      {title}<sup>({slice.primary.terms.length})</sup>
+    <div class="title title--triple-c" data-scroll data-scroll-id="triple-c-title">
+      <span class="split">{title}</span>
+      <sup>({slice.primary.terms.length})</sup>
     </div>
   </div>
   {#each slice.primary.terms as item, i (i)}

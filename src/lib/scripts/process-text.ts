@@ -26,7 +26,34 @@ export const processText = () => {
   if (document.documentElement.getAttribute('dir') === 'ltr') {
     splitText({
       elements: $$('.intro-about__text > *')
-    })
+    });
+    splitText({
+      elements: $$('.title--works > span')
+    });
+    splitText({
+      elements: $$('.title--works > sup'),
+      isWord: true,
+    });
+    splitText({
+      elements: $$('.services__title'),
+    });
+    splitText({
+      elements: $$('.title--about-us'),
+    });
+    splitText({
+      elements: $$('.title--triple-c > span')
+    });
+    splitText({
+      elements: $$('.title--triple-c > sup'),
+      isWord: true,
+    });
+    splitText({
+      elements: $$('.title--awards > span')
+    });
+    splitText({
+      elements: $$('.title--awards > sup'),
+      isWord: true,
+    });
   } else {
     splitText({
       elements: $$('.intro-about__text > *'),
