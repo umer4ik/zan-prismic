@@ -253,9 +253,9 @@ const preloader = {
   init() {
     return new Promise<void>((resolve) => {
       let resolved = false;
-      // const tl = this.animate()
+      const tl = this.animate()
       // this.complete();
-      resolve();
+      // resolve();
       tl.onUpdate = () => {
         if (tl.progress > 0.9 && !resolved) {
           resolved = true;
