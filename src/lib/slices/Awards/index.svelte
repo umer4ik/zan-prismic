@@ -42,36 +42,36 @@
     <div class="title title--awards" data-scroll>
       {titles.awards}<sup>({slice.primary.awards.length})</sup>
     </div>
-    <table class="awards-table">
-      <thead>
-        <tr>
-          <th>{titles.year}</th>
-          <th>{titles.award}</th>
-          <th></th>
-          <th>{titles.category}</th>
-          <th>{titles.projectName}</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="awards-table">
+      <div class="awards-table__head">
+        <div class="award-row award-row--head">
+          <div class="award-col award-col--head award-col--year">{titles.year}</div>
+          <div class="award-col award-col--head award-col--award">{titles.award}</div>
+          <div class="award-col award-col--head award-col--category">{titles.category}</div>
+          <div class="award-col award-col--head award-col--project-name">{titles.projectName}</div>
+        </div>
+      </div>
+      <div class="awards-table__body">
         {#each slice.primary.awards as item, i (i)}
-          <tr class="award-row" data-award={i}>
-            <td>
+          <div class="award-row" data-award={i}>
+            <div class="award-col award-col--year">
               {item.year}
               <div class="award-row__image">
                 <div>
                   <PrismicImage field={item.image} />
                 </div>
               </div>
-            </td>
-            <td>
+            </div>
+            <div class="award-col award-col--award">
               {item.award}
-            </td>
-            <td><PrismicImage field={item.image} /></td>
-            <td>{item.award}</td>
-            <td>{item.name}</td>
-          </tr>
+            </div>
+            <div class="award-col award-col--mobile-image"><PrismicImage field={item.image} /></div>
+            <div class="award-col award-col--category">{item.award}</div>
+            <div class="award-col award-col--project-name">{item.name}</div>
+          </div>
         {/each}
-      </tbody>
-    </table>
+        <div class="award-row award-row--last"></div>
+      </div>
+    </div>
   </div>
 </div>

@@ -166,7 +166,7 @@ export const handleFooter = () => {
     });
 
     const forceRadius = 100;
-    const forceStrength = forceRadius / 75000;
+    const forceStrength = forceRadius / 55000;
 
     const applyForceField = ()  => {
         if (cursor.mouseX < 0 || cursor.mouseY < 0) return;
