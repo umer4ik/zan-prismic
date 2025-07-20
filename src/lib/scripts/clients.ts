@@ -14,10 +14,11 @@ export const handleClients = () => {
       trigger.classList.add('hovered');
       const index = trigger.getAttribute('data-client')!;
 
-      $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
+      $$(`.clients-box__img img:not([data-client="${index}"])`).forEach(x => x.classList.remove('show'));
+
       const img = $(`.clients-box__img [data-client="${index}"]`);
 
-      img.classList.add('show');
+      showImage(img, +index)
     }
   });
 
@@ -93,9 +94,27 @@ export const handleClients = () => {
       $$('.client').forEach(x => x.classList.remove('hovered'));
       clientInViewport.classList.add('hovered');
       const index = clientInViewport.getAttribute('data-client')!;
-      $$('.clients-box__img img').forEach(x => x.classList.remove('show'));
+      $$(`.clients-box__img img:not([data-client="${index}"])`).forEach(x => x.classList.remove('show'));
       const img = $(`.clients-box__img [data-client="${index}"]`);
-      img.classList.add('show');
+      showImage(img, +index)
     }
-  })
+  });
+
+  const animations: Map<number, JSAnimation> = new Map();
+  let zIndex = 1;
+
+  const showImage = (img: HTMLElement, index: number) => {
+    if (img.classList.contains('show')) return;
+    const animation = animations.get(index);
+    if (animation) {
+      animation.cancel();
+    }
+    animations.set(index, animate(img, {
+      scale: [0, 1],
+      ease: eases.inOutQuad,
+      duration: 400,
+    }));
+    img.classList.add('show');
+    img.style.zIndex = `${++zIndex}`
+  }
 }
