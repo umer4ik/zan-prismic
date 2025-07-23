@@ -102,13 +102,24 @@ export const handleClients = () => {
 
   const animations: Map<number, JSAnimation> = new Map();
   let zIndex = 1;
+  let previousIndex: number;
 
   const showImage = (img: HTMLElement, index: number) => {
     if (img.classList.contains('show')) return;
+    if (typeof previousIndex === 'number') {
+      animations.get(previousIndex)?.cancel();
+      const prevImg = $(`.clients-box__img [data-client="${previousIndex}"]`);
+      animations.set(previousIndex, animate(prevImg, {
+        filter: ['brightness(100%)', 'brightness(93%)'],
+        ease: eases.inOutQuad,
+        duration: 400,
+      }));
+    }
     const animation = animations.get(index);
     if (animation) {
       animation.cancel();
     }
+    img.style.filter = 'none';
     animations.set(index, animate(img, {
       scale: [0, 1],
       ease: eases.inOutQuad,
@@ -116,5 +127,6 @@ export const handleClients = () => {
     }));
     img.classList.add('show');
     img.style.zIndex = `${++zIndex}`
+    previousIndex = index;
   }
 }
