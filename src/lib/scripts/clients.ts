@@ -103,16 +103,20 @@ export const handleClients = () => {
   const animations: Map<number, JSAnimation> = new Map();
   let zIndex = 1;
   let previousIndex: number;
+  // let timeout: NodeJS.Timeout;
 
   const showImage = (img: HTMLElement, index: number) => {
     if (img.classList.contains('show')) return;
+    // if (timeout) {
+    //   clearTimeout(timeout);
+    // }
     if (typeof previousIndex === 'number') {
       animations.get(previousIndex)?.cancel();
       const prevImg = $(`.clients-box__img [data-client="${previousIndex}"]`);
       animations.set(previousIndex, animate(prevImg, {
-        filter: ['brightness(100%)', 'brightness(93%)'],
+        opacity: [1, 0],
         ease: eases.inOutQuad,
-        duration: 400,
+        duration: 100,
       }));
     }
     const animation = animations.get(index);
@@ -121,9 +125,9 @@ export const handleClients = () => {
     }
     img.style.filter = 'none';
     animations.set(index, animate(img, {
-      scale: [0, 1],
+      opacity: [0, 1],
       ease: eases.inOutQuad,
-      duration: 400,
+      duration: 100,
     }));
     img.classList.add('show');
     img.style.zIndex = `${++zIndex}`

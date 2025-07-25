@@ -4,6 +4,10 @@
   min-height: 58rem;
   position: relative;
   margin-inline: -10rem;
+  transition: color .4s ease;
+  &:hover:not(.award-row--head) {
+    color: #634F1E;
+  }
   &::before {
     content: '';
     transform-origin: 0% 50%;
