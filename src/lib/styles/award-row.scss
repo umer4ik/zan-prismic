@@ -36,14 +36,16 @@
     width: auto;
     overflow: hidden;
     border-radius: 5px;
+    .award-row:hover & {
+      z-index: 2; 
+    }
     div {
       width: 175rem;
       height: 232rem;
       overflow: hidden;
       border-radius: 10rem;
-      transform: scale(0.6);
-      transition: opacity .4s ease, transform .4s ease;
-      opacity: 0;
+      transform: scale(0);
+      transition: transform .4s ease;
       @media (max-width: 768px) {
         transform: scale(1);
         opacity: 1;
@@ -51,9 +53,14 @@
       .award-row:hover & {
         @media (min-width: 768px) {
           transform: scale(1);
-          opacity: 1;
         }
       }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
     }
   }
 }
