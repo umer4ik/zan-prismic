@@ -71,6 +71,10 @@
   &__langs {
     display: flex;
     gap: 4rem;
+    transition: color .4s ease;
+    [data-mode=dark] & {
+      color: #634F1E;
+    }
   }
 
   &__button {
@@ -82,35 +86,6 @@
     margin-inline-start: 7rem;
     position: relative;
     overflow: hidden;
-
-    span {
-      display: inline-block;
-      position: relative;
-      z-index: 2;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background-color: #F2EDDE;
-      z-index: 1;
-      transform: scaleY(0);
-      transition: transform .3s ease;
-      transform-origin: 0 0;
-    }
-
-    &:hover {
-      @media (min-width: 1400px) {
-        &::after {
-          transform-origin: 0 100%;
-          transform: none;
-        }
-      }
-    }
   }
 }
 

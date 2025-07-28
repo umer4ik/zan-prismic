@@ -6,7 +6,7 @@ export const processText = () => {
     elements: $$('.intro-title-word'),
   });
   splitText({
-    elements: $$('.header__link span'),
+    elements: $$('.header__link span, .header__button span'),
     className: 'transform-chars',
     charContainerClassName: 'transform-chars__container',
     invisibleCharClassName: 'transform-chars__end',

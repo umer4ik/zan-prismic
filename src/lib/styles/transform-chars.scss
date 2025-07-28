@@ -15,7 +15,8 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
-    .header__link:hover & {
+    .header__link:hover &,
+    .header__button:hover & {
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
           .transform-chars__start,
@@ -25,7 +26,8 @@
         }
       }
     }
-    .header__link & {
+    .header__link &,
+    .header__button & {
       @for $i from 0 through 10 {
         &:nth-child(#{10 - $i}) {
           .transform-chars__start,

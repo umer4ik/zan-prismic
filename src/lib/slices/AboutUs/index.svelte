@@ -61,9 +61,9 @@
         <PrismicRichText field={slice.primary.philosophy} />
       </div>
     </div>
-    <div class="about-us__belief">
+    <div class="about-us__belief" data-scroll data-scroll-id="belief">
       <div class="about-us__belief-img">
-        <img src="/about-us-belief.png" alt="">
+        <div class="about-us__belief-img-reel"><img src="/about-us-belief.png" alt=""></div>
       </div>
       <div class="about-us__belief-text-col">
         <div class="braced">{beliefTitle}</div>

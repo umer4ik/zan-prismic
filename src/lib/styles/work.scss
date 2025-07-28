@@ -18,7 +18,7 @@
   }
 
   &:hover {
-    .work__img img {
+    .work__img .work__img-reel {
       transform: scale(1.05);
     }
   }
@@ -36,11 +36,14 @@
 
     img {
       width: 100%;
-      transition: 1.2s ease;
       height: 100%;
       object-fit: cover;
       object-position: 50% 50%;
     }
+  }
+  &__img-reel {
+    transition: 1.2s ease;
+    height: 100%;
   }
 
   &--x1 {

@@ -1,11 +1,11 @@
 .mwf {
   height: 100vh;
-  background-image: url('/mwf.png');
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
+  background-color: #fff;
   cursor: pointer;
   &__content {
     min-height: 100%;
@@ -14,6 +14,16 @@
     justify-content: flex-end;
     align-items: center;
     padding: 20px;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
   .arrow-btn {
     opacity: 0;

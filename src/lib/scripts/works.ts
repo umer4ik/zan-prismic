@@ -1,5 +1,7 @@
 import { type AnimatableObject, createAnimatable, type RenderableCallbacks } from "animejs";
 import { $, $$ } from "../dom-helper";
+import { scroll } from "./scroll";
+import { lerp } from "./utils";
 
 type Animations = Record<string, RenderableCallbacks<never>>
 let arrow: HTMLElement | null = null;
@@ -128,4 +130,24 @@ export const handleWorks = () => {
     requestAnimationFrame(check)
   };
   check();
+
+  const works = $$('.work');
+
+  scroll.on('scroll', ({ currentElements }) => {
+    if (currentElements['mwf']) {
+      const progress = currentElements['mwf'].progress;
+      const y = lerp(progress, 1, -100, 100);
+      const transform = `scale(1.1) translateY(${-y}px)`;
+      $('.mwf__content img').style.transform = transform;
+    };
+    for (let index = 0; index < works.length; index++) {
+      const work = works[index];
+      if (currentElements[`work-${index}`]) {
+        const progress = currentElements[`work-${index}`].progress;
+        const y = lerp(progress, 1, -100, 100);
+        const transform = `scale(1.1) translateY(${-y}px)`;
+        work.querySelector('img')!.style.transform = transform;
+      }
+    }
+  });
 }

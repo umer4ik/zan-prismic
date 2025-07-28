@@ -34,14 +34,15 @@
     <div
       data-scroll
       data-work-reference={fullScreenProject.work_reference_id}
+      data-scroll-id="mwf"
       class="mwf"
-      style:background-image="url({fullScreenProject.big_image.url})"
     >
     <div class="mwf__content"
       data-scroll>
+      <PrismicImage class="mwf__image" field={fullScreenProject.big_image} />
       <div class="blurred-block">
         <div class="blurred-block__start">
-          <img src="/blurred-block-img.png" alt="" />
+          <PrismicImage field={fullScreenProject.thumbnail} />
         </div>
         <div class="blurred-block__text">
           <div class="blurred-block__title">{fullScreenProject.name}</div>
@@ -67,9 +68,14 @@
         </div>
         <div class="works__row">
           {#each aboveTableItems as item, index (index)}
-            <div class="work work--{item.size === 'big' ? 'x2' : 'x1'}" data-work-reference={item.work_reference_id}>
+            <div
+              data-scroll
+              data-scroll-id="work-{index}"
+              class="work work--{item.size === 'big' ? 'x2' : 'x1'}" data-work-reference={item.work_reference_id}>
               <div class="work__img">
-                <PrismicImage field={item.big_image} />
+                <div class="work__img-reel">
+                  <PrismicImage field={item.big_image} />
+                </div>
               </div>
               <div class="work__description">
                 <div class="work__titles">

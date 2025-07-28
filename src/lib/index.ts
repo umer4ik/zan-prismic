@@ -14,6 +14,7 @@ import { initScroll, lockScroll, scrollTo, unlockScroll } from './scripts/scroll
 import { burger } from './scripts/burger';
 import { handleWRows } from './scripts/handle-w-rows';
 import { handleTitles } from './scripts/titles';
+import { handleAboutUs } from './scripts/about-us';
 
 export const onStart = async () => {
   document.body.addEventListener('mouseover', (e) => {
@@ -36,6 +37,7 @@ export const onStart = async () => {
   animateIntroAbout();
   handleClients();
   addServicesEventListeners();
+  handleAboutUs();
   handleTripleC();
   handleAwards();
   handleWorks();
