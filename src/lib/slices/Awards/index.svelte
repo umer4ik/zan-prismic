@@ -56,7 +56,7 @@
         {#each slice.primary.awards as item, i (i)}
           <div class="award-row" data-award={i}>
             <div class="award-col award-col--year">
-              {item.year}
+              <span>{item.year}</span>
               <div class="award-row__image">
                 <div>
                   <PrismicImage field={item.image} />
@@ -64,11 +64,11 @@
               </div>
             </div>
             <div class="award-col award-col--award">
-              {item.award}
+              <span>{item.award}</span>
             </div>
             <div class="award-col award-col--mobile-image"><PrismicImage field={item.image} /></div>
-            <div class="award-col award-col--category">{item.award}</div>
-            <div class="award-col award-col--project-name">{item.name}</div>
+            <div class="award-col award-col--category"><span>{item.award}</span></div>
+            <div class="award-col award-col--project-name"><span>{item.name}</span></div>
           </div>
         {/each}
         <div class="award-row award-row--last"></div>

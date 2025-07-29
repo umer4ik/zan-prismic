@@ -46,7 +46,7 @@
   <div class="triple-c__content">
     <div class="triple-c__row">
       <div class="triple-c__col">
-        <div class="braced">{cNeedsTitle}</div>
+        <div class="braced popping-text" data-scroll>{cNeedsTitle}</div>
       </div>
       <div class="triple-c__text">
         <PrismicRichText field={slice.primary.description} />

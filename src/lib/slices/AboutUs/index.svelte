@@ -34,13 +34,13 @@
     <div class="about-us__top">
       <div class="about-us__row">
         <div class="about-us__col">
-          <div class="braced">ZAN</div>
+          <div class="braced popping-text" data-scroll>ZAN</div>
           <div class="about-us__top-text">
             <PrismicRichText field={slice.primary.description} />
           </div>
         </div>
         <div class="about-us__col">
-          <div class="braced">{numbersTitle}</div>
+          <div class="braced popping-text" data-scroll>{numbersTitle}</div>
           <div class="about-us__numbers">
             {#each rows as row, i (i)}
               <div class="about-us__numbers-row">
@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="about-us__philosophy">
-      <div class="braced">{philosophyTitle}</div>
+      <div class="braced popping-text" data-scroll>{philosophyTitle}</div>
       <div class="about-us__philosophy-text">
         <PrismicRichText field={slice.primary.philosophy} />
       </div>
@@ -66,7 +66,7 @@
         <div class="about-us__belief-img-reel"><img src="/about-us-belief.png" alt=""></div>
       </div>
       <div class="about-us__belief-text-col">
-        <div class="braced">{beliefTitle}</div>
+        <div class="braced popping-text" data-scroll>{beliefTitle}</div>
         <div class="about-us__belief-text">
           <PrismicRichText field={slice.primary.belief} />
         </div>

@@ -23,9 +23,9 @@ export const onStart = async () => {
       intro.cursor.y = e.clientY;
     }
   });
+  processText();
   await initScroll();
   lockScroll();
-  processText();
   intro.init();
   await preloader.init();
   unlockScroll();
