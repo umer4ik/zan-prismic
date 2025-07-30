@@ -24,8 +24,11 @@ export const initScroll = async () => {
     // anchor.style.height = `${height + (titleHeight / 2 + 50) + paddingBottom + ((i - services.length) * 10)}px`
     service.setAttribute('data-scroll-offset', `${offset}, 100%`)
   });
-  if (window.innerWidth <= 1440) {
-    $('.clients-box__start').setAttribute('data-scroll-offset', '-50, 80');
+  if (window.innerHeight <= 1440) {
+    // $('.clients-box__start').setAttribute('data-scroll-offset', '-50, 80');
+  };
+  if (window.innerHeight <= 700) {
+    $('[data-scroll-id="footer-full"]').setAttribute('data-scroll-speed', '1');
   };
 
   scroll = new LocomotiveScroll({

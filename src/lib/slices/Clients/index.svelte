@@ -19,7 +19,7 @@
       class="clients-box__start"
       data-scroll
       data-scroll-id="clients-start"
-      data-scroll-offset="-50"
+      data-scroll-offset="-50, 1%"
       data-scroll-sticky
       data-scroll-target="#clients-content">
         <div class="title title--clients">

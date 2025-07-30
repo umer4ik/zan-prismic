@@ -37,6 +37,13 @@ footer a {
   border-bottom: 1px solid rgba(#F2EDDE, 15%);
   font-size: 16rem;
   height: 260rem;
+  @media (max-height: 720px) {
+    height: 160rem;
+  }
+
+  @media (max-height: 700px) {
+    height: 260rem;
+  }
 
   @media (max-width: 1400) {
     padding-bottom: 120px;

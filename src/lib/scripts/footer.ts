@@ -79,6 +79,11 @@ export const handleFooter = () => {
 
 
     const mouse = Mouse.create(render.canvas);
+
+    // @ts-expect-error asdf
+    mouse.element.removeEventListener('wheel', mouse.mousewheel);
+    // @ts-expect-error asdf
+    mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
     // const mouseConstraint = MouseConstraint.create(engine, {
     //   mouse,
     //   constraint: {
@@ -138,10 +143,6 @@ export const handleFooter = () => {
     Composite.add(engine.world, [...boxes, ...generateWalls(),]);
 
 
-    // @ts-expect-error asdf
-    mouse.element.removeEventListener('wheel', mouse.mousewheel);
-    // @ts-expect-error asdf
-    mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
 
     // run the renderer
     Render.run(render);
@@ -154,13 +155,30 @@ export const handleFooter = () => {
       mouseY: -1000
     }
 
-    render.canvas.addEventListener('mousemove', (e) => {
+    $('.footer').addEventListener('mousemove', (e) => {
       const rect = render.canvas.getBoundingClientRect();
       cursor.mouseX = e.clientX - rect.left;
       cursor.mouseY = e.clientY - rect.top;
     });
 
-    render.canvas.addEventListener('mouseleave', () => {
+    $('.footer').addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const rect = render.canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      cursor.mouseX = touch.clientX - rect.left;
+      cursor.mouseY = touch.clientY - rect.top;
+    });
+    $('.footer').addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const rect = render.canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      cursor.mouseX = touch.clientX - rect.left;
+      cursor.mouseY = touch.clientY - rect.top;
+    });
+
+    $('.footer').addEventListener('mouseleave', () => {
       cursor.mouseX = -1000;
       cursor.mouseY = -1000;
     });
@@ -168,31 +186,31 @@ export const handleFooter = () => {
     const forceRadius = 100;
     const forceStrength = forceRadius / 55000;
 
-    const applyForceField = ()  => {
-        if (cursor.mouseX < 0 || cursor.mouseY < 0) return;
-        boxes.forEach(box => {
-            const bodyPos = box.position;
-            const dx = bodyPos.x - cursor.mouseX;
-            const dy = bodyPos.y - cursor.mouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            
-            if (distance < forceRadius && distance > 0) {
-                const force = (forceRadius - distance) / forceRadius;
-                const forceX = (dx / distance) * force * forceStrength;
-                const forceY = (dy / distance) * force * forceStrength;
-                
-                Body.applyForce(box, bodyPos, { x: forceX, y: forceY });
-                
-                // Ефект свічення
-                // box.glowIntensity = Math.min(force * 2, 1);
-                
-                // Обертання при впливі сили
-                const torque = (Math.random() - 0.5) * force * 0.01;
-                Body.setAngularVelocity(box, box.angularVelocity + torque);
-            } else {
-                // box.glowIntensity *= 0.95;
-            }
-        });
+    const applyForceField = () => {
+      if (cursor.mouseX < 0 || cursor.mouseY < 0) return;
+      boxes.forEach(box => {
+        const bodyPos = box.position;
+        const dx = bodyPos.x - cursor.mouseX;
+        const dy = bodyPos.y - cursor.mouseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < forceRadius && distance > 0) {
+          const force = (forceRadius - distance) / forceRadius;
+          const forceX = (dx / distance) * force * forceStrength;
+          const forceY = (dy / distance) * force * forceStrength;
+
+          Body.applyForce(box, bodyPos, { x: forceX, y: forceY });
+
+          // Ефект свічення
+          // box.glowIntensity = Math.min(force * 2, 1);
+
+          // Обертання при впливі сили
+          const torque = (Math.random() - 0.5) * force * 0.01;
+          Body.setAngularVelocity(box, box.angularVelocity + torque);
+        } else {
+          // box.glowIntensity *= 0.95;
+        }
+      });
     }
     const frame = () => {
       applyForceField();
