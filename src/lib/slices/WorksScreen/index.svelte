@@ -81,7 +81,6 @@
                 <div class="work__titles">
                   <div class="work__title">{item.name}</div>
                   <div class="work__tag">{item.tag}</div>
-                  <!-- <div class="work__subtitle">{item.location}</div> -->
                 </div>
               </div>
             </div>

@@ -31,6 +31,9 @@
   &--about,
   &--awards {
     height: 79rem;
+    @media (max-width: 1023px) {
+      height: 34px;
+    }
   }
   &--works,
   &--triple-c,
@@ -42,7 +45,7 @@
     sup {
       vertical-align: baseline;
       height: 50rem;
-      margin-left: -14rem;
+      margin-inline-start: -14rem;
       display: inline-block;
       transform: translateY(3rem);
       .split-text__char-container {
@@ -51,6 +54,10 @@
       .split-text__visible,
       .split-text__invisible {
         height: 100%;
+      }
+      @media (max-width: 1023px) {
+        height: 29px;
+        margin-inline-start: -7px;
       }
     }
   }

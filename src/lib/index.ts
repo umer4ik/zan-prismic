@@ -45,6 +45,9 @@ export const onStart = async () => {
   document.addEventListener('click', (event) => {
     const { target } = event;
     if (!(target instanceof HTMLElement)) return;
+    if (window.innerWidth <= 768 && target.closest('.w-row__col:first-child')) {
+      return;
+    }
     const element = target.closest('[data-work-reference]')
     if (!(element instanceof HTMLElement)) return;
     if (element.dataset.workReference) openDrawer(element.dataset.workReference!, element);

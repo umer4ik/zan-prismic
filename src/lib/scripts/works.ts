@@ -132,11 +132,24 @@ export const handleWorks = () => {
   check();
 
   const works = $$('.work');
+  let min = -100;
+  let max = 100;
+  const updateMinMax = () => {
+    min = -100;
+    max = 100;
+    if (window.innerWidth <= 1440) {
+      min = -30;
+      max = 30;
+    }
+  }
+  updateMinMax();
+  window.addEventListener('resize', updateMinMax);
+
 
   scroll.on('scroll', ({ currentElements }) => {
     if (currentElements['mwf']) {
       const progress = currentElements['mwf'].progress;
-      const y = lerp(progress, 1, -100, 100);
+      const y = lerp(progress, 1, min, max);
       const transform = `scale(1.1) translateY(${-y}px)`;
       $('.mwf__content img').style.transform = transform;
     };
@@ -144,7 +157,7 @@ export const handleWorks = () => {
       const work = works[index];
       if (currentElements[`work-${index}`]) {
         const progress = currentElements[`work-${index}`].progress;
-        const y = lerp(progress, 1, -100, 100);
+        const y = lerp(progress, 1, min, max);
         const transform = `scale(1.1) translateY(${-y}px)`;
         work.querySelector('img')!.style.transform = transform;
       }

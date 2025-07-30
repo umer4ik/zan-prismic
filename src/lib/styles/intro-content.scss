@@ -12,6 +12,7 @@
     height: calc(100vh - 70rem);
     justify-content: space-between;
   }
+
   &::after {
     content: '';
     position: absolute;
@@ -27,6 +28,7 @@
 .intro-col {
   position: relative;
   z-index: 2;
+
   &--title {
     width: calc(66.6666% - 10rem);
     max-width: calc(66.6666% - 10rem);
@@ -40,12 +42,13 @@
   }
 
   &--other {
-    
+
     width: calc(33.3333% - 10rem);
     max-width: calc(33.3333% - 10rem);
     min-width: calc(33.3333% - 10rem);
     display: flex;
     flex-direction: column;
+
     html[dir="rtl"] & {
       direction: rtl;
     }
@@ -95,6 +98,10 @@
 
   &--1 {
     margin-left: -9rem;
+    @media (max-width: 768px) {
+      margin-left: -2px;
+    }
+
     .split-text__char-container:nth-child(2) {
       margin-right: -7rem;
 
@@ -113,12 +120,18 @@
   &--2 {
     margin-top: 0rem;
     margin-left: -2rem;
+
+    @media (max-width: 768px) {
+      // margin-left: -8px;
+    }
+
     .split-text__char-container:nth-child(1) {
       margin-left: -4rem;
       margin-right: -18rem;
 
       @media (max-width: 768px) {
         margin-right: -6rem;
+        margin-left: -1rem;
       }
     }
 

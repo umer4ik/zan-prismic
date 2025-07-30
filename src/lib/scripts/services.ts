@@ -18,7 +18,7 @@ export const addServicesEventListeners = () => {
         ease: eases.outCirc,
       })
     }
-    if (currentElements['services-title']) {
+    if (currentElements['services-title'] && window.innerWidth > 768) {
       const progress = currentElements['services-title']!.progress
       const transformY = -lerp(1 - progress, 1, 0, 250);
       for (let i = 0; i <= 4; i++) {

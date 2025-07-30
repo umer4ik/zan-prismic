@@ -32,7 +32,7 @@ export const openDrawer = async (workRefId: string, trigger: HTMLElement) => {
 
 const checkScroll = () => {
   $$('.project > *').forEach(el => {
-    el.classList.toggle('show', el.getBoundingClientRect().top < window.innerHeight);
+    el.classList.toggle('show', el.getBoundingClientRect().top - el.getBoundingClientRect().height / 2 < window.innerHeight);
   })
 }
 

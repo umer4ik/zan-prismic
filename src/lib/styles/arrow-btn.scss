@@ -28,6 +28,9 @@
   left: 6rem;
   z-index: 5;
   transform: translate(calc(var(--cursor-x) * 100vw), calc(var(--cursor-y) * 100vh));
+  @media (max-width: 1024px) {
+    display: none;
+  }
 
   &.arrow-btn {
     background: none;

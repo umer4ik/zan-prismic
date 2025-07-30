@@ -26,9 +26,14 @@
   class="services"
   data-scroll-section
   data-scroll-id="services-container"
-  style="position: relative;"
   id="services">
-  <div class="services__title-box" data-scroll data-scroll-id="services-title" data-scroll-sticky data-scroll-target="#services" data-scroll-offset="0, 100%">
+  <div
+    class="services__title-box"
+    data-scroll
+    data-scroll-id="services-title"
+    data-scroll-sticky
+    data-scroll-target="#services"
+    data-scroll-offset="0, 100%">
     <div class="services__title">{servicesTitle}</div>
   </div>
   {#each services as item, index (index)}
