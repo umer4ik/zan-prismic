@@ -23,7 +23,11 @@ export const initScroll = async () => {
     const offset = titleHeight / 2 + additionalOffset + serviceHeight * i - (serviceTitleHeight + serviceContentPaddingTop * 2) * i
     // anchor.style.height = `${height + (titleHeight / 2 + 50) + paddingBottom + ((i - services.length) * 10)}px`
     service.setAttribute('data-scroll-offset', `${offset}, 100%`)
-  })
+  });
+  if (window.innerWidth <= 1440) {
+    $('.clients-box__start').setAttribute('data-scroll-offset', '-50, 80');
+  };
+
   scroll = new LocomotiveScroll({
     smooth: true,
     multiplier: 0.8,

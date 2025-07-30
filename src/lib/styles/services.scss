@@ -8,12 +8,16 @@
   @media (max-width: 768px) {
     // padding-bottom: 120px;
   }
+  &__title-box {
+    width: 100%;
+  }
   &__title {
     padding: 20px;
     font-weight: 500;
     font-size: 326rem;
     line-height: 0.75;
     height: 285rem;
+    white-space: nowrap;
     // letter-spacing: -0.056em;
     .split-text__char-container {
       margin-right: -0.056em;
@@ -23,7 +27,8 @@
       font-size: 450rem;
     }
     @media (max-width: 1400px) {
-      font-size: 23vw;
+      font-size: 22.4vw;
+      height: 252rem;
       html[dir="rtl"] & {
         font-size: 23vw;
       }
