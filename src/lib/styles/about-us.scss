@@ -1,15 +1,22 @@
 .about-us {
   background-color: #F9F6EF;
-  display: flex;
   color: #634F1E;
   padding-inline: 20rem;
   margin-top: -150rem;
+
   @media (max-width: 1440px) {
     margin-top: -250rem;
   }
-  @media (max-width: 1220px) {
-    flex-direction: column;
+
+  &__content {
+    display: flex;
+    margin-inline: -20rem;
+
+    @media (max-width: 1220px) {
+      flex-direction: column;
+    }
   }
+
   &__start {
     width: 33.3333%;
     max-width: 33.3333%;
@@ -18,17 +25,21 @@
     border-inline-end: 1px solid rgba(#634F1E, 15%);
     padding-block: 12rem;
     align-items: flex-start;
+
     .title {
       padding-inline: 20rem;
+
       @media (max-width: 1220px) {
         width: 100%;
       }
     }
+
     @media (max-width: 1420px) {
       width: 33.3333%;
       max-width: 33.3333%;
       min-width: 33.3333%;
     }
+
     @media (max-width: 1220px) {
       width: 100%;
       max-width: 100%;
@@ -37,36 +48,44 @@
       padding-block-end: 100px;
       border-inline-end: 0;
     }
+
     @media (max-width: 768px) {
       padding-block-end: 80px;
     }
   }
+
   &__end {
     width: 66.6666%;
     max-width: 66.6666%;
     min-width: 66.6666%;
+
     @media (max-width: 1220px) {
       width: 100%;
       max-width: 100%;
       min-width: 0;
     }
   }
+
   &__top {
     padding: 20rem;
     padding-bottom: 96rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
+
     @media (max-width: 768px) {
       padding-bottom: 70px;
       padding-inline: 0;
     }
   }
+
   &__row {
     display: flex;
+
     @media (max-width: 1023px) {
       width: 100%;
       max-width: 100%;
       min-width: 0;
     }
+
     @media (max-width: 768px) {
       width: 100%;
       max-width: 100%;
@@ -74,44 +93,53 @@
       flex-direction: column;
     }
   }
+
   &__col {
     flex-grow: 1;
     width: 50%;
     max-width: 50%;
     min-width: 50%;
+
     .braced {
       margin-bottom: 1em;
     }
+
     @media (max-width: 768px) {
       padding: 20px 20px 80px;
       width: 100%;
       max-width: 100%;
       min-width: 100%;
     }
+
     &:first-child {
       @media (max-width: 768px) {
         border-bottom: 1px solid rgba(#634F1E, 15%);
       }
     }
   }
+
   &__top-text {
     font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
     max-width: 308rem;
+
     @media (max-width: 1400px) {
       font-size: 16px;
     }
   }
+
   &__numbers {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
+
   &__numbers-row {
     display: flex;
     gap: 20px;
   }
+
   &__number {
     width: 142rem;
     max-width: 142rem;
@@ -119,9 +147,11 @@
     font-size: 30rem;
     line-height: 100%;
     letter-spacing: 0px;
+
     @media (max-width: 1400px) {
       font-size: 30px;
     }
+
     @media (max-width: 768px) {
       font-size: 20px;
       width: 142px;
@@ -129,14 +159,17 @@
       min-width: 142px;
     }
   }
+
   &__philosophy {
     padding: 20rem;
     padding-bottom: 96rem;
     border-bottom: 1px solid rgba(#634F1E, 15%);
+
     @media (max-width: 768px) {
       border-bottom: 0;
     }
   }
+
   &__philosophy-text {
     margin-top: 15px;
     font-weight: 400;
@@ -144,17 +177,21 @@
     line-height: 100%;
     letter-spacing: 0px;
     max-width: 750rem;
+
     p {
       margin: 0;
     }
+
     @media (max-width: 1439px) {
       font-size: 30px;
       max-width: 750px;
     }
+
     @media (max-width: 768px) {
       font-size: 20px;
     }
   }
+
   &__belief {
     padding: 20rem;
     padding-bottom: 200rem;
@@ -162,14 +199,17 @@
     gap: 41rem;
     max-width: 780rem;
     align-items: start;
+
     @media (max-width: 1400px) {
       max-width: 780px;
     }
+
     @media (max-width: 768px) {
       flex-direction: column;
       padding-bottom: 130px;
     }
   }
+
   &__belief-img {
     overflow: hidden;
     border-radius: 8rem;
@@ -177,37 +217,44 @@
     height: 283rem;
     flex-grow: 1;
     flex-shrink: 0;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 50% 50%;
     }
+
     &:hover {
       .about-us__belief-img-reel {
         transform: scale(1.03);
       }
     }
+
     @media (max-width: 768px) {
       width: 100%;
       min-width: 0;
     }
   }
+
   &__belief-img-reel {
     width: 100%;
     height: 100%;
     transition: transform .4s ease;
   }
+
   &__belief-text-col {
     width: 273rem;
     flex-grow: 1;
     flex-shrink: 0;
   }
+
   &__belief-text {
     font-size: 16rem;
     line-height: 110%;
     letter-spacing: 0px;
     color: #634F1E;
+
     @media (max-width: 1400px) {
       font-size: 16px;
     }

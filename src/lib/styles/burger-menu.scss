@@ -28,20 +28,20 @@
     &:first-child {
       height: 74px;
     }
-    @for $i from 2 through 15 {
+    @for $i from 2 through 17 {
       &:nth-child(#{$i}) {
         top: #{($i - 2) * 54 + 74}px;
       }
     }
-    @for $i from 15 through 1 {
-      &:nth-child(#{16 - $i}) {
+    @for $i from 17 through 1 {
+      &:nth-child(#{18 - $i}) {
         .burger-menu__bg-item-color {
-          transition-delay: #{20 * ($i - 1) + 400}ms;
+          transition-delay: #{17 * ($i - 1) + 400}ms;
         }
       }
     }
     .burger-open & {
-      @for $i from 1 through 15 {
+      @for $i from 1 through 17 {
         &:nth-child(#{$i}) {
           .burger-menu__bg-item-color {
             transition-delay: #{25 * ($i - 1)}ms;

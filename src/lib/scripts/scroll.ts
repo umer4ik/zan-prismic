@@ -16,11 +16,16 @@ export const initScroll = async () => {
   // const paddingBottom = $('.services-gap')?.offsetHeight ?? 0
   const titleHeight = $('.services__title-box').offsetHeight
   const serviceTitleHeight = $('.service__title').offsetHeight
-  const serviceHeight = $('.service').offsetHeight
   const serviceContentPaddingTop = parseInt(getComputedStyle($('.service__content')).paddingBlockStart, 10);
-  const additionalOffset = 0 // window.innerWidth > 1440 ? 50 : 50
+  const additionalOffset = 0; // window.innerWidth > 1440 ? 50 : 50
+  let indexOffset = 0;
   $$('.service-wrapper').forEach((service, i) => {
-    const offset = titleHeight / 2 + additionalOffset + serviceHeight * i - (serviceTitleHeight + serviceContentPaddingTop * 2) * i
+    const serviceHeight = $$('.service').item(i).offsetHeight;
+    // console.log('serviceHeight', serviceHeight * i);
+    // console.log('indexOffset', indexOffset);
+    indexOffset += $$('.service').item(i).offsetHeight;
+    const offset = titleHeight / 2 + additionalOffset + (indexOffset - serviceHeight) - (serviceTitleHeight + serviceContentPaddingTop * 2) * i;
+
     // anchor.style.height = `${height + (titleHeight / 2 + 50) + paddingBottom + ((i - services.length) * 10)}px`
     service.setAttribute('data-scroll-offset', `${offset}, 100%`)
   });

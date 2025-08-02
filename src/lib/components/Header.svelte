@@ -106,6 +106,12 @@
       <div class="burger-menu__bg-item">
         <div class="burger-menu__bg-item-color"></div>
       </div>
+      <div class="burger-menu__bg-item">
+        <div class="burger-menu__bg-item-color"></div>
+      </div>
+      <div class="burger-menu__bg-item">
+        <div class="burger-menu__bg-item-color"></div>
+      </div>
     </div>
     <ul class="burger-menu__items">
       <li class="burger-menu__item">

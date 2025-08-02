@@ -27,16 +27,17 @@
   data-scroll-section
   data-scroll-id="services-container"
   id="services">
+  <div class="services__anchor" data-scroll data-scroll-id="services-anchor" id="services-anchor"></div>
   <div
     class="services__title-box"
     data-scroll
     data-scroll-id="services-title"
     data-scroll-sticky
-    data-scroll-target="#services"
+    data-scroll-target="#services-anchor"
     data-scroll-offset="0, 100%">
     <div class="services__title">{servicesTitle}</div>
   </div>
-  {#each services as item, index (index)}
+  <!-- {#each services as item, index (index)}
     <div
       class="service-anchor"
       data-scroll
@@ -44,7 +45,7 @@
       id="service-anchor-{index}"
       data-test="{item.name}"
     ></div>
-  {/each}
+  {/each} -->
   {#each services as item, index (index)}
     <div
       class="service-wrapper"
@@ -52,8 +53,7 @@
       data-scroll
       data-scroll-id="service-{index}"
       data-scroll-sticky
-      data-scroll-offset="{200 * index + 100}, 100%"
-      data-scroll-target="#services">
+      data-scroll-target="#services-anchor">
       <div class="service-box" style="background-color: {colors[index % 5]};">
         <div class="service">
           <div class="service__content">

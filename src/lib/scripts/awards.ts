@@ -113,7 +113,7 @@ export const handleAwards = () => {
   $('.awards-table').addEventListener('click', ({ target }) => {
     if (window.innerWidth >= 768) return;
     assertIsHTMLElement(target);
-    const row = target.closest('.award-row');
+    const row = target.closest('.award-row:not(.award-row--head)');
     if (!row) return;
     assertIsHTMLElement(row);
     if (row.classList.contains('expanded')) {
