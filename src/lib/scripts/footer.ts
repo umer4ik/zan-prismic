@@ -137,7 +137,9 @@ export const handleFooter = () => {
       return Math.floor(canvasBox.clientWidth / BOX_WIDTH * numberOfLayers);
     }
 
-    const boxes = generateBoxes(getBoxesCount(2));
+    const boxesCount = window.innerWidth < 768 ? 3 : 2;
+
+    const boxes = generateBoxes(getBoxesCount(boxesCount));
 
     // add all of the bodies to the world
     Composite.add(engine.world, [...boxes, ...generateWalls(),]);
@@ -162,16 +164,16 @@ export const handleFooter = () => {
     });
 
     $('.footer').addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+      // e.preventDefault();
+      // e.stopPropagation();
       const rect = render.canvas.getBoundingClientRect();
       const touch = e.touches[0];
       cursor.mouseX = touch.clientX - rect.left;
       cursor.mouseY = touch.clientY - rect.top;
     });
     $('.footer').addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+      // e.preventDefault();
+      // e.stopPropagation();
       const rect = render.canvas.getBoundingClientRect();
       const touch = e.touches[0];
       cursor.mouseX = touch.clientX - rect.left;
@@ -179,6 +181,11 @@ export const handleFooter = () => {
     });
 
     $('.footer').addEventListener('mouseleave', () => {
+      cursor.mouseX = -1000;
+      cursor.mouseY = -1000;
+    });
+
+    $('.footer').addEventListener('touchend', () => {
       cursor.mouseX = -1000;
       cursor.mouseY = -1000;
     });

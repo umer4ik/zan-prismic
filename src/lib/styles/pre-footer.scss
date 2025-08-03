@@ -37,15 +37,15 @@ footer a {
   border-bottom: 1px solid rgba(#F2EDDE, 15%);
   font-size: 16rem;
   height: 260rem;
-  @media (max-height: 720px) {
+  @media (max-height: 720px) and (min-width: 1200px) {
     height: 160rem;
   }
 
-  @media (max-height: 700px) {
+  @media (max-height: 700px) and (min-width: 1200px) {
     height: 260rem;
   }
 
-  @media (max-width: 1400) {
+  @media (max-width: 768px) {
     padding-bottom: 120px;
     height: auto;
     font-size: 16px;

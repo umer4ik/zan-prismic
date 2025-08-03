@@ -31,7 +31,9 @@ export const initScroll = async () => {
   });
   if (window.innerWidth <= 768) {
     $('.clients-box__start').removeAttribute('data-scroll-sticky');
-    // $('.clients-box__start').removeAttribute('data-scroll-target');
+    const footerFull = $('[data-scroll-id="footer-full"]');
+    footerFull.removeAttribute('data-scroll-speed');
+    footerFull.removeAttribute('data-scroll-section');
   };
   if (window.innerHeight <= 700) {
     $('[data-scroll-id="footer-full"]').setAttribute('data-scroll-speed', '1');

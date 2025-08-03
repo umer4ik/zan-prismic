@@ -8,11 +8,11 @@
   font-size: 16rem;
   height: calc(100vh - 315rem);
 
-  @media (max-height: 720px) {
+  @media (max-height: 720px) and (min-width: 1200px) {
     height: calc(100vh - 215rem);
   }
 
-  @media (max-height: 700px) {
+  @media (max-height: 700px) and (min-width: 1200px) {
     height: calc(100vh - 55rem);
   }
 
@@ -20,6 +20,12 @@
     // height: auto;
     font-size: 16px;
   }
+  @media (max-width: 768px) {
+    height: 100vh;
+    // padding-bottom: 200px;
+  }
+
+  // @media
 
   &__row {
     position: relative;
