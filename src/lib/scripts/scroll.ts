@@ -5,9 +5,13 @@ import type LocomotiveScroll from 'locomotive-scroll';
 export let scroll: LocomotiveScroll
 
 export const lockScroll = () => {
+  scroll?.stop();
+  document.body.style.overflow = 'hidden';
 }
 
 export const unlockScroll = () => {
+  scroll?.start();
+  document.body.style.overflow = '';
 }
 export const initScroll = async () => {
   const module = await import('locomotive-scroll');
@@ -49,7 +53,7 @@ export const initScroll = async () => {
       breakpoint: 1024
     },
     smartphone: {
-      smooth: true,
+      smooth: false,
     }
   });
 }

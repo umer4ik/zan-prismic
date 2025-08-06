@@ -29,15 +29,23 @@ export const animateHeader = () => {
     onComplete: () => {
       isShown = true;
       scroll.on('scroll', ({ direction, delta, currentElements }) => {
-        if (
-          delta.y > $('.intro').getBoundingClientRect().height && delta.y < $('footer').offsetTop
-        ) {
-          header.dataset['mode'] = 'dark';
-        } else {
-          header.dataset['mode'] = 'light';
-        }
         if (window.scrollY !== oldScroll) {
           oldScroll = window.scrollY;
+        }
+        if (delta) {
+          if (
+            delta.y > $('.intro').getBoundingClientRect().height && delta.y < $('footer').offsetTop
+          ) {
+            header.dataset['mode'] = 'dark';
+          } else {
+            header.dataset['mode'] = 'light';
+          }
+        } else {
+          if (window.scrollY >= $('.intro').getBoundingClientRect().height && window.scrollY < $('footer').offsetTop) {
+            header.dataset['mode'] = 'dark';
+          } else {
+            header.dataset['mode'] = 'light';
+          }
         }
         if (direction === 'up' && !isShown && !currentElements['post-footer']) { // scroll up
           showHeader();
@@ -48,13 +56,15 @@ export const animateHeader = () => {
         }
       });
       scroll.on('scroll', ({ delta }) => {
-        if (delta.y >= window.innerHeight && !isCurtainShown) {
-          isCurtainShown = true;
-          showCurtain();
-        }
-        if (delta.y < window.innerHeight && isCurtainShown) {
-          isCurtainShown = false;
-          hideCurtain();
+        if (delta) {
+          if (delta.y >= window.innerHeight && !isCurtainShown) {
+            isCurtainShown = true;
+            showCurtain();
+          }
+          if (delta.y < window.innerHeight && isCurtainShown) {
+            isCurtainShown = false;
+            hideCurtain();
+          }
         }
       })
     }
