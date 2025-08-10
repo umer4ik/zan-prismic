@@ -4,7 +4,7 @@
   position: absolute;
   right: 20px;
   html[dir="rtl"] & {
-    right: 917px;
+    right: 917rem;
     @media (max-width: 972px) {
       right: auto;
       left: 20px;

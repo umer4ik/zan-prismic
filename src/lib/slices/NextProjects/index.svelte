@@ -21,8 +21,8 @@
   }
 </script>
 <div class="project__next-header">
-  <div class="title">Next<sup>({slice.primary.projects.length})</sup></div>
-  <span class="project__back-to-top">Back to Top</span>
+  <div class="title">{titles.next}<sup>({slice.primary.projects.length})</sup></div>
+  <span class="project__back-to-top">{titles.backToTop}</span>
 </div>
 <div class="project__row">
   {#each slice.primary.projects as item, index (index)}

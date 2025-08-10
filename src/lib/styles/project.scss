@@ -9,9 +9,9 @@
   transform: translate(180px, 0);
   opacity: 0;
 
-  html[dir="rtl"] & {
-    transform: translate(-180px, 0);
-  }
+  // html[dir="rtl"] & {
+  //   transform: translate(-180px, 0);
+  // }
 }
 
 .project {

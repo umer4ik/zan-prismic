@@ -26,6 +26,8 @@
     color: #634F1E;
     html[dir="rtl"] & {
       font-size: 450rem;
+      line-height: 0.55;
+      height: 337rem;
     }
     @media (max-width: 1400px) {
       font-size: 22.4vw;
