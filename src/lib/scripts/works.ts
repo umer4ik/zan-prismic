@@ -131,7 +131,6 @@ export const handleWorks = () => {
   };
   check();
 
-  const works = $$('.work');
   let min = -100;
   let max = 100;
   const updateMinMax = () => {
@@ -153,6 +152,7 @@ export const handleWorks = () => {
       const transform = `scale(1.1) translateY(${-y}px)`;
       $('.mwf__content img').style.transform = transform;
     };
+    const works = $$('.work');
     for (let index = 0; index < works.length; index++) {
       const work = works[index];
       if (currentElements[`work-${index}`]) {

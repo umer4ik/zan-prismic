@@ -56,8 +56,15 @@ export const initScroll = async () => {
       smooth: false,
     }
   });
+  if (window) {
+    window.updateScroll = updateScroll;
+  }
 }
 
 export const scrollTo = (target: string) => {
   scroll.scrollTo(target);
 };
+
+export function updateScroll() {
+  scroll?.update();
+}

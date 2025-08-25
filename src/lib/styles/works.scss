@@ -15,6 +15,9 @@
       padding-top: 16px;
       gap: 100px;
     }
+    @media (max-width: 768px) {
+      gap: 60px;
+    }
   }
 
   &__row {
@@ -27,6 +30,28 @@
     @media (max-width: 768px) {
       flex-wrap: wrap;
       gap: 40px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__filter {
+    margin-bottom: 16rem;
+
+    @media (max-width: 768px) {
+      margin-bottom: 0;
     }
   }
 }
