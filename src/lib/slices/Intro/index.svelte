@@ -14,10 +14,14 @@
   let aboutTitle = 'About';
   let worksTitle = `${slice.primary.number_of_works}+ Works`;
   let moreTitle = 'More';
+  let zan = 'Zan'
+  let agency = 'Agency'
   if (arabic) {
     aboutTitle = 'حول';
     worksTitle = `${slice.primary.number_of_works}+ أعمال`;
     moreTitle = 'المزيد';
+    zan = 'زان';
+    agency = 'وكالة';
   }
 </script>
 <section
@@ -31,14 +35,14 @@
 >
   <div class="intro__curtain"></div>
   <div class="intro-row">
-    <div class="intro-col intro-col--title" dir="ltr">
+    <div class="intro-col intro-col--title">
       <div class="intro-title-box">
         <div class="intro-title intro-title--1">
-          <div class="intro-title-word">ZAN</div>
+          <div class="intro-title-word">{zan}</div>
           <div class="intro-title-word intro-title-word--r">®</div>
         </div>
         <div class="intro-title intro-title--2">
-          <div class="intro-title-word">Agency</div>
+          <div class="intro-title-word">{agency}</div>
         </div>
       </div>
     </div>

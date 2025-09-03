@@ -1,16 +1,35 @@
 .clients {
   background-color: #F2EDDE;
-  padding-top: 20px;
   display: flex;
   justify-content: center;
-  padding-bottom: 200rem;
+  flex-direction: column;
+  // padding-bottom: 200rem;
   border-bottom: 1px solid rgba(#634F1E, 15%);
+  overflow: hidden;
+
   @media (max-width: 1020px) {
     padding-top: 16px;
+    padding-bottom: 200rem;
   }
+
   &__content {
     flex-grow: 1;
     padding-inline: 20px;
     padding-bottom: 24rem;
+
+    @media (max-width: 1400px) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__after {
+    padding-top: 13rem;
+    margin-bottom: -35rem;
+    overflow: hidden;
+    padding-inline-start: 33.3333%;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 }

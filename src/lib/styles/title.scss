@@ -1,6 +1,6 @@
 .title {
   font-weight: 500;
-  font-size: 80rem;
+  font-size: 75rem;
   line-height: 90%;
   letter-spacing: -2px;
   color: #634F1E;
@@ -14,11 +14,14 @@
 
   sup {
     font-weight: 500;
-    font-size: 16rem;
+    font-size: 14rem;
     line-height: 100%;
     letter-spacing: 0px;
     vertical-align: super;
-    top: -1.2em;
+    top: -0.9em;
+    html[dir="rtl"] & {
+      top: -1.9em;
+    }
 
     @media (max-width: 1023px) {
       font-size: 10px;

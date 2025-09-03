@@ -2,25 +2,25 @@ import { animate, eases, JSAnimation } from "animejs";
 import { $, assertIsHTMLElement, $$ } from "../dom-helper"
 import _ from "lodash";
 import { scroll } from "./scroll";
-// import { lenis } from "./scroll";
+import { get1Rem } from "./get-1-rem";
 
 export const handleClients = () => {
-  $('.clients').addEventListener('mouseover', ({ target }) => {
-    if (window.innerWidth > 1020) {
-      assertIsHTMLElement(target)
-      const trigger = target.closest('.client');
-      if (!trigger) return;
-      $$('.client').forEach(x => x.classList.remove('hovered'));
-      trigger.classList.add('hovered');
-      const index = trigger.getAttribute('data-client')!;
+  // $('.clients').addEventListener('mouseover', ({ target }) => {
+  //   if (window.innerWidth > 1020) {
+  //     assertIsHTMLElement(target)
+  //     const trigger = target.closest('.client');
+  //     if (!trigger) return;
+  //     $$('.client').forEach(x => x.classList.remove('hovered'));
+  //     trigger.classList.add('hovered');
+  //     const index = trigger.getAttribute('data-client')!;
 
-      $$(`.clients-box__img img:not([data-client="${index}"])`).forEach(x => x.classList.remove('show'));
+  //     $$(`.clients-box__img img:not([data-client="${index}"])`).forEach(x => x.classList.remove('show'));
 
-      const img = $(`.clients-box__img [data-client="${index}"]`);
+  //     const img = $(`.clients-box__img [data-client="${index}"]`);
 
-      showImage(img, +index)
-    }
-  });
+  //     showImage(img, +index)
+  //   }
+  // });
 
   let collapseAnimation: JSAnimation;
   let expandAnimation: JSAnimation;
@@ -80,12 +80,33 @@ export const handleClients = () => {
     }
   }, 400)
   window.addEventListener('resize', resize);
-  scroll.on('scroll', () => {
-    const clients = $$('.client');
+  scroll.on('scroll', ({ currentElements }) => {
+    const _1rem = get1Rem();
+    const mask = $('.clients-box__mask');
+    if (currentElements['clients']) {
+      const el = currentElements['clients'];
+      if (currentElements['clients-mask']) {
+        if (window.innerWidth >= 1920) {
+          mask.scrollTop = mask.scrollHeight * (currentElements['clients-mask'].progress * window.clientMaskCoeff1920);
+        } else {
+          mask.scrollTop = mask.scrollHeight * (currentElements['clients-mask'].progress * window.clientMaskCoeff1440);
+        }
+      } else {
+        if (el.progress < 0.5) {
+          mask.scrollTop = 0;
+        } else {
+          mask.scrollTop = mask.scrollHeight - _1rem * 148;
+        }
+      }
+    }
+    if (currentElements['services-container']) {
+      mask.scrollTop = mask.scrollHeight;
+    }
+    const clients = $$('.client:not(.client--fake)');
     const clientsInViewport = [];
-    for (let i = 0; i < clients.length; i++) {
+    for (let i = 5; i < clients.length; i++) {
       const x = clients[i];
-      if (x.getBoundingClientRect().top > 60) {
+      if (x.getBoundingClientRect().top > 350) {
         clientsInViewport.push(x)
       }
     }
@@ -96,7 +117,7 @@ export const handleClients = () => {
       const index = clientInViewport.getAttribute('data-client')!;
       $$(`.clients-box__img img:not([data-client="${index}"])`).forEach(x => x.classList.remove('show'));
       const img = $(`.clients-box__img [data-client="${index}"]`);
-      showImage(img, +index)
+      if (img) showImage(img, +index)
     }
   });
 

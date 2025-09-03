@@ -11,6 +11,8 @@ declare global {
   }
   interface Window {
     updateScroll: () => void;
+    clientMaskCoeff1440: number;
+    clientMaskCoeff1920: number;
   }
 }
 
