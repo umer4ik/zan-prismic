@@ -2,7 +2,7 @@
   import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
   type Props = SliceComponentProps<Content.WorksScreenSlice> & {
@@ -19,12 +19,16 @@
   };
 
   const { slice, context }: Props = $props();
+  const works = slice.primary.works.map(x => ({
+    ...x,
+    tags: [x.tag, x.tag2].filter(Boolean)
+  }))
   const aboveTableItems = $derived(
-    slice.primary.works.filter((x) => x.show_above_the_table && !x.full_screen).filter((x) => (tag ? x.tag?.includes(tag) || x.tag2?.includes(tag) : true)),
+    works.filter((x) => x.show_above_the_table && !x.full_screen).filter((x) => (tag ? x.tags?.includes(tag) : true)),
   );
 
-  const otherProjects = slice.primary.works.filter((x) => !x.show_above_the_table && !x.full_screen);
-  const fullScreenProject = slice.primary.works.find((x) => x.full_screen);
+  const otherProjects = works.filter((x) => !x.show_above_the_table && !x.full_screen);
+  const fullScreenProject = works.find((x) => x.full_screen);
   const arabic = isArabic(context.locale);
 
   const toggleDropdown = () => {
@@ -51,6 +55,8 @@
     }, 0);
   };
 
+  const allTags = [...new Set(works.filter(x => x.show_above_the_table && !x.full_screen).flatMap(x => x.tags))];
+
   let interval: NodeJS.Timeout;
   let imageStyles: string[] = [];
   onMount(() => {
@@ -71,6 +77,10 @@
   }
 
 </script>
+
+{#snippet rTag(tags: string[])}
+  {tags[0]} {tags.slice(1).length > 0 ? `+${tags.slice(1).length}` : ''}
+{/snippet}
 
 <div data-scroll-section id="mwf">
   {#if fullScreenProject}
@@ -120,12 +130,11 @@
                 <button class="dropdown__item" onclick={() => setTag('')}>
                   <span class="dropdown__item-label">All Works</span>
                 </button>
-                <button class="dropdown__item" onclick={() => setTag('Branding +1')}>
-                  <span class="dropdown__item-label">Branding</span>
-                </button>
-                <button class="dropdown__item" onclick={() => setTag('Company +1')}>
-                  <span class="dropdown__item-label">Company</span>
-                </button>
+                {#each allTags as t (t)}
+                  <button class="dropdown__item" onclick={() => setTag(t as string)}>
+                    <span class="dropdown__item-label">{t}</span>
+                  </button>
+                {/each}
               </div>
             {/if}
           </div>
@@ -146,7 +155,7 @@
             <div class="work__description">
               <div class="work__titles">
                 <div class="work__title">{item.name}</div>
-                <div class="work__tag">{item.tag}</div>
+                <div class="work__tag">{@render rTag(item.tags as string[])}</div>
               </div>
             </div>
           </div>
@@ -167,7 +176,7 @@
         {#each otherProjects as item, index (index)}
           <div class="w-row" data-work-reference={item.work_reference_id} data-scroll>
             <div class="w-row__col">{item.name}</div>
-            <div class="w-row__col">{item.tag}</div>
+            <div class="w-row__col">{@render rTag(item.tags as string[])}</div>
             <div class="w-row__col w-row__col--year">
               <span>{item.year}</span>
               <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-row__arrow">
