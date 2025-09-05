@@ -2,7 +2,6 @@ import { animate, eases, JSAnimation } from "animejs";
 import { $, assertIsHTMLElement, $$ } from "../dom-helper"
 import _ from "lodash";
 import { scroll } from "./scroll";
-import { get1Rem } from "./get-1-rem";
 
 export const handleClients = () => {
   // $('.clients').addEventListener('mouseover', ({ target }) => {
@@ -81,23 +80,12 @@ export const handleClients = () => {
   }, 400)
   window.addEventListener('resize', resize);
   scroll.on('scroll', ({ currentElements }) => {
-    const _1rem = get1Rem();
     const mask = $('.clients-box__mask');
     if (currentElements['clients']) {
-      const el = currentElements['clients'];
-      if (currentElements['clients-mask']) {
-        if (window.innerWidth >= 1920) {
-          mask.scrollTop = mask.scrollHeight * (currentElements['clients-mask'].progress * window.clientMaskCoeff1920);
-        } else {
-          mask.scrollTop = mask.scrollHeight * (currentElements['clients-mask'].progress * window.clientMaskCoeff1440);
-        }
-      } else {
-        if (el.progress < 0.5) {
-          mask.scrollTop = 0;
-        } else {
-          mask.scrollTop = mask.scrollHeight - _1rem * 148;
-        }
-      }
+      const mask = $('.clients-box__mask');
+      const target = $('.client:not(.client--fake)[data-client="0"]');
+      console.log(mask.getBoundingClientRect().top - target.getBoundingClientRect().top)
+      mask.scrollTop = mask.getBoundingClientRect().top - target.getBoundingClientRect().top;
     }
     if (currentElements['services-container']) {
       mask.scrollTop = mask.scrollHeight;

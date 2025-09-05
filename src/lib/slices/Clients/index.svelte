@@ -1,9 +1,7 @@
 <script lang="ts">
-    import { browser } from '$app/environment';
   import { isArabic } from '$lib/is-arabic';
   import type { Content } from '@prismicio/client';
   import { PrismicImage, type SliceComponentProps } from '@prismicio/svelte';
-  import { onMount } from 'svelte';
 
   type Props = SliceComponentProps<Content.ClientsSlice> & {
     context: {
@@ -18,49 +16,6 @@
     ...realClients.slice(realClients.length - 5),
     ...realClients,
   ];
-  const lengthCoeffs1440: Record<string, number> = {
-    5: 0.62,
-    6: 0.69,
-    7: 0.73,
-    8: 0.76,
-    9: 0.78,
-    10: 0.80,
-    11: 0.82,
-    12: 0.83,
-    13: 0.84,
-    14: 0.85,
-    15: 0.86,
-    16: 0.87,
-    17: 0.88,
-    18: 0.885,
-    19: 0.89,
-    20: 0.895,
-  }
-  const lengthCoeffs1920: Record<string, number> = {
-    5: 0.62,
-    6: 0.69,
-    7: 0.73,
-    8: 0.76,
-    9: 0.79,
-    10: 0.80,
-    11: 0.82,
-    12: 0.83,
-    13: 0.84,
-    14: 0.85,
-    15: 0.86,
-    16: 0.87,
-    17: 0.88,
-    18: 0.885,
-    19: 0.89,
-    20: 0.895,
-  }
-  onMount(() => {
-    if (browser) {
-      // alert(slice.primary.clients.length)
-      window.clientMaskCoeff1440 = lengthCoeffs1440[realClients.length] || 0.78;
-      window.clientMaskCoeff1920 = lengthCoeffs1920[realClients.length] || 0.78;
-    }
-  })
 </script>
 <div class="clients" data-scroll-section data-scroll-id="clients" data-scroll>
   <div class="clients__content" id="clients-content">
@@ -95,7 +50,7 @@
               <span class="client__name">{item.name}</span>
             </div>
           {/each}
-           <div class="client client--fake">
+           <div class="client client--fake" style="opacity: 0">
             <span class="client__name">{realClients[0]?.name}</span>
           </div>
         </div>
