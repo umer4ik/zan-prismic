@@ -154,8 +154,8 @@ export const handleClients = () => {
           const scrollTop = (+dataClient) * maskClientHeight;
           animate(mask, {
             scrollTop: [mask.scrollTop, scrollTop],
-            duration: 300,
-            easing: 'easeInOutQuad',
+            duration: 280,
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
           })
           const img = $(`.clients-box__img [data-client="${dataClient}"]`);
           if (img) {

@@ -140,7 +140,7 @@
     .client {
       height: calc(100vh / 10);
       opacity: 0.04;
-      transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+      transition: opacity .3s ease-in-out, transform .36s cubic-bezier(.65,.51,.28,.85);//cubic-bezier(0.5, 0, 0.75, 0);
 
       &:first-child {
         margin-top: -33.75rem;
@@ -148,6 +148,7 @@
 
       &.hovered {
         transform: translateX(70rem);
+        transition: opacity .3s ease-in-out, transform .32s cubic-bezier(0.25, 1, 0.5, 1);
       }
     }
   }
