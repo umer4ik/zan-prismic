@@ -6,10 +6,10 @@
   opacity: 0.2;
   position: relative;
   z-index: 1;
-  transition: opacity .45s ease;
+  transition: opacity .3s ease;
 
-  &:first-child:not(.client--fake) {
-    margin-top: -40rem;
+  &:first-child {
+    // margin-top: -33.75rem;
     @media (max-width: 1024px) {
       margin-top: 0;
     }
@@ -24,7 +24,7 @@
   }
 
   &.hovered {
-    // opacity: 1;
+    opacity: 1;
   }
 
   @media (max-width: 1400px) {

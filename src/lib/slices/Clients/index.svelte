@@ -19,7 +19,7 @@
 </script>
 <div class="clients" data-scroll-section data-scroll-id="clients" data-scroll>
   <div class="clients__content" id="clients-content">
-    <div class="clients-box" id="clients-box" data-scroll>
+    <div class="clients-box" id="clients-box" data-scroll data-scroll-id="clients-box">
       <div
       class="clients-box__start"
       data-scroll
@@ -29,13 +29,21 @@
         <div class="title title--clients">
           {clientsTitle}<sup>({slice.primary.clients.length})</sup>
         </div>
+        <div class="clients-box__arr-right">
+          <img src="/arr-right.png" alt="">
+        </div>
       </div>
-      <div class="clients-box__list">
-        {#each clients as item, index (index)}
-          <div class="client {index === 1 ? 'hovered' : ''}" data-client="{index - 5}">
+      <div
+        class="clients-box__list"
+        data-scroll
+        data-scroll-id="clients-list"
+        data-scroll-sticky
+        data-scroll-target="#clients-box">
+        {#each realClients as item, index (index)}
+          <div class="client {index === 0 ? 'hovered' : ''}" data-client="{index}">
             <span class="client__name">{item.name}</span>
             <div class="client__mobile-image">
-              <img data-client={index - 5} src={item.image.url} alt="">
+              <img data-client={index} src={item.image.url} alt="">
             </div>
           </div>
         {/each}
@@ -45,14 +53,16 @@
           data-scroll-id="clients-mask"
           data-scroll-sticky
           data-scroll-target="#clients-box">
-          {#each realClients as item, index (index)}
-            <div class="client client--fake">
+          {#each clients as item, index (index)}
+          <div class="client {index < 5 ? 'client--fake' : ''}" data-client="{index - 5}" data-last={index === clients.length - 1 || null}>
+            <span class="client__name">{item.name}</span>
+          </div>
+          {/each}
+          {#each realClients.slice(0, 5) as item, index (index)}
+            <div class="client client--fake" data-client="{realClients.length + index}">
               <span class="client__name">{item.name}</span>
             </div>
           {/each}
-           <div class="client client--fake" style="opacity: 0">
-            <span class="client__name">{realClients[0]?.name}</span>
-          </div>
         </div>
       </div>
       <div
@@ -61,13 +71,15 @@
         data-scroll-id="clients-end"
         data-scroll-sticky
         data-scroll-target="#clients-box">
-        {#each slice.primary.clients as item, index (index)}
-          <PrismicImage class="show" data-client={index} field={item.image} />
-        {/each}
+        <div class="clients-box__img-file">
+          {#each slice.primary.clients as item, index (index)}
+            <PrismicImage class="show" data-client={index} field={item.image} />
+          {/each}
+        </div>
       </div>
     </div>
   </div>
-  <div class="clients__after">
+  <!-- <div class="clients__after">
     <div class="clients__after-list">
       {#each realClients.slice(0, 5) as item, index (index)}
         <div class="client client--fake">
@@ -75,5 +87,5 @@
         </div>
       {/each}
     </div>
-  </div>
+  </div> -->
 </div>
