@@ -21,7 +21,7 @@
   const { slice, context }: Props = $props();
   const works = slice.primary.works.map(x => ({
     ...x,
-    tags: [x.tag, x.tag2].filter(Boolean)
+    tags: x.tags?.split(',').map(t => t.trim()) ?? []
   }))
   const aboveTableItems = $derived(
     works.filter((x) => x.show_above_the_table && !x.full_screen).filter((x) => (tag ? x.tags?.includes(tag) : true)),
@@ -52,7 +52,7 @@
     if (timeout) clearTimeout(timeout);
     timeout = setTimeout(() => {
       window.updateScroll?.();
-    }, 0);
+    }, 100);
   };
 
   const allTags = [...new Set(works.filter(x => x.show_above_the_table && !x.full_screen).flatMap(x => x.tags))];
@@ -96,12 +96,9 @@
             <div class="blurred-block__subtitle">{fullScreenProject.location}</div>
           </div>
           <div class="blurred-block__end">
-            {#if fullScreenProject.tag}
-              <button class="blurred-block__button">{fullScreenProject.tag}</button>
-            {/if}
-            {#if fullScreenProject.tag2}
-              <button class="blurred-block__button">{fullScreenProject.tag2}</button>
-            {/if}
+            {#each fullScreenProject.tags as tag, index (index)}
+              <button class="blurred-block__button">{tag}</button>
+            {/each}
           </div>
         </div>
       </div>
@@ -144,6 +141,7 @@
         {#each aboveTableItems as item, index (item.thumbnail)}
           <div
             onoutroend={scheduleUpdateScroll}
+            onintroend={scheduleUpdateScroll}
             onoutrostart={setImageStyle}
             onintrostart={setImageStyle}
             transition:fade data-scroll data-scroll-id="work-{index}" class="work work--x1" data-work-reference={item.work_reference_id}>

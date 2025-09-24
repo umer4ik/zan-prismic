@@ -60,20 +60,6 @@
                   "thumbnails": []
                 }
               },
-              "tag": {
-                "type": "Text",
-                "config": {
-                  "label": "Tag",
-                  "placeholder": ""
-                }
-              },
-              "tag2": {
-                "type": "Text",
-                "config": {
-                  "label": "Tag2",
-                  "placeholder": ""
-                }
-              },
               "thumbnail": {
                 "type": "Image",
                 "config": {
@@ -96,6 +82,13 @@
                   "placeholder_false": "false",
                   "placeholder_true": "true",
                   "default_value": false
+                }
+              },
+              "tags": {
+                "type": "Text",
+                "config": {
+                  "label": "Tags",
+                  "placeholder": "Comma separated tags"
                 }
               },
               "year": {

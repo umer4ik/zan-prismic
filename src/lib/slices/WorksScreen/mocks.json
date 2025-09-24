@@ -18,14 +18,6 @@
 								}
 							],
 							[
-								"tag",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "ball",
-									"type": "Text"
-								}
-							],
-							[
 								"big_image",
 								{
 									"origin": {
@@ -109,14 +101,6 @@
 								}
 							],
 							[
-								"tag2",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "since",
-									"type": "Text"
-								}
-							],
-							[
 								"full_screen",
 								{
 									"__TYPE__": "BooleanContent",
@@ -128,6 +112,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "verb",
+									"type": "Text"
+								}
+							],
+							[
+								"tags",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "orange",
 									"type": "Text"
 								}
 							]
