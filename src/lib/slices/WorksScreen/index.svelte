@@ -118,7 +118,7 @@
               <span class="dropdown__label">{tag || 'All Works'}</span>
               <span class="dropdown__arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                  <path d="M1 5.99707L5.98166 1.01541M5.98166 1.01541L10.994 5.99707M5.98166 1.01541L5.98166 1.44471" stroke="#634F1E" />
+                  <path d="M1 5.99707L5.98166 1.01541M5.98166 1.01541L10.994 5.99707M5.98166 1.01541L5.98166 1.44471" stroke="#a68a40" />
                 </svg>
               </span>
             </button>
@@ -180,7 +180,7 @@
               <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-row__arrow">
                 <path
                   d="M5.11573 10.7372L4.12619 9.74768L7.55262 6.32125H-0.000440352L-0.00113089 4.92154H7.55193L4.1255 1.49511L5.11573 0.504886L10.2319 5.62105L5.11573 10.7372Z"
-                  fill="#634F1E"
+                  fill="#a68a40"
                 />
               </svg>
             </div>

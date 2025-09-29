@@ -58,7 +58,7 @@
     }
 
     [data-mode="dark"] & {
-      color: #634F1E;
+      color: #a68a40;
     }
 
     &.active {
@@ -76,7 +76,7 @@
     gap: 4rem;
     transition: color .4s ease;
     [data-mode=dark] & {
-      color: #634F1E;
+      color: #a68a40;
     }
   }
 
@@ -110,7 +110,7 @@
   .burger-open &,
   [data-mode="dark"] & {
     svg path {
-      fill: #634F1E;
+      fill: #a68a40;
     }
   }
 

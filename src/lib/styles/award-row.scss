@@ -14,7 +14,7 @@
     min-height: 0;
 
     &:not(.award-row--head) {
-      color: #634F1E;
+      color: #a68a40;
     }
   }
 
@@ -32,7 +32,7 @@
   }
 
   &:hover:not(.award-row--head) {
-    color: #634F1E;
+    color: #a68a40;
   }
 
   &::before {
@@ -44,7 +44,7 @@
     top: 0;
     inset-inline-start: 10rem;
     // transform: scaleX(0);
-    background-color: rgba(#634F1E, 15%);
+    background-color: rgba(#a68a40, 15%);
     // opacity: 0;
     transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .6s cubic-bezier(0.215, 0.61, 0.355, 1);
   }

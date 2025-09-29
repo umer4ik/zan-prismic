@@ -1,7 +1,7 @@
 
 .awards-table {
   width: 100%;
-  color: rgba(#634F1E, 40%);
+  color: rgba(#a68a40, 40%);
   margin-top: 135rem;
   font-size: 16rem;
 
@@ -13,14 +13,14 @@
       display: flex;
       flex-wrap: wrap;
       padding-block: 16px;
-      border-bottom: 1px solid rgba(#634F1E, 40%);
+      border-bottom: 1px solid rgba(#a68a40, 40%);
       flex-wrap: wrap;
       height: 52px;
       overflow: hidden;
     }
   }
   td, th {
-    border-bottom: 1px solid rgba(#634F1E, 40%);
+    border-bottom: 1px solid rgba(#a68a40, 40%);
     text-align: start;
 
     height: 58rem;
@@ -42,13 +42,13 @@
     padding-top: 20rem;
     padding-bottom: 20rem;
     @media (max-width: 767px) {
-      color: #634F1E;
+      color: #a68a40;
       display: flex;
     }
   }
   tr:hover {
     td {
-      color:#634F1E;
+      color:#a68a40;
     }
   }
   th:nth-child(3) {
@@ -118,7 +118,7 @@
         height: 12px;
         margin-inline-start: auto;
         position: absolute;
-        background-color: #634F1E;
+        background-color: #a68a40;
         transform-origin: 50% 50%;
         transition: transform .4s ease;
       }

@@ -2,7 +2,7 @@
   font-size: 75rem;
   line-height: 90%;
   letter-spacing: -2px;
-  color: #634F1E;
+  color: #a68a40;
   opacity: 0.2;
   position: relative;
   z-index: 1;
@@ -34,7 +34,7 @@
 
   @media (max-width: 1020px) {
     height: 52px;
-    border-bottom: 1px solid rgba(#634F1E, 15%);
+    border-bottom: 1px solid rgba(#a68a40, 15%);
     font-weight: 400;
     font-size: 16px;
     line-height: 100%;
@@ -45,7 +45,7 @@
 
   &:first-child {
     @media (max-width: 1020px) {
-      border-top: 1px solid rgba(#634F1E, 15%);
+      border-top: 1px solid rgba(#a68a40, 15%);
     }
   }
 
@@ -65,7 +65,7 @@
         height: 12px;
         margin-inline-start: auto;
         position: absolute;
-        background-color: #634F1E;
+        background-color: #a68a40;
         transform-origin: 50% 50%;
         transition: transform .4s ease;
       }

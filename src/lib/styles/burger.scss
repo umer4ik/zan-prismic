@@ -16,7 +16,7 @@
   z-index: 2;
   transition: all .4s ease;
   [data-mode="dark"] & {
-    border-color: #634F1E;
+    border-color: #a68a40;
   }
   &__line {
     width: 21px;
@@ -33,11 +33,11 @@
       bottom: 16px;
     }
     [data-mode="dark"] & {
-      background-color: #634F1E;
+      background-color: #a68a40;
     }
     .burger-open & {
       transition-delay: 0s;
-      background-color: #634F1E;
+      background-color: #a68a40;
     }
   }
 }

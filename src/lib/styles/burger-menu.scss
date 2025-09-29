@@ -90,7 +90,7 @@
       font-size: 34px;
       line-height: 54px;
       letter-spacing: 0px;
-      color: #634F1E;
+      color: #a68a40;
       text-decoration: none;
       transform: translateY(110%);
       sup {
@@ -107,7 +107,7 @@
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: rgba(#634F1E, 15%);
+    background-color: rgba(#a68a40, 15%);
   }
   &__button {
     margin-top: auto;
@@ -126,8 +126,8 @@
   }
   .burger-open & {
     transition: all .4s ease .4s;
-    border-color: #634F1E33;
-    background: #634F1E0D;
+    border-color: #a68a4033;
+    background: #a68a400D;
     pointer-events: all;
   }
 }

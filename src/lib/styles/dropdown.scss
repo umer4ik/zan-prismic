@@ -1,7 +1,7 @@
 .dropdown {
   font-size: 16rem;
   width: 160rem;
-  color: #634F1E;
+  color: #a68a40;
   position: relative;
   @media (max-width: 560px) {
     width: 100%;
@@ -14,7 +14,7 @@
   }
 
   button {
-    color: #634F1E;
+    color: #a68a40;
   }
 
   &__toggle {
@@ -75,7 +75,7 @@
       transform: scaleX(0);
       width: 100%;
       height: 1px;
-      background-color: #634F1E;
+      background-color: #a68a40;
       bottom: 0;
       inset-inline-start: 0;
       transition: transform .4s ease;
