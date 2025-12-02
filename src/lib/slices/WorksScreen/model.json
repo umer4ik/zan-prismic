@@ -1,0 +1,108 @@
+{
+  "id": "works_screen",
+  "type": "SharedSlice",
+  "name": "WorksScreen",
+  "description": "WorksScreen",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "works": {
+          "type": "Group",
+          "config": {
+            "label": "Works",
+            "repeat": true,
+            "fields": {
+              "show_above_the_table": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Show Above the Table",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "size": {
+                "type": "Select",
+                "config": {
+                  "label": "Size",
+                  "placeholder": "",
+                  "options": [
+                    "small",
+                    "big"
+                  ]
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "location": {
+                "type": "Text",
+                "config": {
+                  "label": "Location",
+                  "placeholder": ""
+                }
+              },
+              "big_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Big Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "thumbnail": {
+                "type": "Image",
+                "config": {
+                  "label": "Thumbnail",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "work_reference_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Work Reference ID",
+                  "placeholder": ""
+                }
+              },
+              "full_screen": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Full Screen",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "tags": {
+                "type": "Text",
+                "config": {
+                  "label": "Tags",
+                  "placeholder": "Comma separated tags"
+                }
+              },
+              "year": {
+                "type": "Text",
+                "config": {
+                  "label": "Year",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

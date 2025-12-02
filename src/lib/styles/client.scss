@@ -1,0 +1,116 @@
+.client {
+  font-size: 90rem;
+  line-height: 90%;
+  letter-spacing: -2px;
+  color: #634F1E;
+  opacity: 0.2;
+  position: relative;
+  z-index: 1;
+  transition: opacity .3s ease;
+
+  &:first-child {
+    // margin-top: -33.75rem;
+    @media (max-width: 1024px) {
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 1439px) {
+
+    // height: max(83px, 14.2857vh);
+    &:last-child {
+      height: auto;
+    }
+  }
+
+  &.hovered {
+    opacity: 1;
+  }
+
+  @media (max-width: 1400px) {
+    font-size: 60px;
+    line-height: 72px;
+  }
+
+  @media (max-width: 1020px) {
+    height: 52px;
+    border-bottom: 1px solid rgba(#634F1E, 15%);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  &:first-child {
+    @media (max-width: 1020px) {
+      border-top: 1px solid rgba(#634F1E, 15%);
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+
+    @media (max-width: 1020px) {
+      display: flex;
+      height: 51px;
+      align-items: center;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        margin-inline-start: auto;
+        position: absolute;
+        background-color: #634F1E;
+        transform-origin: 50% 50%;
+        transition: transform .4s ease;
+      }
+
+      &::before {
+        width: 1px;
+        height: 13px;
+        right: 6px;
+        top: 20px;
+      }
+
+      &::after {
+        width: 13px;
+        height: 1px;
+        top: 26px;
+        right: 0;
+      }
+
+      .expanded & {
+        &::before {
+          transform: rotate(90deg);
+        }
+      }
+
+      html[dir="rtl"] & {
+        direction: ltr;
+      }
+    }
+  }
+  &[data-client^="-"] {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__mobile-image {
+    display: none;
+    max-width: 183px;
+    margin-bottom: 20px;
+
+    @media (max-width: 1020px) {
+      display: inline-block;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,249 @@
+.intro-row {
+  display: flex;
+  padding-inline: 20rem;
+  gap: 20rem;
+  padding-bottom: 17rem;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    height: calc(100vh - 70rem);
+    justify-content: space-between;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 60vh;
+    background: linear-gradient(0deg, #33092E 0%, rgba(51, 9, 46, 0) 60vh);
+    z-index: 1;
+  }
+}
+
+.intro-col {
+  position: relative;
+  z-index: 2;
+
+  &--title {
+    width: calc(66.6666% - 10rem);
+    max-width: calc(66.6666% - 10rem);
+    min-width: calc(66.6666% - 10rem);
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  &--other {
+
+    width: calc(33.3333% - 10rem);
+    max-width: calc(33.3333% - 10rem);
+    min-width: calc(33.3333% - 10rem);
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+}
+
+.intro-title-box {
+  margin-bottom: -7rem;
+}
+
+.intro-title {
+  font-weight: 500;
+  font-size: 242rem;
+  line-height: 186rem;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  white-space: nowrap;
+
+  html[dir="rtl"] & {
+    line-height: 269rem;
+    margin-top: -40rem;
+
+    @media (max-width: 1439px) {
+      line-height: 230rem;
+      margin-top: -30rem;
+    }
+
+    @media (max-width: 1280px) {
+      line-height: 220rem;
+      margin-top: -25rem;
+    }
+
+    @media (max-width: 768px) {
+      line-height: 110rem;
+      margin-top: -15rem;
+    }
+  }
+
+  @media (max-width: 1439px) {
+    font-size: 200rem;
+    line-height: 151rem;
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 180rem;
+    line-height: 140rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 75rem;
+    line-height: 60rem;
+  }
+
+  .split-text__char-container {
+    overflow: visible;
+
+    html[dir="ltr"] & {
+      margin-right: -9rem;
+    }
+  }
+
+  &--1 {
+    html[dir="ltr"] & {
+      margin-left: -9rem;
+
+      @media (max-width: 768px) {
+        margin-left: -2px;
+      }
+
+      .split-text__char-container:nth-child(1) {
+        margin-right: -17rem;
+
+        @media (max-width: 768px) {
+          margin-right: -4rem;
+        }
+      }
+
+      .split-text__char-container:nth-child(2) {
+        margin-right: -15rem;
+
+        @media (max-width: 768px) {
+          margin-right: -4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .split-text__char-container {
+          margin-right: -4rem;
+        }
+      }
+    }
+  }
+
+  &--2 {
+    html[dir="ltr"] & {
+      margin-top: 0rem;
+      margin-left: -2rem;
+
+      @media (max-width: 768px) {
+        // margin-left: -8px;
+      }
+
+      .split-text__char-container:nth-child(1) {
+        margin-left: -4rem;
+        margin-right: -24rem;
+
+        @media (max-width: 768px) {
+          margin-right: -6rem;
+          margin-left: -1rem;
+        }
+      }
+
+      .split-text__char-container:nth-child(2) {
+        margin-right: -16rem;
+
+        @media (max-width: 768px) {
+          margin-right: -5rem;
+        }
+      }
+
+      .split-text__char-container:nth-child(3) {
+        margin-right: -12rem;
+
+        @media (max-width: 768px) {
+          margin-right: -4rem;
+        }
+      }
+
+      .split-text__char-container:nth-child(4) {
+        margin-right: -14rem;
+
+        @media (max-width: 768px) {
+          margin-right: -6rem;
+        }
+      }
+
+      .split-text__char-container:nth-child(5) {
+        margin-right: -22rem;
+
+        @media (max-width: 768px) {
+          margin-right: -8rem;
+        }
+      }
+    }
+  }
+}
+
+.intro-title-word {
+  &--r {
+    font-size: 96rem;
+    line-height: 90rem;
+    margin-left: 4rem;
+
+    html[dir="rtl"] & {
+      margin-top: 40rem;
+
+      @media (max-width: 1439px) {
+        margin-top: 30rem;
+      }
+
+      @media (max-width: 1280px) {
+        margin-top: 25rem;
+      }
+
+      @media (max-width: 768px) {
+        margin-top: 15rem;
+      }
+    }
+
+    @media (max-width: 1439px) {
+      font-size: 82rem;
+      line-height: 69rem;
+    }
+
+    @media (max-width: 1280px) {
+      font-size: 74rem;
+      line-height: 62rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 31rem;
+      line-height: 28rem;
+      margin-inline-start: 2rem;
+    }
+
+    .split-text__visible {
+      height: 220rem;
+
+      html[dir="rtl"] & {
+        height: 130rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.awards {
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+  padding-bottom: 200rem;
+  position: relative;
+  z-index: 2;
+  background-color: #f9f6ef;
+  &__content  {
+    flex-grow: 1;
+    padding-inline: 20rem;
+  }
+}
+
+.awards-follower {
+  width: 175px;
+  height: 232px;
+  overflow: hidden;
+  position: fixed;
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+  &.visible {
+    opacity: 1;
+  }
+  img {
+    position: absolute;
+    transition: transform .4s ease;
+    &.show {
+      z-index: 2;
+      animation: img-scale-in .4s ease;
+    }
+  }
+}
+
+@keyframes img-scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

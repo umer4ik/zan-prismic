@@ -1,0 +1,64 @@
+{
+  "id": "next_projects",
+  "type": "SharedSlice",
+  "name": "NextProjects",
+  "description": "NextProjects",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "projects": {
+          "type": "Group",
+          "config": {
+            "label": "projects",
+            "repeat": true,
+            "fields": {
+              "thumb": {
+                "type": "Image",
+                "config": {
+                  "label": "Thumb",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "location": {
+                "type": "Text",
+                "config": {
+                  "label": "Location",
+                  "placeholder": ""
+                }
+              },
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag",
+                  "placeholder": ""
+                }
+              },
+              "work_reference_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Work Reference ID",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

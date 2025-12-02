@@ -1,0 +1,59 @@
+{
+  "id": "work_header",
+  "type": "SharedSlice",
+  "name": "ProjectHeader",
+  "description": "WorkHeader",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "project_name": {
+          "type": "Text",
+          "config": {
+            "label": "Project Name",
+            "placeholder": ""
+          }
+        },
+        "project_place": {
+          "type": "Text",
+          "config": {
+            "label": "Project Place",
+            "placeholder": ""
+          }
+        },
+        "tags": {
+          "type": "Group",
+          "config": {
+            "label": "Tags",
+            "repeat": true,
+            "fields": {
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "tag",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "company_thumbnail": {
+          "type": "Image",
+          "config": {
+            "label": "Company Thumbnail",
+            "constraint": {
+              "width": 216
+            },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

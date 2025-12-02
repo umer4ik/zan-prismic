@@ -1,0 +1,17 @@
+.play-button {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  background-color: #F9F6EF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  svg {
+    display: block;
+    transform: translateX(2px);
+  }
+}

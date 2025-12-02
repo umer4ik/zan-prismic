@@ -1,0 +1,64 @@
+{
+  "id": "awards",
+  "type": "SharedSlice",
+  "name": "Awards",
+  "description": "Awards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "awards": {
+          "type": "Group",
+          "config": {
+            "label": "Awards",
+            "repeat": true,
+            "fields": {
+              "year": {
+                "type": "Text",
+                "config": {
+                  "label": "Year",
+                  "placeholder": ""
+                }
+              },
+              "award": {
+                "type": "Text",
+                "config": {
+                  "label": "Award",
+                  "placeholder": ""
+                }
+              },
+              "category": {
+                "type": "Text",
+                "config": {
+                  "label": "Category",
+                  "placeholder": ""
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Project Name",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

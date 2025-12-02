@@ -1,0 +1,151 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site TItle",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "header_works_title": {
+        "type": "Text",
+        "config": {
+          "label": "Works Title (Header)",
+          "placeholder": "Works"
+        }
+      },
+      "services_title": {
+        "type": "Text",
+        "config": {
+          "label": "Services Title (Header)",
+          "placeholder": "Services"
+        }
+      },
+      "header_about_us_title": {
+        "type": "Text",
+        "config": {
+          "label": "About Us Title (Header)",
+          "placeholder": "About Us"
+        }
+      },
+      "header_contact_us_title": {
+        "type": "Text",
+        "config": {
+          "label": "Contact Us Title (Header)",
+          "placeholder": ""
+        }
+      },
+      "works_count": {
+        "type": "Text",
+        "config": {
+          "label": "Works Count (Header)",
+          "placeholder": "will be shown in header \"Works(x)\""
+        }
+      },
+      "services_count": {
+        "type": "Text",
+        "config": {
+          "label": "Services Count (Header)",
+          "placeholder": "will be shown in header \"Services(x)\""
+        }
+      },
+      "first_screen_about_title": {
+        "type": "Text",
+        "config": {
+          "label": "About Title (First Screen)",
+          "placeholder": ""
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": "Site's email like info@example.com, used in header and footer"
+        }
+      },
+      "phone_number": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": ""
+        }
+      },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Address",
+          "placeholder": "Address at the footer"
+        }
+      },
+      "instagram": {
+        "type": "Text",
+        "config": {
+          "label": "Instagram",
+          "placeholder": "Full link to the instagram account"
+        }
+      },
+      "link_to_twitter": {
+        "type": "Text",
+        "config": {
+          "label": "Link to twitter",
+          "placeholder": "Full link to the twitter account"
+        }
+      },
+      "first_screen_works_title": {
+        "type": "Text",
+        "config": {
+          "label": "Works Title (First Screen)",
+          "placeholder": ""
+        }
+      },
+      "footer_phone_title": {
+        "type": "Text",
+        "config": {
+          "label": "Phone TItle (Footer)",
+          "placeholder": ""
+        }
+      },
+      "footer_email_title": {
+        "type": "Text",
+        "config": {
+          "label": "Email Title (Footer)",
+          "placeholder": ""
+        }
+      },
+      "footer_address_title": {
+        "type": "Text",
+        "config": {
+          "label": "Address Title (Footer)",
+          "placeholder": ""
+        }
+      },
+      "footer_company_title": {
+        "type": "Text",
+        "config": {
+          "label": "Company Title (Footer)",
+          "placeholder": ""
+        }
+      },
+      "footer_social_title": {
+        "type": "Text",
+        "config": {
+          "label": "Social Title (Footer)",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use "reset.scss";
+@use "fonts.scss";
+@use "variables.scss";
+@use "split-text.scss";
+@use "preloader.scss";
+@use "intro.scss";
+@use "intro-content.scss";
+@use "intro-works.scss";
+@use "header.scss";
+@use "mwf.scss";
+@use "blurred-block.scss";
+@use "works.scss";
+@use "title.scss";
+@use "work.scss";
+@use "w-table.scss";
+@use "w-row.scss";
+@use "clients.scss";
+@use "clients-box.scss";
+@use "services.scss";
+@use "service.scss";
+@use "about-us.scss";
+@use "braced.scss";
+@use "triple-c.scss";
+@use "awards.scss";
+@use "awards-table.scss";
+@use "award-row.scss";
+@use "award-col.scss";
+@use "pre-footer.scss";
+@use "footer.scss";
+@use "post-footer.scss";
+@use "drawer.scss";
+@use "close.scss";
+@use "project.scss";
+@use "play-button.scss";
+@use "gap.scss";
+@use "next-project.scss";
+@use "transform-chars.scss";
+@use "curtain.scss";
+@use "arrow-btn.scss";
+@use "burger.scss";
+@use "burger-menu.scss";
+@use "client.scss";
+@use "popping-text.scss";
+@use "dropdown.scss";
+html {
+  font-family: 'PP Neue Montreal', LTZaridSans, sans-serif;
+  font-weight: 400;
+  font-size: 0.06944444444vw;
+  @media (max-width: 1440px) {
+    font-size: 1px;
+  }
+  // display: none;
+}
+body {
+  background-color: #F9F6EF;
+}
+* {
+  box-sizing: border-box;
+}
+:focus {
+  outline: none;
+}
+img {
+  vertical-align: middle;
+}
+.app {
+  max-width: 100%;
+  overflow: hidden;
+}
+footer {
+  background-color: #33092E;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-curtain {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, .8);
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

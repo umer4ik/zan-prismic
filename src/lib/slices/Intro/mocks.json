@@ -1,0 +1,69 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing mollit excepteur ut sunt eiusmod et sunt aliqua veniam ea elit velit. Pariatur dolore excepteur sint est mollit do laboris nisi quis."
+						}
+					}
+				]
+			},
+			"intro_works": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"thumbnail",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+										"width": 2747,
+										"height": 4120
+									},
+									"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa?rect=0%2C687%2C2747%2C2747&w=96&h=96",
+									"width": 96,
+									"height": 96,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 687
+										},
+										"background": "transparent"
+									},
+									"alt": "involved",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"work_reference_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "zipper",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"number_of_works": {
+				"__TYPE__": "FieldContent",
+				"value": "twenty",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

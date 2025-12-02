@@ -1,0 +1,70 @@
+.title {
+  font-weight: 500;
+  font-size: 90rem;
+  line-height: 90%;
+  letter-spacing: -2px;
+  color: #a68a40;
+  white-space: nowrap;
+
+  @media (max-width: 1023px) {
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  sup {
+    font-weight: 500;
+    font-size: 16rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+    vertical-align: super;
+    top: -1.6em;
+    position: relative;
+    left: -0.5em;
+    html[dir="rtl"] & {
+      top: -1.9em;
+      left: auto;
+    }
+
+    @media (max-width: 1023px) {
+      font-size: 10px;
+      top: -.75em;
+    }
+  }
+
+  &--works,
+  &--triple-c,
+  &--about,
+  &--awards {
+    height: 79rem;
+    @media (max-width: 1023px) {
+      height: 34px;
+    }
+  }
+  &--works,
+  &--triple-c,
+  &--awards {
+    letter-spacing: 0;
+    .split-text__char-container {
+      margin-right: -2rem;
+    }
+    sup {
+      vertical-align: baseline;
+      height: 50rem;
+      margin-inline-start: -14rem;
+      display: inline-block;
+      transform: translateY(3rem);
+      .split-text__char-container {
+        height: 100%;
+      }
+      .split-text__visible,
+      .split-text__invisible {
+        height: 100%;
+      }
+      @media (max-width: 1023px) {
+        height: 29px;
+        margin-inline-start: -7px;
+      }
+    }
+  }
+}

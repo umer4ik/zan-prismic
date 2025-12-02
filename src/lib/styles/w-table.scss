@@ -1,0 +1,14 @@
+.w-table {
+  padding-block: 200rem 148rem;
+  display: flex;
+  justify-content: center;
+  background-color: #F9F6EF;
+  z-index: 1;
+  position: relative;
+  &__content {
+    flex-grow: 1;
+  }
+  &__body {
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "abount_us",
+  "type": "SharedSlice",
+  "name": "AboutUs",
+  "description": "AbountUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "numbers": {
+          "type": "Group",
+          "config": {
+            "label": "Numbers",
+            "repeat": true,
+            "fields": {
+              "count": {
+                "type": "Text",
+                "config": {
+                  "label": "Count",
+                  "placeholder": ""
+                }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "philosophy": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Philosophy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "belief": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Belief",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
