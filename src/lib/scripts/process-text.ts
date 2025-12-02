@@ -7,7 +7,7 @@ export const processText = () => {
     elements: $$('.intro-title-word'),
     isWord: htmlIsArabic(),
   });
-  if (htmlIsArabic()) {
+  if (!htmlIsArabic()) {
     splitText({
       elements: $$('.header__link span, .header__button span'),
       className: 'transform-chars',
