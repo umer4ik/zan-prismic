@@ -20,8 +20,8 @@
     aboutTitle = 'حول';
     worksTitle = `${slice.primary.number_of_works}+ أعمال`;
     moreTitle = 'المزيد';
-    zan = 'زان';
-    agency = 'وكالة';
+    agency = 'زان';
+    zan = 'وكالة';
   }
 </script>
 <section
