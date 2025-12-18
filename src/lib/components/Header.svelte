@@ -144,6 +144,10 @@
         <div class="burger-menu__item-border"></div>
       </li>
       <li class="burger-menu__item">
+        <a data-sveltekit-reload href="/"  class="{arabic ? '' : 'active'}"><span>En</span></a><a href="#"> | </a><a data-sveltekit-reload href="/?lang=ar"  class="{arabic ? 'active' : ''}"><span>Ar</span></a>
+        <div class="burger-menu__item-border"></div>
+      </li>
+      <li class="burger-menu__item">
         <a href="mailto:{email}" class="burger-menu__button"> {_contactUsTitle} </a>
       </li>
     </ul>

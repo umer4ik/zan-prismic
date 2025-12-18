@@ -256,6 +256,28 @@ interface SettingsDocumentData {
   first_screen_works_title: prismic.KeyTextField;
 
   /**
+   * Philosophy Title (About Us screen) field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.philosophy_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  philosophy_title: prismic.KeyTextField;
+
+  /**
+   * Belief Title (About Us screen) field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.belief_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  belief_title: prismic.KeyTextField;
+
+  /**
    * Phone TItle (Footer) field in *Settings*
    *
    * - **Field Type**: Text

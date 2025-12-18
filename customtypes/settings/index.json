@@ -111,6 +111,20 @@
           "placeholder": ""
         }
       },
+      "philosophy_title": {
+        "type": "Text",
+        "config": {
+          "label": "Philosophy Title (About Us screen)",
+          "placeholder": ""
+        }
+      },
+      "belief_title": {
+        "type": "Text",
+        "config": {
+          "label": "Belief Title (About Us screen)",
+          "placeholder": ""
+        }
+      },
       "footer_phone_title": {
         "type": "Text",
         "config": {

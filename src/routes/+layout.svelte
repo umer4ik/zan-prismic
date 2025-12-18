@@ -58,6 +58,8 @@
           slices={project.data.slices}
           context={{
             locale: data.locale,
+            philosophyTitle: settings.data.philosophy_title,
+            beliefTitle: settings.data.belief_title,
           }}
           {components}
         />

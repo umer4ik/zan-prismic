@@ -7,6 +7,8 @@
   type Props = SliceComponentProps<Content.AbountUsSlice> & {
     context: {
       locale: string;
+      philosophyTitle: string;
+      beliefTitle: string;
     };
   };
 
@@ -15,13 +17,13 @@
   const arabic = isArabic(context.locale);
   let aboutUsTitle = 'About Us';
   let numbersTitle = 'Numbers';
-  let philosophyTitle = 'Philosophy';
-  let beliefTitle = 'Belief';
+  let philosophyTitle = context.philosophyTitle ?? 'Philosophy';
+  let beliefTitle = context.beliefTitle ?? 'Belief';
   if (arabic) {
     aboutUsTitle = 'نبذة عنا';
     numbersTitle = 'الأرقام';
-    philosophyTitle = 'قصّتنا';
-    beliefTitle = 'الغاية';
+    // philosophyTitle = 'قصّتنا';
+    // beliefTitle = 'الغاية';
   }
 </script>
 
